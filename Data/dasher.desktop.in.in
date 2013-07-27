@@ -1,0 +1,14 @@
+[Desktop Entry]
+_Name=Dasher
+_GenericName=Predictive text entry
+_Comment=Enter text without a keyboard
+Exec=dasher
+Icon=dasher
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;Accessibility;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=dasher
+X-GNOME-Bugzilla-Component=general
+X-GNOME-Bugzilla-Version=@VERSION@

@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article id="index" lang="fr">
+  <articleinfo>
+    <title>Manuel de Dasher</title>
+    <corpauthor role="maintainer">Le projet Dasher</corpauthor>
+    <copyright>
+      <year>2010</year>
+      <holder>Le projet Dasher</holder>
+    </copyright><copyright><year>2006.</year><holder>Claude Paroz (claude@2xlibre.net)</holder></copyright>
+    <legalnotice>
+      <para>Permission vous est donnée de réaliser et de distribuer des copies conformes de ce manuel à condition que la notice de copyright et cette notice soient reproduites dans toutes les copies.</para>
+      <para>Permission vous est donnée de copier et de distribuer des versions modifées de ce manuel sous les mêmes conditions que la copie conforme, pour autant que le document dérivé dans son entier soit distribué sous les termes d'une notice légale identique à celle-ci.</para>
+      <para>Permission vous est donnée de copier et de distribuer des traductions de ce manuel sous les conditions exprimées ci-dessus pour les versions modifiées, excepté le fait que cette notice légale soit formulée dans une traduction approuvée par la Free Software Foundation.</para>
+      <para>UNIX est une marque déposée de X/Open Group.</para>
+      <para>Linux est une marque déposée de Linus Torvalds.</para>
+      <para>X Window System est une marque déposée de X Consortium, Inc.</para>
+      <para>Windows est une marque déposée de Microsoft Corp.</para>
+      <para>Macintosh et Apple sont des marques déposées de Apple Computer, Inc.</para>
+      <para>Toutes les autres marques déposées appartiennent à leur propriétaire respectif.</para>
+    </legalnotice>
+    <abstract role="description">
+      <para>Dasher une application d'accessibilité pour la saisie de texte, qui utilise les mouvements de la souris à la place de la saisie au clavier. Elle est conçue pour être rapide et amusante à utiliser.</para>
+    </abstract>
+    <revhistory>
+      <revision>
+        <revnumber>1.0.0</revnumber>
+        <date>08/02/2004</date>
+      </revision>
+      <revision>
+        <revnumber>1.1.0</revnumber>
+        <date>31/03/2006</date>
+      </revision>
+      <revision>
+        <revnumber>1.2.0</revnumber>
+        <date>11/07/2006</date>
+      </revision>
+      <revision>
+        <revnumber>1.2.1</revnumber>
+        <date>02/09/2006</date>
+      </revision>
+    </revhistory>
+  </articleinfo>
+
+  <sect1 id="intro">
+    <title>Introduction</title>
+    <para><application>Dasher</application> est une interface de saisie de texte utilisant astucieusement certaines informations, pilotée par des mouvements de pointage naturels et continus. Dasher est un système performant de saisie de texte dans toute situation où un clavier habituel est inutilisable, par exemple sur un ordinateur de poche ou lors de l'utilisation d'un ordinateur avec une seule main (avec une manette de jeu, un écran tactile ou une souris) ou même sans main du tout (avec une souris de tête ou un système de pointage oculaire). Ce manuel documente la version 4.2.0 de <application>Dasher</application>.</para>
+    <para><application>Dasher</application> peut être lancé en sélectionnant <guimenuitem>Dasher</guimenuitem> dans le sous-menu <guisubmenu>Accessibilité</guisubmenu> du menu principal <guimenu>Applications</guimenu>, ou en exécutant la commande <command>dasher</command> dans un terminal.</para>
+  </sect1>
+  <sect1 id="whatsnew">
+    <title>Nouveautés</title>
+
+    <sect2>
+      <title>Nouvelles fonctionnalités de la version 4.2</title>
+
+
+      <para>Contrôle automatique de la vitesse, qui accélère Dasher lorsqu'il détecte que vous êtes capable d'aller plus vite.</para>
+
+      <para>Nouvelle interface de socket permettant à Dasher de recevoir les signaux des mécanismes de pointage de tête ou du regard sans passer par la souris.</para>
+
+      <para>Plusieurs « modes bouton » pour les personnes souhaitant contrôler Dasher avec un, deux, trois ou quatre commutateurs.</para>
+
+      <para>Un « mode clic » pour les personnes qui aiment pointer leur destination, puis cliquer pour faire un seul pas dans cette direction. Ce mode est particulièrement conçu pour les débutants.</para>
+
+
+    </sect2>
+    <sect2>
+      <title>Nouveautés prévues dans la version 4.4</title>
+      <para>Nous allons créer un mode jeu pour Dasher : cela permettra d'aider les débutants à apprendre l'écriture. Une main enseignante guidera le débutant losrqu'il s'égare, et ceux qui écrivent rapidement sans faire appel à la correction gagneront un maximum de points. </para>
+
+      <para>De nouveaux modèles de langues seront ajoutés, ce qui améliorera la prédiction aussi bien au niveau des mots que des lettres.</para>
+
+      <para>Le japonais et le chinois seront entièrement pris en charge.</para>
+
+      <para>L'équipe Dasher espère aussi créer un mécanisme de pointage de tête et du regard basé sur une webcam, libre, appelé « FreeVIM », en décembre 2006.</para>
+    </sect2>
+  </sect1>
+  <sect1 id="basics">
+    <title>Généralités</title>
+    <para>Dasher est une interface de saisie de texte utilisant astucieusement certaines informations, pilotée par des mouvements de pointage naturels et continus. Dasher est un système performant de saisie de texte dans toute situation où un clavier habituel est inutilisable, par exemple : <itemizedlist>
+        <listitem>
+          <para>Avec un ordinateur de poche ;</para>
+        </listitem>
+        <listitem>
+          <para>avec un ordinateur miniaturisé ;</para>
+        </listitem>
+        <listitem>
+          <para>lors de l'utilisation d'un ordinateur avec une seule main, au moyen d'une manette de jeu, d'un écran tactile ou d'une souris ;</para>
+        </listitem>
+        <listitem>
+          <para>lors de l'utilisation d'un ordinateur sans main (par ex. à l'aide d'une souris de tête ou d'un système de pointage oculaire (« eyetracker »)).</para>
+        </listitem>
+      </itemizedlist> L'utilisation de Dasher avec un système de pointage oculaire permet à un utilisateur expérimenté d'écrire aussi rapidement qu'à la main, 29 mots par minute. Avec une souris, des utilisateurs expérimentés peuvent saisir 39 mots par minute.</para>
+
+    <para>Dasher est utilisable pour écrire efficacement dans n'importe quelle langue.</para>
+
+    <para>Dasher s'apprend rapidement et avec plaisir.</para>
+
+    <para>Dasher est un <emphasis>logiciel libre</emphasis>. Il est distribué avec la même licence que GNU/Linux, c'est-à-dire la GPL.</para>
+
+    <sect2>
+      <title>Fonctionnement de Dasher</title>
+
+      <blockquote>
+        <attribution>Financial Times, 5 février 2002</attribution>
+        <para>Dasher est comme un jeu vidéo : on pourrait l'appeler « Attaque des alphabets tueurs».</para>
+      </blockquote>
+
+      <para>Dasher est une interface de zoom. Vous indiquez l'endroit où vous voulez aller, et l'affichage se charge de zoomer dans la direction indiquée. Le monde dans lequel vous zoomez est parsemé de lettres, afin que quel que soit l'endroit vers lequel vous vous dirigez, il correspond à un bout de texte. Plus vous zoomez, plus le texte écrit s'allonge. Vous définissez le texte à écrire en choisissant la direction du zoom.</para>
+
+      <para>Pour rendre l'interface performante, nous effectuons de la prédiction sur la base d'un modèle langagier afin de déterminer la quantité d'espace attribué à chaque élément de texte. Les bouts de texte les plus probables reçoivent plus de place afin qu'ils puissent être sélectionnés plus rapidement et plus facilement. Les bouts de texte les moins probables (par exemple ceux qui comportent des fautes d'orthographe) reçoivent moins d'espace et sont donc plus difficiles à écrire. Le modèle langagier apprend constamment : si vous écrivez un nouveau mot, il s'écrira plus facilement la fois suivante.</para>
+
+
+
+      <para>Un grand avantage de Dasher par rapport aux autres interfaces de saisie de texte prédictives qui offrent la complétion automatique de mots est qu'il est <emphasis>sans mode</emphasis> : l'utilisateur ne doit pas passer d'un mode d'écriture à un mode d'acceptation des prédictions du modèle.</para>
+
+      <para>Un autre avantage est qu'il est facile de perfectionner le modèle pour tout style d'écriture : il suffit de charger un fichier d'exemple, et l'écriture peut commencer !</para>
+
+      <para>Il est très difficile de traduire en mots l'apparence de Dasher. Nous vous invitons à consulter <ulink url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">http://www.inference.phy.cam.ac.uk/dasher/</ulink> pour y voir des films.</para>
+
+    </sect2>
+    <sect2>
+      <title>Pour comprendre Dasher, l'analogie de la bibliothèque</title>
+      <para>Imaginez une <emphasis>bibliothèque contenant tous les livres du monde</emphasis>, classés par ordre alphabétique sur un seul rayon. Les livres qui commencent par la lettre <quote>a</quote> se trouvent à gauche, et ceux qui commencent par la lettre <quote>z</quote> sont à droite. Sur l'image (fig. 1) ci-dessous, le rayon est présenté verticalement, avec la <quote>gauche</quote> (a) en haut et la <quote>droite</quote> (z) en bas. Le premier livre de la section <quote>a</quote> contient <quote><computeroutput>aaaaaaaaaaaa</computeroutput>...</quote>. Quelque part sur sa droite se trouvent les livres qui commencent par <quote><computeroutput>allons-y gaiement</computeroutput>...</quote>. Encore un peu plus loin sur sa droite se trouvent les livres qui commencent par <quote><computeroutput>allons-y joyeusement</computeroutput>...</quote>.</para>
+
+
+      <para>Lorsque quelqu'un écrit un bout de texte, son choix d'une phrase peut être considéré comme le choix d'un livre dans cette bibliothèque de tous les livres, le livre qui contient exactement la phrase désirée. Comment choisir le bon livre ? Imaginons qu'il souhaite écrire <quote><computeroutput>allons-y</computeroutput>...</quote>.</para>
+      <figure>
+        <title>La bibliothèque de tous les livres.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/a-z.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/aa-az.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/ala-alz.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Tout d'abord, il se rend dans la section <quote><computeroutput>a</computeroutput></quote> de la bibliothèque. Là, il trouve les livres commençant par <quote><computeroutput>aa</computeroutput></quote>, <quote><computeroutput>ab</computeroutput></quote>, <quote><computeroutput>ac</computeroutput></quote>...c <quote><computeroutput>az</computeroutput></quote> (fig. 2). En examinant plus attentivement la section <quote><computeroutput>al</computeroutput></quote>, il trouve des livres commençant par <quote><computeroutput>ala</computeroutput></quote>, <quote><computeroutput>alb</computeroutput></quote>, ... <quote><computeroutput>alz</computeroutput></quote> (fig. 3).</para>
+
+      <para>En continuant ainsi à chercher toujours plus précisément dans la bibliothèque, le rédacteur finit par trouver le livre contenant le texte qu'il veut écrire. Ainsi, la rédaction peut être considérée comme un <emphasis>zoom dans une bibliothèque alphabétique, qui se précise tout en progressant</emphasis>.</para>
+
+      <para>C'est exactement la manière dont Dasher fonctionne, excepté sur un point essentiel : <emphasis>nous modifions la quantité de place attribuée à chaque livre sur le rayon en proportion de la probabilité d'apparition du texte correspondant</emphasis>. Par exemple, peu de livres commencent par un <quote><computeroutput>x</computeroutput></quote>, ce qui fait que nous attribuons moins de place aux livres <quote><computeroutput>x</computeroutput>...</quote>, et plus de place aux livres plus probables, ce qui a comme conséquence de faciliter la recherche de livres qui contiennent des textes plausibles.</para>
+
+      <para>Voici la séquence d'images correspondant à la bibliothèque dans Dasher (le caractère <quote>_</quote> représente le caractère espace).</para>
+      <figure>
+        <title>La bibliothèque de tous les livres.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/a-z.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/aa-az.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/ala-alz.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--
+\begin{center}
+\begin{tabular}{ccc}
+\mbox{\psfig{figure=images/a-z.m.gif.50.ps}}&
+\mbox{\psfig{figure=images/aa-az.m.gif.50.ps}}&
+\mbox{\psfig{figure=images/ala-alz.m.gif.50.ps}}\\
+(i)&(ii)&(iii)\\
+\end{tabular}
+\end{center}
+							      -->
+
+      <para>Dasher peut être perfectionné à partir d'exemples de n'importe quel style d'écriture, et il apprend constamment, se familiarisant avec vos propres tournures de phrases.</para>
+
+      <para>L'image ci-dessous montre l'état de l'interface Dasher alors que quelqu'un est en train d'écrire le mot « objection ». Les mots les plus plausibles à ce stade de l'écriture pourraient être « objectifs », « objection » ou « objective ».</para>
+      <figure>
+        <title>Écriture d'« objection » dans Dasher.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/object.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Si vous trouvez difficile d'imaginer Dasher sur la base de ces images statiques, allez voir les films sur le site <ulink url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">http://www.inference.phy.cam.ac.uk/dasher/</ulink>.</para>
+
+
+      <!--% When  you try Dasher for the first time,  please read the tips for novices.-->
+    </sect2>
+    <sect2>
+      <title>Astuces pour débutants</title>
+      <para>N'abandonnez pas après une ou deux minutes d'essai ; en dix minutes, vous serez déjà bien à l'aise. C'est un peu comme conduire une voiture. Il vous faut <emphasis>commencer par conduire prudemment</emphasis>. Si vous ne savez plus où vous allez, <emphasis>arrêtez-vous</emphasis>. Vous apprendrez probablement Dasher plus vite si vous gardez en tête l'analogie avec la conduite d'une voiture, plutôt qu'en vous référant aux méthodes informatiques habituelles. Par exemple, la navigation ne fonctionne pas par glisser-déplacer, mais en CONDUISANT : si les voitures fonctionnaient comme les fenêtres informatiques, vous devriez <quote>saisir</quote> le bout de route à parcourir, puis le glisser devant vous. Mais avec une voiture, pour conduire dans une direction donnée, vous devez VISER dans la bonne direction avec votre volant. Dasher ne fonctionne pas non plus au moyen du glisser-déplacer. <emphasis>N'essayez pas pas de cliquer sur des objets pour les déplacer. Il suffit de décider où aller, puis de viser cet endroit</emphasis>.</para>
+
+      <para><emphasis>Le concept le plus important</emphasis> qu'un débutant doit comprendre est qu'on doit toujours continuer <emphasis>à l'intérieur</emphasis> du texte déjà écrit : pour sélectionner le livre qui commence par <quote>all</quote>, il ne faut <emphasis>pas</emphasis> entrer dans la section <quote>a</quote> de la bibliothèque pour en ressortir et aller dans la section <quote>l</quote>. Une fois entré dans la section <quote>a</quote>, il faut trouver la section <quote>al</quote> qui se trouve <emphasis>à l'intérieur</emphasis> de la section <quote>a</quote>, puis entrer dans la section <quote>all</quote>, elle-même <emphasis>à l'intérieur</emphasis> de la section <quote>al</quote>.</para>
+
+      <para>C'est comme la recherche d'un numéro de téléphone dans un annuaire. Pour trouver <quote><computeroutput>Alison</computeroutput></quote>, il ne faut pas aller dans la section <quote><computeroutput>A</computeroutput></quote> puis dans la section <quote><computeroutput>L</computeroutput></quote> de l'annuaire : vous allez dans la section <quote><computeroutput>A</computeroutput></quote> et, <emphasis>dans</emphasis> celle-ci, vous cherchez la section <quote><computeroutput>Al</computeroutput></quote>, ainsi de suite. Quand vous vous trouvez dans la section <quote><computeroutput>Al</computeroutput></quote>, vous ne la quittez plus.</para>
+
+      <para><emphasis>La deuxième conception la plus importante</emphasis> est que ce que vous avez écrit dépend <emphasis>uniquement</emphasis> de votre destination finale, et non pas de la manière d'y arriver. Il n'y a donc pas besoin de suivre un chemin précis sur la route de votre destination. <emphasis>Vous êtes autorisé à couper les virages<emphasis>. Par exemple, à la figure précédente, si vous souhaitez écrire « objectivement », vous pourriez très bien placer la souris directement sur les lettres « ment », même si au passage, la souris venait à survoler une zone non souhaitée (par ex. rectangle « f »).</emphasis></emphasis></para>
+
+
+
+
+      <para><emphasis>Erreurs fréquentes</emphasis>. Il arrive souvent qu'un débutant qui cherche à atteindre une lettre particulière fait défiler rapidement l'affichage en recherchant la lettre. La règle de conduite pour les utilisateurs de Dasher est similaire au code de la route : n'avancez pas tant que vous ne savez pas où aller ! Donc, après avoir trouvé la première lettre de votre phrase et zoomé pour l'atteindre, <emphasis>RALENTISSEZ et n'avancez pas plus loin que le rectangle de cette première lettre avant d'avoir déterminé la suite de votre déplacement</emphasis>. La prochaine lettre est toute proche, à l'intérieur du premier rectangle dans lequel vous avez pénétré. Les lettres sont classées par ordre alphabétique. Si vous ne voyez pas la lettre suivante, imaginez son emplacement sur la base des lettres <emphasis>visibles</emphasis>. Dirigez-vous ensuite vers le bon emplacement et pénétrez dans le rectangle de la deuxième lettre.</para>
+    </sect2>
+    <sect2>
+      <title>Exemple</title>
+      <figure id="figHad1">
+        <title>Écriture de <quote><computeroutput>Le corbeau</computeroutput></quote>. Où faut-il se diriger maintenant ?</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad2.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Imaginons que vous voulez écrire « <computeroutput>Le corbeau</computeroutput> ». Vous écrivez « <computeroutput>Le co...</computeroutput> » et l'affichage de Dasher ressemble à la <xref linkend="figHad1"/>. Vous voulez écrire « <computeroutput>corbeau</computeroutput> », que devez-vous faire ? Il y a beaucoup de <computeroutput>r</computeroutput> à l'écran, et la plupart sont bien petits. Les cinq flèches de la <xref linkend="figHad1"/> montrent quelques-uns de ces <computeroutput>r</computeroutput>. La flèche violette indique un <computeroutput>r</computeroutput> qui est encore invisible, mais nous savons qu'il doit se trouver à cet endroit, car nous voyons le rectangle « <computeroutput>s</computeroutput> » juste au-dessous.</para>
+      <figure id="figHad2">
+        <title>Quelques lettres <computeroutput>r</computeroutput> potentielles, avec une erreur de débutant mise en évidence</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad2a.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Une erreur fréquente des débutants est d'avancer trop rapidement et de viser au hasard une de ces lettres <computeroutput>r</computeroutput>, et de zoomer dessus. Par exemple, la <xref linkend="figHad3"/> montre ce qui arrive lorsqu'on zoome vers la lettre <computeroutput>r</computeroutput> mise en évidence à la <xref linkend="figHad2"/>.</para>
+      <figure id="figHad3">
+        <title>Ce qui arrive lorsqu'on sélectionne la mauvaise lettre <computeroutput>r</computeroutput></title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad3a.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+
+      <para>Si vous visez cette lettre <computeroutput>r</computeroutput>, vous allez écrire « <computeroutput>Le contr</computeroutput>... ». La flèche verte indique la bonne lettre <computeroutput>r</computeroutput>.</para>
+
+
+      <para>Il est primordial de comprendre qu'il n'y a qu'un seul <computeroutput>r</computeroutput> correct, et c'est celui qui se trouve à l'intérieur du rectangle bleu correspondant à la lettre « <computeroutput>o</computeroutput> » à la suite de « <computeroutput>Le co</computeroutput> ». Ce cadre bleu est bien visible dans la <xref linkend="figHad4"/>.</para>
+      <figure id="figHad4">
+        <title>La bonne lettre <computeroutput>r</computeroutput> est celle qui est visée par la flèche verte. Cet exemple illustre la règle <quote>restez toujours <emphasis>à l'intérieur</emphasis> du cadre que vous souhaitez utiliser</quote> ; dans ce cas, le rectangle bleu associé à la lettre <computeroutput>o</computeroutput> du mot <quote><computeroutput>corbeau</computeroutput></quote></title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad4.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Si vous quittez ce rectangle bleu (comme dans la <xref linkend="figHad3"/>), vous perdrez la lettre « <computeroutput>o</computeroutput> ».</para>
+    </sect2>
+
+    <sect2>
+      <title>Résumé</title>
+      <para>
+        <emphasis>Ne cliquez pas, ne faites rien glisser, ne stressez pas.</emphasis>
+      </para>
+    </sect2>
+
+    <sect2>
+      <title>Signification des couleurs</title>
+      <para>Dans la version 3 anglaise de Dasher, <itemizedlist>
+          <listitem>
+            <para>les carrés <emphasis>blancs</emphasis> représentent les caractères espaces (toujours placés à la fin de l'alphabet) ;</para>
+          </listitem>
+
+          <listitem>
+            <para>une rectangle <emphasis>jaune</emphasis> spécial contient les majuscules [A-Z] ;</para>
+          </listitem>
+
+          <listitem>
+            <para>un rectangle <emphasis>rouge</emphasis> contient les chiffres [0-9] (si l'alphabet complet est activé) ;</para>
+          </listitem>
+
+          <listitem>
+            <para>un rectangle <emphasis>vert</emphasis> contient les caractères de ponctuation (avec les caractères ressemblant le plus à l'espace [.,;:-] placés à la fin, juste après le caractère espace <emphasis>blanc</emphasis>. À l'intérieur de la section de ponctuation, les lettres aux fonctions semblables ont une couleur semblable : les caractères de ponctuation semblables au point [.,;:-] sont de couleur bleu ardoise.</para>
+          </listitem>
+          <listitem>
+            <para>les autres couleurs sont uniquement utilisées pour distinguer les rectangles les uns des autres ;</para>
+          </listitem>
+          <listitem>
+            <para>pour les langues avec accents (grave, aigu, circonflexe, etc.), les accents apparaissent dans un rectangle <emphasis>orange</emphasis> ;</para>
+          </listitem>
+          <listitem>
+            <para>dans les versions japonaises de Dasher, les couleurs sont utilisées pour distinguer les différents groupes hiragana (par ex. ka,ki,ku,ke,ko sont orange) ;</para>
+          </listitem>
+          <listitem>
+            <para>dans les versions coréennes de Dasher, trois couleurs différentes servent à distinguer les consonnes initiales, les voyelles et les consonnes terminales.</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>Vous pouvez modifier la palette des couleurs en éditant les fichiers xml <computeroutput>colour</computeroutput> et <computeroutput>alphabet</computeroutput>, comme expliqué dans <xref linkend="personalising"/>.</para>
+    </sect2>
+    <sect2>
+      <title>Démarrer avec Dasher (version 4)</title>
+      <para>Lancez l'application Dasher. Lorsque la fenêtre de Dasher apparaît, cliquez avec le bouton gauche ou appuyez sur la barre espace pour démarrer le processus d'écriture. Répétez la même action (clic ou barre espace) lorsque vous avez terminé, afin de signifier à Dasher l'arrêt de l'écriture. La souris reprend le contrôle de Dasher.</para>
+
+      <para>Ajustez le curseur de vitesse pour définir la vitesse de zoom maximale de Dasher. Une valeur de 1 convient à un débutant. Augmentez-la à 2 après 5 minutes d'exercice, et passez à 4 lorsque vous êtes un expert.</para>
+    </sect2>
+    <sect2>
+      <title>Démarrer avec Dasher (version 2) sur pocket PC</title>
+      <para>Installez le logiciel et lancez-le (attendez quelques secondes, le temps qu'il charge le fichier d'apprentissage), puis touchez l'écran avec le stylet pour faire avancer Dasher.</para>
+
+      <para>Il existe trois rectangles spéciaux fortement colorés dans cette version de Dasher, jaune, rouge (dans certaines versions seulement) et vert. Ces rectangles ne génèrent aucun caractère, mais ils indiquent des sous-groupes de l'alphabet (alphabet majuscule, chiffres (dans certaines versions seulement) et ponctuation). </para>
+    </sect2>
+  </sect1>
+  <!--<sect1 id="usage">
+    <title>Using Dasher</title>
+    <sect2 id="menubar">
+      <title>Menus</title>
+      <para> The menu bar, located at the top of the <interface>Main Window</interface>, provides
+        the following commands: </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            <guimenu>File</guimenu>
+          </term>
+          <listitem>
+            <para>This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para>
+                    <guimenuitem>New</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Open</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Save</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Save As</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Append to file</guimenuitem> this command can be used to append
+                    the current Dasher buffer to an existing text file.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Import training text</guimenuitem> this command can be used to
+                    add the contents of an existing text file to Dasher's language model.</para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Quit</guimenuitem>
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Edit</guimenu>
+          </term>
+          <listitem>
+            <para> This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para>
+                    <guimenuitem>Cut</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Copy</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Paste</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Copy All</guimenuitem>
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Options</guimenu>
+          </term>
+          <listitem>
+            <para> This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para><guimenuitem>Preferences</guimenuitem>, which launches the <link
+                      linkend="prefs">
+                      <interface>Preferences Dialog</interface>
+                    </link></para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Edit font</guimenuitem> alters the font used in the edit
+                  box.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Dasher font</guimenuitem> alters the size of the moving
+                    characters.</para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Dasher font size</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Enter text into other windows</guimenuitem> this causes Dasher
+                    to enter text into whichever window is selected.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Control mode</guimenuitem> this causes an extra node to appear
+                    at the bottom of the alphabet. Here, you can edit text directly from within
+                    Dasher, cause Dasher to speak text that you have entered and stop or pause
+                    Dasher.</para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Help</guimenu>
+          </term>
+          <listitem>
+            <para>This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para><guimenuitem>About</guimenuitem> shows basic information about
+                      <application>Dasher</application>, such as author's name and version number.
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2 id="prefs">
+      <title>Customization</title>
+      <para> To change default settings, select <guimenuitem>Preferences</guimenuitem> command in
+          <guimenu>Settings</guimenu> menu. This launches the <interface>Preferences
+        dialog</interface>, shown in <xref linkend="prefs1"/>, <xref linkend="prefs2"/>, <xref
+          linkend="prefs3"/>, <xref linkend="prefs4"/> and <xref linkend="prefs5"/>. </para>
+      <figure id="prefs1">
+        <title>&quot;Alphabet&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs1.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para> Dasher has support for many languages, and the choice of which language to write in is
+        made with this dialog. Note that some languages (for example, Hiragana, Korean and the
+        International Phonetic Alphabet) may require fonts that you do not have installed. For
+        information on creating your own alphabet files, see the <ulink
+          url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">Dasher website</ulink>. </para>
+      <figure id="prefs2">
+        <title>&quot;Colour&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs2.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para> Dasher has support for different colour schemes. The 'Default' colour scheme is a
+        simple rotation of colours that should work with any language. Enhanced colour schemes may
+        be used for languages with logical groupings (such as Hiragana or Korean) or to increase
+        contrast. </para>
+      <figure id="prefs3">
+        <title>&quot;Control&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs3.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>One dimensional mode</guimenuitem> maps the Y coordinate of the mouse
+              position to an X/Y coordinate, for use with one-dimensional input methods.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Eyetracker mode</guimenuitem> optimisations for eyetrackers 
+              specifically, makes Dasher behave as in one-dimensional mode near the right hand edge
+              of the screen.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start on left mouse button</guimenuitem> the left mouse button starts
+              and stops Dasher.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start on space bar</guimenuitem> the space bar starts and stops
+              Dasher.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start with mouse position</guimenuitem> when Dasher is paused, a red
+              box appears. Hold the cursor inside the red box until a yellow box appears. Hold the
+              cursor inside the yellow box. Dasher will then start..</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Copy all on stop</guimenuitem> when stopped, Dasher will copy all
+              text to the clipboard automatically.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Speak on stop</guimenuitem> when stopped, Dasher will speak newly
+              entered text automatically.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Pause outside window</guimenuitem> Dasher will pause if the mouse
+              pointer moves outside its window.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <figure id="prefs4">
+        <title>&quot;View&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs4.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>Orientation</guimenuitem> alters the direction that the text moves
+              in. If set to &quot;Alphabet default&quot;, the alphabet file will choose the
+              appropriate direction for the alphabet.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show toolbar</guimenuitem> you can hide Dasher's toolbar if you wish.
+              Calling dasher with the '-o' switch will open a reduced-options version of dasher,
+              designed for entry into other applications.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show speed slider</guimenuitem> enable/disable the speed
+            slider.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show mouse position</guimenuitem> in some situations (such as
+              one-dimensional or eyetracker mode), the absolute position of the mouse will differ
+              from Dasher's perception of the mouse position. This option shows you where Dasher's
+              mouse is.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Draw line between crosshairs and mouse</guimenuitem> helpful for
+              users who have trouble keeping track of the pointer.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Draw box outlines</guimenuitem> increases the contrast around the
+              edges of boxes, to help distinguish between them.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Change colour scheme automatically</guimenuitem> languages such as
+              Hiragana are aware of which colour scheme they should be using. This option allows an
+              alphabet to select its colour scheme automatically.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <figure id="prefs5">
+        <title>&quot;Advanced&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs5.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>Smoothing</guimenuitem> adds a &quot;uniform&quot; element to
+              the language model's predictions. A smoothing value of 100 will result in an entirely
+              uniform distribution being used  each box will have the same size.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Timestamp new files</guimenuitem> each file created by Dasher will
+              automatically have the current time in its filename.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Distance from centreline for start on mouse position</guimenuitem>
+              controls the range for the 'Start on mouse position' option.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Number of pixels that should cover the entire Y range</guimenuitem>
+              some input devices do not have enough gain to cover an entire Dasher window; this
+              option increases the gain of displacement on the Y axis.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>-->
+  <sect1 id="reallife">
+    <title>Dasher en pratique</title>
+
+    <para>Dasher peut être utilisé pour communiquer à travers l'ordinateur et, dans une certaine mesure, pour contrôler l'ordinateur. En apparence, la manière la plus simple de communiquer au moyen de Dasher est d'avoir à vos côtés la personne à laquelle vous parlez tout en écrivant. Mais il existe de nombreuses autres manières de communiquer par le moyen de Dasher.</para>
+
+    <sect2>
+      <title>Copie vers le presse-papiers</title>
+
+      <para>Si vous avez activé la fonctionnalité de copie lors de l'arrêt, le contenu de la zone de saisie de texte de Dasher est directement copié dans le presse-papiers de l'ordinateur à chaque arrêt de Dasher. Vous pouvez alors utiliser la fonction « Coller » dans une autre application pour reprendre le contenu saisi.</para>
+    </sect2>
+
+    <sect2>
+      <title>Parole</title>
+
+      <para>Dasher exploite le système de synthèse vocale installé sur votre ordinateur. Il y a plusieurs manières d'utiliser la synthèse vocale avec Dasher.</para>
+
+      <para>Vous pouvez demander à Dasher de prononcer chaque mot : chaque fois que vous arrivez à la fin d'un mot (par exemple en saisissant une espace), le mot est immédiatement prononcé.</para>
+
+      <para>Vous pouvez aussi demander à Dasher de prononcer à l'arrêt : chaque fois que Dasher arrête d'écrire, le texte de la zone de saisie est prononcé.</para>
+
+      <para>Finalement, vous pouvez demander à Dasher de prononcer le texte à votre demande en passant en <emphasis>mode contrôle</emphasis> (dans le menu Options dans la version 3 de Dasher). Ce mode ajoute un rectangle gris supplémentaire dans l'alphabet Dasher qui fonctionne un peu comme la touche d'échappement au clavier. Lorsque vous allez à l'intérieur de ce rectangle de contrôle, vous trouvez plusieurs options de contrôle de l'application : Stop (rouge), Pause (jaune), Move, Delete et Speak. À l'intérieur du rectangle Speak se trouvent les options « speak everything », « speak new » (seuls les nouveaux mots écrits depuis la dernière prononciation), and « speak again » (qui prononce à nouveau les mots précédents).</para>
+    </sect2>
+
+    <sect2>
+      <title>Enregistrement dans un fichier</title>
+
+      <para>Il est possible d'enregistrer le contenu de la zone de texte de Dasher dans un fichier texte en cliquant sur l'icône « Enregistrer le fichier » dans la barre d'outils ou en utilisant la barre de menus de Dasher (choisir Fichier, Enregistrer).</para>
+    </sect2>
+
+    <sect2>
+      <title>Envoi de texte à une autre fenêtre</title>
+
+      <para>Il est aussi possible d'envoyer directement le contenu écrit dans Dasher à une autre fenêtre. Activez pour cela l'option « Envoi du texte à une autre fenêtre » dans le menu des options. La prochaine fenêtre sélectionnée reçoit ensuite ce que Dasher lui envoie.</para>
+    </sect2>
+
+
+
+
+    <sect2>
+      <title>Tailles de polices</title>
+
+      <para>Dasher dispose d'une zone de saisie (où le texte apparaît) et d'une zone d'affichage (où se produit l'animation de zoom sur les lettres). Vous pouvez modifier la taille des polices de ces deux zones à partir des menus de Dasher. Les deux polices sont appelées « Police de l'éditeur » et « Police de Dasher ». Utilisez la boîte de dialogue habituelle pour modifier la taille de ces polices. Pour modifier la taille de la zone d'affichage de Dasher, trouvez l'endroit des options de taille de Dasher et choisissez entre les options petit, moyen et grand.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="personalising">
+    <title>Personnalisation de Dasher</title>
+    <para>Il existe trois types de fichiers modifiables pour adapter Dasher à vos besoins : les fichiers <computeroutput>alphabet</computeroutput>, les fichiers <computeroutput>colour</computeroutput> et les fichiers <computeroutput>training</computeroutput>.</para>
+
+    <sect2>
+      <title>Personnalisation du modèle langagier</title>
+      <para>Dans la version 3 de Dasher, la prédiction ne se base pas sur un dictionnaire, mais sur un fichier d'apprentissage composé de texte pur. Par exemple, en téléchargeant la version 3 de Dasher, vous obtenez un fichier nommé <filename>training_english_GB.txt</filename>. Il est composé de 300 Ko de simples textes anglais recueillis dans divers documents sur Internet.</para>
+
+      <para>Dasher stocke tout ce que vous écrivez dans un autre fichier personnel du même nom que le fichier d'apprentissage. À chaque lancement, Dasher lit le fichier d'apprentissage d'origine et tout ce que vous avez écrit précédemment, afin d'améliorer sa prédiction. Dasher se perfectionne continuellement. Pour obtenir les meilleurs résultats possibles avec Dasher : <itemizedlist>
+          <listitem>
+            <para>Si possible, fournissez à Dasher un texte d'apprentissage de votre propre style ; un fichier de texte pur contenant des documents de votre composition avec vos tournures de phrase préférées, les noms de vos amis, etc. Ajoutez ce contenu à un fichier d'apprentissage existant ou remplacez le fichier d'apprentissage original.</para>
+          </listitem>
+          <listitem>
+            <para>S'il vous semble que votre fichier d'apprentissage est corrompu par du texte incohérent, modifiez directement le fichier à l'aide d'un simple éditeur de texte (ou demandez à un ami de le faire pour vous).</para>
+          </listitem>
+          <listitem>
+            <para>Si vous utilisez Dasher depuis de nombreux mois, il se peut que le fichier d'apprentissage personnel se soit tellement rempli qu'il commence à ralentir Dasher. Dans ce cas, modifiez le fichier à l'aide d'un simple éditeur de texte.</para>
+          </listitem>
+        </itemizedlist></para>
+    </sect2>
+    <sect2>
+      <title>Personnalisation de l'alphabet</title>
+      <para>Le fichier d'alphabet définit quels sont les caractères disponibles ainsi que leur ordre. Par exemple, il est possible que vous utilisiez <filename>alphabet.english.xml</filename>. Dasher est fourni avec de nombreux fichiers d'alphabet à choix. Il est possible d'éditer ces fichiers afin de modifier les caractères disponibles et leur ordre d'apparition. Si vous modifiez ces fichiers xml, nous vous conseillons d'enregistrer un nouveau fichier sous un nouveau nom, et d'effectuer les modifications dans le nouveau fichier pour éviter tout malentendu. Chaque champ du fichier xml définit un signe au moyen de trois éléments : le caractère à <emphasis>afficher</emphasis> (<computeroutput>d=</computeroutput>...), le caractère effectivement inséré dans le <emphasis>texte</emphasis> lorsque le caractère affiché est sélectionné (<computeroutput>t=</computeroutput>...) et le numéro de couleur du rectangle correspondant à ce signe (<computeroutput>b=</computeroutput>...). Voir ci-dessous pour plus d'infos sur ce dernier point.</para>
+    </sect2>
+    <sect2>
+      <title>Personnalisation de la palette de couleur</title>
+      <para>Les couleurs de l'environnement Dasher peuvent être modifiées de deux manières. Le fichier colour (par exemple <filename>colour.xml</filename> ou <filename>colour.euroasian.xml</filename>) définit les 200 couleurs de la palette utilisée par Dasher. Chaque ligne indique les valeurs de rouge, vert et bleu.</para>
+
+      <para>Ces couleurs servent à colorer de nombreux objets de Dasher. Par exemple, si vous voulez changer la couleur de la <quote>ligne rouge</quote>, modifiez la deuxième ligne de couleur du fichier qui correspond à <computeroutput>&lt;colour r="255" g="0" b="0"/&gt;</computeroutput>.</para>
+
+
+      <para>Vous pouvez changer la couleur appliquée à chaque rectangle de signe en modifiant le champ <quote>b</quote> correspondant à ce signe dans le fichier d'alphabet.</para>
+    </sect2>
+
+
+
+
+  </sect1>
+  <sect1 id="languages">
+    <title>Langues</title>
+
+    <para>Dasher fonctionne dans des centaines de langues.</para>
+
+    <para>Il existe un fichier d'alphabet (parfois plus d'un fichier) pour chacune de ces langues. Nous prévoyons de mettre à disposition au moins un fichier d'apprentissage pour chaque langue sur le site de Dasher. Si nous ne disposons pas d'un bon fichier d'apprentissage pour votre langue, aidez-nous en en réalisant un et en nous l'envoyant.</para>
+
+    <para>Veuillez consulter le site de Dasher pour savoir quelles sont les langues prises en charge par Dasher. Au mois d'octobre 2005, toutes les langues principales du monde sont bien prises en charge, à l'exception du japonais et du chinois pour lesquels la version 3 de Dasher n'offre que le support phonétique (hiragana and pin-yin). Dans la version 4 de Dasher, il est prévu d'offrir une prise en charge totale du japonais et du chinois.</para>
+
+    <!--    %% Dasher works beautifully in Korean-->
+
+
+  </sect1>
+
+
+
+  <sect1 id="specialneeds">
+    <title>Guide Dasher pour les besoins particuliers</title>
+
+    <para>Dasher est conçu sur le principe d'obtenir <emphasis>un maximum d'informations</emphasis> à partir de vos mouvements.</para>
+
+    <para>Nous pouvons obtenir de l'information à partir de l'élément ci-dessous le plus pertinent pour vous : <orderedlist>
+        <listitem>
+          <para>Les mouvements <emphasis>continus</emphasis> (générés par une manette de jeu, un pavé tactile, une souris de tête ou un pointeur oculaire, par exemple) aboutissent souvent à un débit d'écriture maximal.</para>
+        </listitem>
+        <listitem>
+          <para>Les mouvements <emphasis>discontinus</emphasis> (commutateurs, appui de boutons) peuvent apporter de l'information sous trois formes :</para>
+          <orderedlist>
+            <listitem>
+              <para>Le <emphasis>moment</emphasis> où vous appuyez sur un bouton pour fournir de l'information (cette idée est exploitée dans les systèmes à base de grille, contrôlés par un seul bouton).</para>
+            </listitem>
+            <listitem>
+              <para>La <emphasis>durée</emphasis> de pression sur un bouton peut fournir de l'information (cette idée est exploitée dans le morse, où deux durées différentes ont une signification particulière).</para>
+            </listitem>
+            <listitem>
+              <para>Le <emphasis>choix du bouton</emphasis> pressé peut fournir de l'information (cette idée est exploitée sur les claviers ordinaires).</para>
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist></para>
+
+    <sect2 id="manual7">
+      <title>Mouvements continus</title>
+      <para>Le mode normal de Dasher (<emphasis>mode souris</emphasis>) est piloté par des mouvements directionnels continus en deux dimensions. Dasher dispose aussi d'un <emphasis>mode unidimensionnel</emphasis> pour les personnes ne pouvant maîtriser qu'une seule dimension.</para>
+
+      <para>Êtes-vous capable de faire un ou deux mouvements continus ? Si vous êtes capable d'utiliser une manette de jeu, une souris, un pavé tactile ou une boule de commande, alors vous maîtrisez les deux dimensions. Si vous pouvez appuyez sur un écran tactile, c'est parfait aussi. Pouvez-vous bouger votre nez ? Si vous pouvez secouer la tête, c'est un mouvement unidimensionnel ; si vous pouvez hocher de la tête en plus, nous voilà en deux dimensions. Une souris de tête est très abordable et permet de piloter facilement Dasher. (Nous recommandons <emphasis>SmartNav3</emphasis> de NaturalPoint dont le prix est d'environ $200 et ne fonctionne que sous MS Windows ; ce périphérique s'appelait NavPoint TrackIR jusqu'en 2002, avant que ce nom soit attribué à un autre périphérique. Nous recommandons également <emphasis>Headmouse Extreme</emphasis> de Origin instruments, dont le prix est d'environ $1000 ; il fonctionne comme une souris USB sur n'importe quel ordinateur.) Êtes-vous capable de mouvoir un doigt ou un pied ? Ce type d'appareil est également capable de suivre les mouvements des doigts et des pieds, en plus de la tête. Pour une comparaison détaillée entre SmartNav3 et Headmouse Extreme, consultez <ulink url="http://www.inference.phy.cam.ac.uk/dasher/Headmouse.html" type="http">http://www.inference.phy.cam.ac.uk/dasher/Headmouse.html</ulink> (en anglais).</para>
+
+      <para>Si vous êtes fortement paralysé, la meilleure option pourrait être un pointeur oculaire. Maîtrisez-vous le mouvement de vos yeux ? Avec un pointeur oculaire, il est possible d'écrire 25 mots par minute. Mais ce sont des appareils relativement onéreux : nous avons payé $2'000 pour un QuickGlance de EyeTech Digital Systems, et un Tobii eyetracker coûte environ $20'000. [Nous recommandons les deux systèmes. Un QuickGlance se connecte à un ordinateur existant ; Quickglance II coûte environ $4'000. Tobii est un ordinateur complet avec caméras de suivi oculaire intégrées.] Dasher fonctionne également avec les pointeurs oculaires <emphasis>Erica</emphasis> de Eye response, <emphasis>Eyegaze</emphasis> de LC et celui de Metrovision. Ces trois systèmes sont tous des ordinateurs complets contenant des caméras de suivi oculaire.</para>
+
+      <para>Si les manettes de jeu, les souris, les boules de commande ou les pointeurs oculaires ne fonctionnent pas, il reste encore quelques autres moyens de transmettre un signal continu unidimensionnel. Les lèvres et les sourcils devraient pouvoir fonctionner, bien que nous ne connaissions pas de fabriquant ayant commercialisé de tels périphériques. La respiration est aussi un signal unidimensionnel. Si vous pouvez maîtriser votre respiration, il devrait être possible de concevoir une souris de respiration pour vous. Nous avons réalisé une souris de respiration coûtant $22 à l'aide d'une souris optique USB, d'une ceinture et de quelques élastiques. Notre utilisateur le plus expérimenté peut écrire 15 mots par minute uniquement par sa respiration.</para>
+      <sect3>
+        <title>Démarrage et arrêt</title>
+        <para>Il existe plusieurs façons de démarrer et d'arrêter l'écriture avec Dasher. Une possibilité est d'appuyer sur un bouton (par exemple le bouton gauche de la souris ou la barre espace). Mais si vous ne pouvez pas presser sur un bouton, il est possible d'utiliser uniquement des mouvements continus pour démarrer et arrêter : dans les préférences, sélectionnez <quote>Démarrer avec la position de la souris</quote> et activez le <quote>Mode contrôle</quote>. Avec le mode contrôle activé, l'alphabet Dasher contient un élément spécial de contrôle (un peu comme la touche <computeroutput>Échap</computeroutput> au clavier) qui rend disponibles plusieurs fonctions de contrôle. Lorsque vous vous trouvez dans le rectangle de contrôle, Dasher ralentit son fonctionnement, par sécurité. Les options de contrôle contiennent « Pause » et « Stop ». « Pause » permet de s'interrompre en cours d'écriture pour souffler un peu. « Stop » permet d'arrêter le processus d'écriture lorsque vous avez terminé. <command>Pause</command> et <command>Stop</command> produisent le même effet, à l'exception de certaines actions supplémentaires qui peuvent être générées par <command>stop</command> comme par exemple « Prononce à l'arrêt » ou « Copie le texte à l'arrêt ».</para>
+
+        <para>Lorsque Dasher est en pause ou à l'arrêt, il peut être redémarré à l'aide de n'importe quelle méthode de démarrage activée. Si « Démarrer avec la position de la souris » est activé, chaque arrêt de Dasher provoque l'affichage de grandes cibles ; vous pouvez redémarrer l'écriture dans Dasher en visant (ou regardant) la première cible (rouge), puis la deuxième (jaune) (nous utilisons deux cibles pour éviter le démarrage involontaire de Dasher).</para>
+      </sect3>
+      <sect3>
+        <title>Recommandations pour le suivi de mouvements</title>
+        <para>Beaucoup d'analyseurs de mouvements ont des options de « lissage » qui déterminent la fréquence de rafraîchissement de la position de la souris. Ces options sont habituellement utilisées pour adoucir et calmer le mouvement de la souris. Pour Dasher, nous n'en voulons pas. Nous aimons les mouvements immédiats, réels, bruts et saccadés de la souris. Si vous disposez d'un contrôle du « lissage », désactivez-le tout de suite.</para>
+
+        <para>Le « gain » (appelé parfois la « vitesse ») de l'analyseur de mouvement est également un réglage important. Il est parfois possible de l'ajuster dans le logiciel. Il est aussi possible de l'ajuster en modifiant la géométrie de l'analyseur : si vous déplacez le point d'analyse de votre front vers le bord d'une casquette de baseball, par exemple, vous allez approximativement doubler le gain. Plus vous êtes près de l'analyseur, plus le gain augmente. Trouvez le réglage du gain qui vous convient. J'aime un gain élevé parce qu'il me permet de piloter avec de très faibles mouvements de tête.</para>
+      </sect3>
+      <sect3>
+        <title>Recommandations pour l'analyse du regard</title>
+        <para>Pour de bons résultats avec les pointeurs oculaires, nous recommandons fortement de les rendre aussi réactifs que possible. Beaucoup d'analyseurs disposent d'options de « lissage » qui déterminent la fréquence de rafraîchissement de la position de la souris et le nombre d'images successives du regard utilisées pour estimer la position de la souris. Ces options sont habituellement utilisées pour adoucir et calmer le mouvement de la souris. Pour Dasher, nous n'en voulons pas. Nous aimons les mouvements immédiats, réels, bruts et saccadés de la souris. Lorsque vous naviguez, votre oeil se dirige très rapidement vers le point qui vous intéresse, et nous voulons que Dasher puisse réagir immédiatement. Les réglages optimaux pour Dasher peuvent être très différents de ceux valables pour un autre logiciel. Demandez à votre fabricant de pointeur oculaire de faciliter le changement de réglages en fonction de l'application.</para>
+
+        <para>Dasher dispose de plusieurs options destinées aux pointeurs oculaires. Nous recommandons d'utiliser le <emphasis>mode eyetracker</emphasis> (dans Préférences, Contrôle). Dans ce mode, la dynamique de Dasher est légèrement différente de la dynamique standard, ce qui rend la correction d'erreur plus simple avec le regard.</para>
+
+        <para>Si la calibration de votre pointeur varie avec le temps, par exemple lorsque vous bougez la tête, vous devriez activer l'option de calibration automatique. Lorsque cette option est activée, Dasher effectue un suivi de votre pilotage, déduit l'erreur de calibration verticale et corrige le décalage. Vous pouvez distinguer la correction appliquée en examinant le décalage vertical entre la position de la souris affichée par Dasher (au bout de la ligne rouge) et la position de la souris de votre pointeur oculaire (affichage du curseur de la souris du système).</para>
+
+        <para>Pour éviter les difficultés générées par les limites supérieure et inférieure de l'écran pour la souris, nous recommandons de choisir une taille de fenêtre pour Dasher qui ne soit <emphasis>pas</emphasis> en plein écran. Placez la fenêtre de Dasher de manière à ce qu'il y ait une marge en-dessous et en-dessus de la zone d'affichage de Dasher.</para>
+
+        <para><emphasis>Remarque technique</emphasis> : Dasher est capable de recevoir les informations de pilotage des pointeurs oculaires, des analyseurs de mouvement ou d'autres systèmes de ce genre, aussi bien par émulation de la souris que par un socket système. Cette option peut être configurée dans la section « Périphérique d'entrée » (Contrôle) de la boîte de dialogue des « Préférences ».</para>
+      </sect3>
+    </sect2>
+    <sect2 id="manual8">
+      <title>Mouvement discontinus</title>
+      <para>Il existe plusieurs versions de <emphasis>Dasher avec boutons</emphasis> dans la version 4 de Dasher.</para>
+
+      <sect3>
+        <title>Les mouvements temporisés sont-ils envisageables ?</title>
+        <para>Certaines manières de transmettre de l'information exploitent la <emphasis>cadence</emphasis> d'un mouvement. Cependant, certaines personnes ne peuvent pas effectuer de mouvement à des instants précis. Par exemple, les personnes spasmodiques peuvent très difficilement effectuer une action « juste maintenant ! »</para>
+
+        <para>Si les mouvements temporisés ne sont pas envisageables, consultez la section <xref linkend="no_time_critical"/>.</para>
+
+        <para>Si vous <emphasis>pouvez</emphasis> transmettre de l'information par le moyen de mouvements <emphasis>précisément cadencés</emphasis>, consultez la section <xref linkend="timed"/>.</para>
+      </sect3>
+    </sect2>
+    <sect2 id="no_time_critical">
+      <title>Dasher sans notion temporelle</title>
+      <para>Ainsi donc, vous souhaitez piloter Dasher à votre propre rythme. Êtes-vous capable d'effectuer des mouvements relativement précis, à un instant donné ? Par exemple, pouvez-vous placer un pointeur précisément à l'écran, puis appuyer sur un bouton pour signaler que vous êtes prêt ? Ou pouvez-vous toucher un écran tactile de manière assez précise ? <itemizedlist>
+          <listitem>
+            <para>Dans ce cas, essayez le <emphasis>mode clic</emphasis>. Consultez <xref linkend="time_critical_button"/>.</para>
+          </listitem>
+          <listitem>
+            <para>Sinon, essayez le <emphasis>mode bouton direct</emphasis> ou le <emphasis>mode bouton menu</emphasis>. Consultez <xref linkend="no_time_critical_button"/>.</para>
+          </listitem>
+        </itemizedlist></para>
+      <sect3 id="time_critical_button">
+        <title>Dasher en continu sans notion temporelle : le mode clic</title>
+
+        <para>En <emphasis>mode clic</emphasis>, vous placez le pointeur de la souris là où vous voulez aller, puis vous appuyez sur un bouton lorsque vous êtes prêt. Dasher zoome ensuite sur la position indiquée.</para>
+
+        <para>Dans le cas où vous disposez d'un écran tactile, une simple pression sur l'écran produit un zoom sur cette position.</para>
+      </sect3>
+      <sect3 id="no_time_critical_button">
+        <title>Dasher avec boutons sans notion temporelle</title>
+        <para>Combien de commutateurs, de touches ou de boutons pouvez-vous facilement utiliser ?</para>
+        <variablelist>
+          <varlistentry>
+            <term>1</term>
+            <listitem>
+              <para>Avec un seul bouton, la seule manière de transmettre de l'information sans notion temporelle est d'utiliser la <emphasis>durée</emphasis> de votre pression. Arrivez-vous faire la différence entre des pressions courtes et des pressions longues ? Si c'est le cas, vous pouvez utiliser <emphasis>Dasher avec bouton menu</emphasis>. Reliez la pression courte à l'action « menu » et la pression longue à l'action « sélection ».</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>2</term>
+            <listitem>
+              <para>Vous pouvez utiliser <emphasis>Dasher avec bouton menu</emphasis>. Reliez un bouton à l'action « menu » et l'autre à l'action « sélection ». Si l'un des deux boutons est plus facile à presser, utilisez-le comme bouton « menu ».</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>2,5</term>
+            <listitem>
+              <para>Si vous pouvez facilement appuyer sur deux boutons, et lors d'occasions spéciales, vous pouvez appuyer sur un troisième bouton, vous pouvez utiliser <emphasis>Dasher avec bouton menu</emphasis> ou <emphasis>Dasher avec bouton direct</emphasis>.</para>
+              <orderedlist>
+                <listitem>
+                  <para>Configurez <emphasis>Dasher avec bouton menu</emphasis> comme expliqué ci-dessus et utilisez le troisième bouton comme touche d'échappement, par exemple pour faire disparaître Dasher. [Cette fonctionnalité n'est pas encore disponible dans Dasher.]</para>
+                </listitem>
+                <listitem>
+                  <para>Avec <emphasis>Dasher avec bouton direct</emphasis>, chaque bouton génère une action de navigation précise telle que « haut », « bas » ou « retour ». Si vous disposez de 2,5 boutons, faites correspondre les deux meilleurs boutons à « haut » et « bas », et le bouton le moins pratique à « retour ».</para>
+                </listitem>
+              </orderedlist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>3</term>
+            <listitem>
+              <para>Vous pouvez utiliser <emphasis>Dasher avec bouton menu</emphasis> ou <emphasis>Dasher avec bouton direct</emphasis> comme expliqué ci-dessus.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>4, 5, 6 ou 7</term>
+            <listitem>
+              <para>Avec plus de trois boutons, vous avez la possibilité d'utiliser <emphasis>Dasher avec bouton direct</emphasis> avec trois, quatre, cinq ou six directions de progression. Essayez tout de même <emphasis>Dasher avec bouton menu</emphasis>, même s'il n'utilise que deux boutons.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>8 ou plus</term>
+            <listitem>
+              <para>Essayez <emphasis>Dasher avec bouton direct</emphasis> et <emphasis>Dasher avec bouton menu</emphasis>. Avec autant de boutons, vous pouvez aussi utiliser un système tel que T9, le système de prédiction textuelle que l'on trouve dans de nombreux téléphones portables. Nous vous suggérons d'évaluer <emphasis>Tapir</emphasis>, un clavier à l'écran désambiguïsant, créé par les développeurs de Dasher.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </sect3>
+    </sect2>
+
+    <sect2 id="timed">
+      <title>Dasher avec boutons et notion temporelle</title>
+      <para>Il existe deux modes dans Dasher qui exploitent des informations précisément cadencées. Ils exigent généralement moins d'appuis de boutons que les modes sans contrainte temporelle :</para>
+      <sect3 id="onebutton">
+        <title>Mode dynamique (un bouton)</title>
+        <para>Lorsqu'il écrit, Dasher zoome en direction d'un point vers le haut ou vers le bas de l'affichage. Une brève pression sur un bouton inverse la direction du zoom. Du texte peut être saisi en appuyant sur un bouton lorsque la phrase souhaitée atteint le bord de l'affichage.</para>
+      </sect3>
+      <sect3 id="twobutton">
+        <title>Mode dynamique (deux boutons)</title>
+        <para>Dasher zoome continuellement vers le centre de l'écran, en utilisant les deux boutons pour déplacer l'affichage vers le haut ou vers le bas. Les boutons doivent être appuyés à chaque fois que le texte souhaité est aligné sur les deux marqueurs.</para>
+      </sect3>
+      <sect3>
+        <title>Correction d'erreurs</title>
+        <para>Dans chacun des modes dynamiques, trois options servent à la correction d'erreur, à l'aide d'un bouton supplémentaire, avec des pressions longues ou multiples. Dans tous les cas, Dasher passe dans un mode où il effectue un zoom arrière à un taux fixe. Dans ce mode, une pression supplémentaire arrête Dasher et une deuxième pression relance Dasher dans sa progression.</para>
+      </sect3>
+    </sect2>
+  </sect1>
+
+  <sect1 id="modesummary">
+    <title>Résumé des modes dans Dasher</title>
+    <para>Les différents modes de <application>Dasher</application> sont énumérés ci-dessous. Le mode peut être modifié par le menu <emphasis><quote>Édition</quote></emphasis>. Choisissez <emphasis><quote>Préférences</quote></emphasis>, puis <emphasis><quote>Contrôle</quote></emphasis>. Chaque mode dispose d'un nombre variable de paramètres qui peuvent être configurés avec le bouton <emphasis>Options</emphasis> situé au-dessous du menu des modes.</para>
+
+    <sect2 id="normal">
+      <title>Normal</title>
+      <para>Le mode initial de <application>Dasher</application>. Les fonctions utilisent des mouvements directionnels à deux dimensions, comme avec une souris. Un mode unidimensionnel est également à disposition de ceux qui ne maîtrisent pas un mouvement à deux dimensions, et un mode eyetracker spécial est disponible pour les utilisateurs de mécanismes de suivi oculaire ou de mouvement. Il est possible de lancer l'écriture dans Dasher uniquement avec la position de la souris, dans les cas où les clics ne peuvent pas être réalisés : sélectionnez l'option « Démarrer avec la position de la souris » et « Cercle de démarrage » pour permettre le démarrage et l'arrêt en se plaçant dans le cercle central de l'affichage. Le mode de démarrage « Deux boîtes » lance l'écriture avec Dasher en plaçant le pointeur successivement dans deux rectangles. Dans ce dernier cas, l'arrêt s'effectue par le mode contrôle.</para>
+    </sect2>
+
+    <sect2 id="click">
+      <title>Mode clic</title>
+      <para>En <emphasis>mode clic</emphasis>, le pointeur de la souris doit d'abord indiquer la destination, puis une pression sur le bouton de la souris fait zoomer <application>Dasher</application> vers l'endroit indiqué.</para>
+    </sect2>
+
+    <sect2 id="menu">
+      <title>Mode menu</title>
+      <para>Un bouton sert à sélectionner un emplacement et dès qu'un deuxième bouton est appuyé, <application>Dasher</application> zoome vers cet endroit. Le grand rectangle apparaissant en dernier dans le cycle est utilisé pour le zoom arrière.</para>
+    </sect2>
+
+    <sect2 id="direct">
+      <title>Mode direct</title>
+      <para>Le mode direct est semblable au mode menu, sauf que des rectangles sont directement attribués à chaque bouton au lieu d'être sélectionnés l'un après l'autre.</para>
+    </sect2>
+
+    <sect2 id="compass">
+      <title>Mode compas</title>
+      <para>Le mode compas emploie quatre boutons. Deux boutons servent à contrôler la position verticale. Dès que la position verticale souhaitée est atteinte, un troisième bouton déclenche le zoom. À la fin du zoom, l'utilisateur sélectionne encore une fois la position verticale. Un quatrième bouton permet d'effectuer un zoom arrière en cas d'erreur.</para>
+    </sect2>
+
+    <sect2 id="dynamic">
+      <title>Mode dynamique (un bouton)</title>
+      <para><application>Dasher</application> zoome continuellement et un seul bouton permet de viser en <quote>haut</quote> ou en <quote>bas</quote>. Il existe également un <emphasis>mode dynamique à deux boutons</emphasis> où les deux boutons servent à diriger le mouvement vers le <quote>haut</quote> ou vers le <quote>bas</quote>. Un troisième bouton, par de longues pressions ou des pressions multiples, permet d'effectuer des zooms arrière et de corriger les erreurs.</para>
+    </sect2>
+
+    <sect2 id="buttondynamic">
+      <title>Mode dynamique (deux boutons)</title>
+      <para><application>Dasher</application> zoome continuellement, tandis que deux boutons dirigent le mouvement vertical. La correction s'effectue sur le même principe que le mode dynamique à un bouton.</para>
+    </sect2>
+  </sect1>
+
+
+
+
+
+  <sect1 id="authors">
+    <title>Auteurs</title>
+    <para><application>Dasher</application> a été écrit par les membres du projet Dasher (<email>dasher@inf.phy.cam.ac.uk</email>). Pour plus d'informations à ce sujet, veuillez consultez le <ulink url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">site Web</ulink> de <application>Dasher</application>. Faites part de tout commentaire, suggestion ou rapport d'anomalie à la <ulink url="http://bugzilla.gnome.org/enter_bug.cgi?product=dasher" type="http">base de données du suivi des anomalies de GNOME</ulink>. Vous pouvez également utiliser la commande <command>bug-buddy</command> pour soumettre des rapports d'anomalie.</para>
+    <para>Ce manuel a été écrit par le projet Dasher (<email>dasher@inf.phy.cam.ac.uk</email>). Veuillez envoyer tout commentaire ou suggestion concernant ce manuel au projet de documentation GNOME à l'adresse <email>docs@gnome.org</email>.</para>
+  </sect1>
+</article>

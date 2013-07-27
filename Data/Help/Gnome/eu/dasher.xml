@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article id="index" lang="eu">
+  <articleinfo>
+    <title>Dasher-en eskuliburua</title>
+    <corpauthor role="maintainer">Dasher proiektua</corpauthor>
+    <copyright>
+      <year>2010</year>
+      <holder>Dasher proiektua</holder>
+    </copyright><copyright><year>2008.</year><holder>Hizkuntza Politikarako Sailburuordetza (hizkpol@ej-gv.es)</holder></copyright>
+    <legalnotice>
+      <para>Baimena ematen da eskuliburu honen kopia literalak egiteko eta banatzeko, baldin eta copyright oharra eta baimen honen oharra kopia guztietan agertzen badira.</para>
+      <para>Baimena ematen da eskuliburu honen bertsio aldatuak egiteko eta banatzeko kopia literalentzat emandako baldintza beretan, baldin eta lan berria osorik baimen-ohar honen berdinaren baldintzekin banatzen bada.</para>
+      <para>Baimena ematen da beste hizkuntza batera egindako eskuliburu honen itzulpenak kopiatu eta banatzeko, bertsio aldatuetarako goian biltzen diren baldintzen pean, baina baimen-oharra Software Librearen Fundazioak onartutako itzulpena izan beharko du.</para>
+      <para>UNIX X/Open Group-en marka erregistratua da.</para>
+      <para>Linux Linus Torvalds-en marka erregistratua da.</para>
+      <para>X Window System X Consortium, Inc-en marka erregistratua da.</para>
+      <para>Windows Microsoft Corp-en marka erregistratua da.</para>
+      <para>Macintosh eta Apple Apple Computer, Inc-en marka erregistratuak dira.</para>
+      <para>Beste marka guztiak dagozkien jabeen jabetzakoak dira.</para>
+    </legalnotice>
+    <abstract role="description">
+      <para>Dasher is an accessible text entry application that uses pointing gestures
+        rather than typing. It is designed to be fast while fun to use.</para>
+    </abstract>
+    <revhistory>
+      <revision>
+        <revnumber>1.0.0</revnumber>
+        <date>2004-02-08</date>
+      </revision>
+      <revision>
+        <revnumber>1.1.0</revnumber>
+        <date>2006-03-31</date>
+      </revision>
+      <revision>
+        <revnumber>1.2.0</revnumber>
+        <date>2006-07-11</date>
+      </revision>
+      <revision>
+        <revnumber>1.2.1</revnumber>
+        <date>2006-09-02</date>
+      </revision>
+    </revhistory>
+  </articleinfo>
+
+  <sect1 id="intro">
+    <title>Sarrera</title>
+    <para><application>Dasher</application> informazio eraginkorreko testua sartzeko interfazea da, seinalatze-mugimendu natural etengabeen bidez funtzionatzen duena. Dasher testua sartzeko sistema lehiakorra da, tamaina osoko teklatua erabili ezin duzun kasuetarako, adibidez, eskuko nahiz eskumuturreko ordenagailuetan, edo ordenagailua esku bakarrez (kontrol-palankaren, ukipen-pantailaren edo saguaren bidez) edo eskurik gabe (buru-saguaren edo begi aztarnariaren bidez) erabili behar duzunean. Dokumentu honek <application>Dasher</application>-en 4.2.0 bertsioa azaltzen du.</para>
+    <para><application>Dasher</application> abiarazteko, hautatu <guimenuitem>Dasher</guimenuitem>, <guimenu>Menu nagusiko</guimenu> <guisubmenu>Erabilerraztasuna</guisubmenu> azpimenuan, edo exekutatu <command>dasher</command> komandoa, komando-lerroan.</para>
+  </sect1>
+  <sect1 id="whatsnew">
+    <title>Zer da berri?</title>
+
+    <sect2>
+      <title>Eginbide berriak 4.2 bertsioan</title>
+
+
+      <para>Abiadura-kontrol automatiko bat dago, Dasher bizkorrago ibilarazteko zu bizkorrago ibil zaitezkeela sumatzen duenean.</para>
+
+      <para>Socket-interfaze berria dago, Dasher-i aukera emateko komunikatzeko buru-jarraitzaileekin edo begirada-jarraitzaileekin edo EEG interfazeekin, sagua erabili beharrik gabe.</para>
+
+      <para>Hainbat 'botoi modu' daude Dasher zuzentzeko kommutadore batekin, edo bi, hiru nahiz lau kommutadorerekin.</para>
+
+      <para>Era berean, 'klik modu' bat dago joan nahi duten lekua seinalatu nahi duten pertsonentzat, eta klik egiten dutenentzat noranzko horretan urrats bat emateko. Modu hau hasiberriek izaten dute gogoko normalean.</para>
+
+
+    </sect2>
+    <sect2>
+      <title>Zer da berri 4.4 bertsioan</title>
+      <para>Joko modu bat inplementatuko dugu Dasher-entzat: horrek lagunduko die hasiberrientzat idazten ikasten. Esku batek gidatuko ditu hasiberriak galtzen direnean, eta bizkor idazten duten hasiberriek puntu asko irabaziko dituzte laguntza handirik gabe.</para>
+
+      <para>Hizkuntza-modelo berriak gehituko dira, hitz eta letra mailako iragarpenak egingo dituztenak.</para>
+
+      <para>Japoniera eta txinera, esate baterako, erabat onartuko dira.</para>
+
+      <para>Dasher taldeak, gainera, web-kameran oinarritutako buru-jarraitzaile eta begirada-jarraitzaile bat, 'FreeVIM', sortzeko asmoa du, 2006ko abendurako.</para>
+    </sect2>
+  </sect1>
+  <sect1 id="basics">
+    <title>Dasher-en oinarrizkoak</title>
+    <para>Dasher informazio eraginkorreko testua sartzeko interfazea da, seinalatze-mugimendu natural etengabeen bidez funtzionatzen duena. Dasher testua sartzeko sistema lehiakorra da, tamaina osoko teklatua erabili ezin duzun kasuetarako, adibidez, <itemizedlist>
+        <listitem>
+          <para>Eskuko ordenagailu batean;</para>
+        </listitem>
+        <listitem>
+          <para>eskumuturreko ordenagailu batean;</para>
+        </listitem>
+        <listitem>
+          <para>ordenagailua esku bakarrez, kontrol-palankaren, ukipen-pantailaren edo kontrol-bola baten bidez erabiltzean;</para>
+        </listitem>
+        <listitem>
+          <para>ordenagailua eskurik gabe (buru-saguaren edo begi aztarnariaren bidez) erabili behar duzunean.</para>
+        </listitem>
+      </itemizedlist> Dasher-en begi aztarnaridun bertsioak aukera ematen dio esperientziadun erabiltzaileari idazketa normalean bezain bizkor idazteko —29 hitz minutuko; saguarekin, esperientziadun erabiltzaileek 39 hitz minutuko idatz ditzakete.</para>
+
+    <para>Dasher erabil daiteke edozein hizkuntzatan eraginkortasunez idazteko.</para>
+
+    <para>Dasher azkarra da, eta dibertigarria ikasten.</para>
+
+    <para>Dasher <emphasis>software librea</emphasis> da. GNU/Linux banatzeko erabilitako lizentzia beraren mende banatzen da, GPL lizentzia.</para>
+
+    <sect2>
+      <title>Nola lan egiten du Dasher-ek?</title>
+
+      <blockquote>
+        <attribution>Financial Times, 2002ko otsailaren 5a</attribution>
+        <para>Dasher makina-joko bat bezalakoa da: 'Alfabeto hiltzaileen erasoa' izenda dezakegu.</para>
+      </blockquote>
+
+      <para>Dasher zoom-interfaze bat da. Joan nahi duzun lekua seinalatu, eta zooma handituko dio leku horri. Zooma handitzen ari zaren mundua letrekin margotuta dago, eta, beraz, zooma beti testu-zati batean egongo da. Zenbat eta zoom handiagoa, orduan eta handiagoa izango da idatzitako testua. Zuk aukeratzen duzu zer idatzi, zooma zeri handitu aukeratuz.</para>
+
+      <para>Interfazea eraginkorra izan dadin, hizkuntza-modelo baten iragarpenak erabiltzen ditugu, testu-zati bakoitzari zenbat leku dagokion erabakitzeko. Testu-zatiak izan daitezkeenei leku gehiago ematen zaie, bizkor eta erraz hautatu ahal izateko. Testu-elementu izan ez daitezkeenei (esate baterako, ortografia-akatsak dituen testua) leku gutxiago ematen zaie, zailagoa izan dadin idaztea. Hizkuntza-ereduak etengabe ikasten du: behin hitz bat erabilita, errazago izango da hurrengo aldian idaztea.</para>
+
+
+
+      <para>Dasher hitz-osaketa eskaintzen duten aurresan daitekeen testua sartzeko beste interfazeekin alderatuz gero, desberdintasuna da <emphasis>modu librekoa</emphasis> dela: erabiltzaileak ez du idazketa modutik <quote>iragarpenak onartzeko</quote> modura aldatu beharrik.</para>
+
+      <para>Beste abantaila bat: edozein idazketa-estiloren modeloa trebatzea oso erraza da: adibide-fitxategi bat kargatu, eta idatzi!</para>
+
+      <para>Hitzekin zaila denez Dasher nolakoa den azaltzea, bisitatu <ulink url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">http://www.inference.phy.cam.ac.uk/dasher/</ulink> webgunea, film batzuk ikusteko.</para>
+
+    </sect2>
+    <sect2>
+      <title>Dasher-i buruzko azalpena -- liburutegiaren analogia</title>
+      <para>Irudikatu <emphasis>liburu posible guztiak dituen liburutegia</emphasis>, apal batean alfabetikoki ordenatuta. Lehenengo letra <quote>a</quote> den liburuak ezkerraldean daude. Lehenengo letra <quote>z</quote> den liburuak eskuinaldean daude. Beheko (i) irudian, apala bertikalki erakusten da, <quote>ezkerraldekoak</quote>; (a) goian eta <quote>eskuinaldekoak</quote> (z) behean. <quote>a</quote> ataleko lehenengo liburua <quote><computeroutput>aaaaaaaaaaaa</computeroutput>…</quote> izenekoa da; haren eskuinaldean nonbait <quote><computeroutput>behi euskaldun baten        memoriak</computeroutput>...</quote> izeneko liburua dago, eta apur bat eskuinerago <quote><computeroutput>behi euskaldun baten        mitoak</computeroutput>...</quote> izenekoa.</para>
+
+
+      <para>Norbaitek testu-zati bat idaztean, aukeratzen duen testu-katea liburu guztiak dituen liburutegi horretako liburu bat aukeratzea bezala izango litzateke —aukeratutako testu zehatz hori duen liburua. Baina, nola aukeratuko dute liburu hori? Eman dezagun <quote><computeroutput>behi euskaldun baten</computeroutput>...</quote> idatzi nahi dutela.</para>
+      <figure>
+        <title>Liburu guztien liburutegia.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/a-z.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/aa-az.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/ala-alz.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Lehenik eta behin, liburutegiko <quote><computeroutput>b</computeroutput></quote> sekziora joango dira. Han, <quote><computeroutput>ba</computeroutput></quote>;, <quote><computeroutput>bb</computeroutput></quote>, <quote><computeroutput>bc</computeroutput>...</quote>; <quote><computeroutput>bd</computeroutput></quote> hasitako liburuak aurkituko dituzte [Picture (ii)]. Ondoren, <quote><computeroutput>be</computeroutput></quote> hasitako sekzioan, <quote><computeroutput>bea</computeroutput></quote>;, <quote>;<computeroutput>beb</computeroutput></quote>;,...; <quote><computeroutput>bec</computeroutput></quote>; hasitakoak aurkituko dituzte [Picture (iii)].</para>
+
+      <para>Azkenean, eta apalean ondo begiratuz gero, idatzi nahi duen testua duen liburua aurkituko du idazleak. Horrela, idaztea <emphasis>liburutegi alfabetikoan zooma handitzea bezala da, joan ahala gidatzen dena</emphasis>.</para>
+
+      <para>Horrelaxe egiten du lan Dasher-ek, funtsezko datu batean izan ezik: <emphasis>liburu bakoitzari dagokion apaleko tokiaren TAMAINA aldatzen dugu, dagokion testuaren probabilitatearen arabera.</emphasis> Esate baterako, ez dago <quote><computeroutput>y</computeroutput></quote> hasitako liburu asko; beraz, leku gutxiago utziko dugu <quote><computeroutput>y</computeroutput>...</quote> hasitako liburuentzat, eta gehiago hasteko probabilitate gehiago dutenentzat.</para>
+
+      <para>Hemen dago Dasher-en liburuaren irudien sekuentzia. (<quote>_</quote> karakterea zuriunea da.)</para>
+      <figure>
+        <title>Liburu guztien liburutegia.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/a-z.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/aa-az.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/ala-alz.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--
+\begin{center}
+\begin{tabular}{ccc}
+\mbox{\psfig{figure=images/a-z.m.gif.50.ps}}&
+\mbox{\psfig{figure=images/aa-az.m.gif.50.ps}}&
+\mbox{\psfig{figure=images/ala-alz.m.gif.50.ps}}\\
+(i)&(ii)&(iii)\\
+\end{tabular}
+\end{center}
+							      -->
+
+      <para>Dasher treba daiteke edozein idazketa-estiloren adibideekin, eta etengabe ikasten du, zure esapide pertsonalak gogoratuz.</para>
+
+      <para>Beheko irudian Dasher interfazeak erabiltzaileak 'objection' hitza idazten duen bitartean duen egoera azaltzen da; puntu honetan idatz litezkeen beste hitz batzuk 'objective', 'objects_' eta 'object_oriented' dira.</para>
+      <figure>
+        <title>'Objection' idazten Dasher-en.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/object.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Zaila egiten bazaizu Dasher irudikatzea irudi estatiko horiekin, ikus <ulink url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">http://www.inference.phy.cam.ac.uk/dasher/</ulink> webguneko filmak.</para>
+
+
+      <!--% When  you try Dasher for the first time,  please read the tips for novices.-->
+    </sect2>
+    <sect2>
+      <title>Iradokizunak hasiberrientzat</title>
+      <para>Ez etsi minutu bat edo bi behar badituzu erabiltzen hasi aurretik —hamar minutu barru, ondo moldatuko zara. Autoak gidatzearen antzekoa da. Hasteko, <emphasis>gidatu kontu handiz</emphasis>. Ezin baduzu esan nora zoazen, <emphasis>utzi joateari</emphasis>. Izan ere, lehenago ikasiko duzu Dasher erabiltzen autoa gidatzeko analogiarekin lan egiten baduzu, ordenagailu estandarren analogiarekin egiten baduzu baino. Esate baterako, nabigatzeko ez da ARRASTATU behar: GIDATU egin behar da; autoek leihodun ordenagailuek bezala jardungo balute, nahi duzun errepide-pieza <quote>harrapatu</quote> beharko zenuke, eta, gero, <quote>arrastatu</quote> zuregana; baina auto batean, eskuinera joan nahi duzunean, ESKUINERA SEINALATZEN duzu bolantearekin. Dasher-ek ez du funtzionatzen arrastatuz. <emphasis>Ez saiatu gauzak hartzen eta arrastatzen. Erabaki nora joan nahi duzun, eta seinalatu, besterik ez.</emphasis></para>
+
+      <para>Hasiberri batek ulertu behar duen <emphasis>kontzepturik garrantzitsuena</emphasis> da beti jarraitu behar duela ordura arte idatzitako testuaren <emphasis>barnean</emphasis>: <quote>behi</quote> hitzarekin hasten den liburua hautatzeko, ez <emphasis>da</emphasis> sartu behar <quote>b</quote> hasten den sekzioan, gero <quote>b</quote> sekziotik atera, <quote>e</quote> sekzioan sartu, eta gero <quote>h</quote> sekzioan, eta abar. Sartu behar da <quote>b</quote> sekzioan, gero <quote>b</quote> sekzioaren <emphasis>barruko</emphasis> <quote>e</quote> sekzioan, gero <quote>beh</quote>; sekzioan, <quote>be</quote> sekzioaren <emphasis>barruan</emphasis>, etab.</para>
+
+      <para>Telefono-liburuan izenak bilatzea bezalakoa da. <quote><computeroutput>Ainhoa</computeroutput></quote> bilatzeko, ez zoaz telefono-liburuko <quote><computeroutput>A</computeroutput></quote> sekziora, gero <quote><computeroutput>I</computeroutput></quote> sekziora: <quote><computeroutput>A</computeroutput></quote> sekziora zoaz, eta gero, <emphasis>bertan</emphasis>, <quote><computeroutput>AI</computeroutput></quote> sekziora, etab. Behin <quote><computeroutput>AI</computeroutput></quote> sekzioan, ez zara hortik ateratzen.</para>
+
+      <para><emphasis>Bigarren ideiarik garrantzitsuena:</emphasis> idatzitakoa amaieran liburutegian jartzen duzunaren araberakoa da <emphasis>soilik</emphasis>, ez bidean jartzen duzunaren araberakoa; beraz, ez da zehaztasun handirik eduki behar kurtsorearekin nahi den amaiera lortzeko. <emphasis>Izkinak ebaki ditzakezu.</emphasis> (Adibidez, aurreko irudian, idatzi nahi baduzu 'objects_are', ondo egongo litzateke sagua 'are' letretan zehar mugitzea, bidean 'i' koadro grisean zehar igarotzea eragiten badu ere).</para>
+
+
+
+
+      <para><emphasis>Akats ohikoenak.</emphasis> Askotan, letra bat bilatu nahi duen hasiberriak aurrerantz eramaten du kurtsorea azkar, letra ehizatu nahian-edo. Dasher erabiltzaileek gidatzeko erabili behar duten araua auto-gidariek erabili behar duten arau bera da: ez joan aurrera, nora joan nahi duzun identifikatu aurretik! Beraz, esaldiaren lehenengo letra aurkitu eta zooma handitu ondoren, <emphasis>MOTELDU, eta ez jarraitu harago lehenengo letra horren koadroan, hurrena nora joan nahi duzun pentsatu gabe</emphasis>. Behar duzun hurrengo letra hor <emphasis>dago</emphasis>, berehala sartu zaren koadroaren barruan. Letrak alfabetikoki ordenatuta daude. Ezin baduzu zure letra ikusi, irudikatu non egon behar duen <emphasis>ikus ditzakezun</emphasis> letretan oinarrituta. Ondoren, seinalatu leku ona, eta sartu bigarren letraren koadroan.</para>
+    </sect2>
+    <sect2>
+      <title>Adibidea</title>
+      <figure id="figHad1">
+        <title><quote><computeroutput>I once had a whim</computeroutput></quote> idaztea. Nora joan beharko luke erabiltzaileak?</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad2.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Eman dezagun '<computeroutput>I once had a whim</computeroutput>' idatzi nahi duzula. Idatzi `<computeroutput>I once ha...</computeroutput>', eta Dasher-ek hau erakutsiko du: <xref linkend="figHad1"/>. Orain, '<computeroutput>had</computeroutput>' idatzi nahi duzu. Zer egin behar duzu? <computeroutput>d</computeroutput> letra pila bat daude pantailan, eta denak oso txikiak. <xref linkend="figHad1"/> irudiko bost geziek <computeroutput>d</computeroutput> horietako batzuk erakusten dituzte. Gezi moreak oraindik ikusi ezin dugun <computeroutput>d</computeroutput> bat seinalatzen du, baina badakigu hor egon behar duela, '<computeroutput>a</computeroutput>', '<computeroutput>b</computeroutput>', eta '<computeroutput>c</computeroutput>' ikus ditzakegulako gainean.</para>
+      <figure id="figHad2">
+        <title><computeroutput>d</computeroutput> alternatibo batzuk, hasiberri baten errorea nabarmenduta.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad2a.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Hasiberriek askotan egiten duten akatsa da <computeroutput>d</computeroutput> horietako <emphasis>edozeinetan</emphasis> gelditzea eta zoom egitea. Esate baterako, <xref linkend="figHad3"/> irudiak erakusten du zer gertatzen den erabiltzaileak <xref linkend="figHad2"/> irudian nabarmendutako <computeroutput>d</computeroutput> letran zooma handitzen badu.</para>
+      <figure id="figHad3">
+        <title>Zer gertatzen da okerreko <computeroutput>d</computeroutput> letra hautatuz gero?</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad3a.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+
+      <para><computeroutput>d</computeroutput> horretara joanez gero, idatziko duzu: '<computeroutput>I
+          once </computeroutput><emphasis>head</emphasis><computeroutput>...</computeroutput>'. Gezi gorriekin etiketatutako beste bi <computeroutput>d</computeroutput> letrekin (<xref linkend="figHad1"/> irudia) '<computeroutput>I once
+          </computeroutput><emphasis>heard</emphasis><computeroutput>...</computeroutput>' idatziko zenuke, eta '<computeroutput>I once
+        </computeroutput><emphasis>hedge</emphasis><computeroutput>...</computeroutput>'.</para>
+
+
+      <para>Ezinbestekoa da ulertzea <computeroutput>d</computeroutput> zuzen bakarra dagoela, hau da, '<computeroutput>a</computeroutput>' letrari dagokion koadro urdinaren barruan berehala dagoen <computeroutput>d</computeroutput> letra, '<computeroutput>I once ha</computeroutput>' sekuentzian. Koadro urdin hori <xref linkend="figHad4"/> irudian nabarmenduta azaltzen da.</para>
+      <figure id="figHad4">
+        <title><computeroutput>d</computeroutput> zuzena da gezi berdeak markatutakoa. Adibide honek erakusten du <quote>beti egon behar duzula nahi duzun koadroaren <emphasis>barruan</emphasis></quote>; kasu horretan, <quote><computeroutput>had</computeroutput></quote> hitzari dagokion <computeroutput>a</computeroutput> letraren koadro urdina.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad4.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Koadro urdin hori utziz gero (<xref linkend="figHad3"/> irudian bezala), '<computeroutput>a</computeroutput>' letra galduko genuke.</para>
+    </sect2>
+
+    <sect2>
+      <title>Laburpena</title>
+      <para>
+        <emphasis>Ez egin klik. Ez arrastatu. Ez azeleratu.</emphasis>
+      </para>
+    </sect2>
+
+    <sect2>
+      <title>Zer esan nahi dute koloreek?</title>
+      <para>Ingelesezko mahaigaineko Dasher-en 3. bertsioan, <itemizedlist>
+          <listitem>
+            <para>koadro <emphasis>zuriek</emphasis> zuriune-karaktereak dituzte (beti alfabetoaren behealdean kokatuta);</para>
+          </listitem>
+
+          <listitem>
+            <para>koadro <emphasis>hori</emphasis> batek maiuskulak ditu [A-Z];</para>
+          </listitem>
+
+          <listitem>
+            <para>koadro <emphasis>gorri</emphasis> batek zenbakiak ditu [0-9] (alfabeto osoa gaituta badago);</para>
+          </listitem>
+
+          <listitem>
+            <para>koadro <emphasis>berde</emphasis> batek puntuazio-karaktereak ditu (zuriune-karakterearen antzekoenak diren karaktereekin [.,;:-], behealdean kokatuta, zuriune-karaktere <emphasis>zuriaren</emphasis> ondoan. Puntuazioaren sekzioaren barruan, rol antzekoak dituzten letrek antzeko koloreak dituzte: puntuaren antzeko puntuazio-karaktereak [.,;:-] arbel-urdinak dira;</para>
+          </listitem>
+          <listitem>
+            <para>gainerako koloreak koadroak elkarren artean desberdintzeko bakarrik sartu dira.</para>
+          </listitem>
+          <listitem>
+            <para>Azentuak dituzten hizkuntzen kasuan (kamutsa, zorrotza, zirkunflexua, etab.), azentuak koadro <emphasis>laranja</emphasis> batean bistaratzen dira.</para>
+          </listitem>
+          <listitem>
+            <para>Dasher-en japonierazko bertsioan, koloreak erabiltzen dira hiragana taldeak (adibidez, ka, ki, ku, ke, ko laranjak dira).</para>
+          </listitem>
+          <listitem>
+            <para>Dasher-en koreerazko bertsioan, hiru kolore erabiltzen dira hasierako kontsonanteak, bokalak eta amaierako kontsonanteak desberdintzeko.</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>Kolore-eskema aldatu nahi izanez gero, editatu <computeroutput>kolorea</computeroutput> eta <computeroutput>alfabetoa</computeroutput> xml fitxategiak, hemen azaltzen den bezala: <xref linkend="personalising"/>.</para>
+    </sect2>
+    <sect2>
+      <title>Nola abiarazi Dasher (4. bertsioa)</title>
+      <para>Exekutatu Dasher aplikazioa; leihoa ateratzen denean, egin klik saguaren ezkerreko botoiarekin, edo sakatu zuriune-barra, hasteko. [Bietako batek funtzionatuko du.] Amaitu ondoren, errepikatu ekintza (klik egitea edo barra sakatzea), Dasher ixteko. Zure saguak kontrolatzen du Dasher.</para>
+
+      <para>Doitu abiadura-graduatzailea, Dasher-ek zooma handitzeko erabiliko duen gehienezko abiadura ezartzeko. 1 abiadura ona da hasiberrientzat; 2ra igaro daiteke 5 minuturen praktikaren ondoren, eta 4ra, behin esperientzia lortuta.</para>
+    </sect2>
+    <sect2>
+      <title>Nola abiarazi Dasher (2. bertsioa) sakelako PCetan.</title>
+      <para>Instalatu, exekutatu (itxaron segundo batzuk trebatzeko fitxategia kargatu arte), eta ukitu pantaila arkatzarekin Dasher mugitzen has dadin.</para>
+
+      <para>Bereziki koloratutako hiru koadro daude Dasher-en bertsio honetan, horia, gorria eta berdea; hiru koadro horietan ez dago bat ere karaktererik: alfabetoaren azpitaldeak adierazten dituzte. (Maiuskulen alfabetoa, zenbakiak (bertsio batzuetan bakarrik), eta puntuazioa).</para>
+    </sect2>
+  </sect1>
+  <!--<sect1 id="usage">
+    <title>Using Dasher</title>
+    <sect2 id="menubar">
+      <title>Menus</title>
+      <para> The menu bar, located at the top of the <interface>Main Window</interface>, provides
+        the following commands: </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            <guimenu>File</guimenu>
+          </term>
+          <listitem>
+            <para>This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para>
+                    <guimenuitem>New</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Open</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Save</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Save As</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Append to file</guimenuitem> this command can be used to append
+                    the current Dasher buffer to an existing text file.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Import training text</guimenuitem> this command can be used to
+                    add the contents of an existing text file to Dasher's language model.</para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Quit</guimenuitem>
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Edit</guimenu>
+          </term>
+          <listitem>
+            <para> This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para>
+                    <guimenuitem>Cut</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Copy</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Paste</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Copy All</guimenuitem>
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Options</guimenu>
+          </term>
+          <listitem>
+            <para> This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para><guimenuitem>Preferences</guimenuitem>, which launches the <link
+                      linkend="prefs">
+                      <interface>Preferences Dialog</interface>
+                    </link></para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Edit font</guimenuitem> alters the font used in the edit
+                  box.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Dasher font</guimenuitem> alters the size of the moving
+                    characters.</para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Dasher font size</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Enter text into other windows</guimenuitem> this causes Dasher
+                    to enter text into whichever window is selected.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Control mode</guimenuitem> this causes an extra node to appear
+                    at the bottom of the alphabet. Here, you can edit text directly from within
+                    Dasher, cause Dasher to speak text that you have entered and stop or pause
+                    Dasher.</para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Help</guimenu>
+          </term>
+          <listitem>
+            <para>This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para><guimenuitem>About</guimenuitem> shows basic information about
+                      <application>Dasher</application>, such as author's name and version number.
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2 id="prefs">
+      <title>Customization</title>
+      <para> To change default settings, select <guimenuitem>Preferences</guimenuitem> command in
+          <guimenu>Settings</guimenu> menu. This launches the <interface>Preferences
+        dialog</interface>, shown in <xref linkend="prefs1"/>, <xref linkend="prefs2"/>, <xref
+          linkend="prefs3"/>, <xref linkend="prefs4"/> and <xref linkend="prefs5"/>. </para>
+      <figure id="prefs1">
+        <title>&quot;Alphabet&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs1.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para> Dasher has support for many languages, and the choice of which language to write in is
+        made with this dialog. Note that some languages (for example, Hiragana, Korean and the
+        International Phonetic Alphabet) may require fonts that you do not have installed. For
+        information on creating your own alphabet files, see the <ulink
+          url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">Dasher website</ulink>. </para>
+      <figure id="prefs2">
+        <title>&quot;Colour&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs2.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para> Dasher has support for different colour schemes. The 'Default' colour scheme is a
+        simple rotation of colours that should work with any language. Enhanced colour schemes may
+        be used for languages with logical groupings (such as Hiragana or Korean) or to increase
+        contrast. </para>
+      <figure id="prefs3">
+        <title>&quot;Control&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs3.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>One dimensional mode</guimenuitem> maps the Y coordinate of the mouse
+              position to an X/Y coordinate, for use with one-dimensional input methods.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Eyetracker mode</guimenuitem> optimisations for eyetrackers 
+              specifically, makes Dasher behave as in one-dimensional mode near the right hand edge
+              of the screen.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start on left mouse button</guimenuitem> the left mouse button starts
+              and stops Dasher.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start on space bar</guimenuitem> the space bar starts and stops
+              Dasher.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start with mouse position</guimenuitem> when Dasher is paused, a red
+              box appears. Hold the cursor inside the red box until a yellow box appears. Hold the
+              cursor inside the yellow box. Dasher will then start..</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Copy all on stop</guimenuitem> when stopped, Dasher will copy all
+              text to the clipboard automatically.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Speak on stop</guimenuitem> when stopped, Dasher will speak newly
+              entered text automatically.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Pause outside window</guimenuitem> Dasher will pause if the mouse
+              pointer moves outside its window.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <figure id="prefs4">
+        <title>&quot;View&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs4.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>Orientation</guimenuitem> alters the direction that the text moves
+              in. If set to &quot;Alphabet default&quot;, the alphabet file will choose the
+              appropriate direction for the alphabet.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show toolbar</guimenuitem> you can hide Dasher's toolbar if you wish.
+              Calling dasher with the '-o' switch will open a reduced-options version of dasher,
+              designed for entry into other applications.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show speed slider</guimenuitem> enable/disable the speed
+            slider.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show mouse position</guimenuitem> in some situations (such as
+              one-dimensional or eyetracker mode), the absolute position of the mouse will differ
+              from Dasher's perception of the mouse position. This option shows you where Dasher's
+              mouse is.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Draw line between crosshairs and mouse</guimenuitem> helpful for
+              users who have trouble keeping track of the pointer.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Draw box outlines</guimenuitem> increases the contrast around the
+              edges of boxes, to help distinguish between them.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Change colour scheme automatically</guimenuitem> languages such as
+              Hiragana are aware of which colour scheme they should be using. This option allows an
+              alphabet to select its colour scheme automatically.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <figure id="prefs5">
+        <title>&quot;Advanced&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs5.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>Smoothing</guimenuitem> adds a &quot;uniform&quot; element to
+              the language model's predictions. A smoothing value of 100 will result in an entirely
+              uniform distribution being used  each box will have the same size.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Timestamp new files</guimenuitem> each file created by Dasher will
+              automatically have the current time in its filename.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Distance from centreline for start on mouse position</guimenuitem>
+              controls the range for the 'Start on mouse position' option.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Number of pixels that should cover the entire Y range</guimenuitem>
+              some input devices do not have enough gain to cover an entire Dasher window; this
+              option increases the gain of displacement on the Y axis.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>-->
+  <sect1 id="reallife">
+    <title>Nola erabili Dasher bizitza errealean</title>
+
+    <para>Dasher erabil daiteke ordenagailuarekin komunikatzeko eta, maila bateraino, kontrolatzeko. Jakina, Dasher-ekin komunikatzeko modurik errazena da zurekin hitz egiten ari den pertsonak zuk idatzi ahala pantaila ikustea. Baina beste modu batzuk ere badaude.</para>
+
+    <sect2>
+      <title>Kopiatu arbelean</title>
+
+      <para>'Kopiatu gelditzean' eginbidea aktibatuta baduzu, Dasher geldiarazten duzun aldi oro Dasher-en testu-koadroko edukia zuzenean kopiatuko da zure ordenagailuaren arbelean. Beste aplikazio bateko 'Itsatsi' funtzioa erabil dezakezu orduan, idatzitakoa transferitzeko.</para>
+    </sect2>
+
+    <sect2>
+      <title>Hitz egin</title>
+
+      <para>Testua hizketa bihurtzeko sistema barneratuarekin konektatzen da Dasher. Modu bat baino gehiago daude Dasher hizketarako erabiltzeko.</para>
+
+      <para>Aukera dezakezu Dasher-ek 'hitz bakoitza ahoskatzea': hitz baten amaieran igarotzen zaren bakoitzean (zuriune-karaktere bat sartuz, adibidez), hitza berehala ahoskatuko da.</para>
+
+      <para>Aukera dezakezu Dasher-ek 'gelditzean hitz egitea': Dasher mugitzeari uzten diozun bakoitzean, testu-koadroan dagoen guztia ahoskatuko da.</para>
+
+      <para>Azkenik, zuk nahi duzuna bakarrik ahoskatzea nahi baduzu, gaitu <emphasis>Kontrol modua</emphasis> (Aukeren menuan dago, Dasher-en 3. bertsioan). Modu honekin, koadro estra bat aterako da Dasher-en alfabetoan, gris kolorekoa, eta teklatuko ihes teklaren lana egiten du. Kontrolaren koadroaren barruan sartuz gero, kontrolarekin lotutako aukera batzuk izango dituzu: Gelditu (gorria); Pausarazi (horia); Mugitu; Ezabatu eta Hitz egin. 'Hitz egin' koadroaren barruan hainbat aukera daude: 'hitz egin dena', 'hitz egin berria' (azken ahoskalditik idatzitako hitz berriak bakarrik), eta 'hitz egin berriro' (azken ahoskatutako hitzak berriro esateko).</para>
+    </sect2>
+
+    <sect2>
+      <title>Gorde fitxategian</title>
+
+      <para>Dasher-en testu-koadroan dagoena testu arrunteko fitxategi gisa gordetzeko, egin klik ikono-barrako 'Gorde fitxategia' ikonoan, edo erabili Dasher leihoaren goialdeko menuak (Fitxategia - Gorde).</para>
+    </sect2>
+
+    <sect2>
+      <title>Bidali testua beste leiho batera</title>
+
+      <para>Nahi izanez gero, Dasher-en idatzitakoa zuzenean bidal dezakezu beste leiho batera. Gaitu 'Bidali testua beste leiho batera' aukera, aukeren menuan. Hautatuko leihoak Dasher-en irteera erakutsiko du.</para>
+    </sect2>
+
+
+
+
+    <sect2>
+      <title>Letra-tipoen tamainak</title>
+
+      <para>Dasher-ek testu-koadroa du (testua azaltzen den lekua), eta Dasher oihala (zooma letren gainean handitzen den lekua). Bi zonetako letra-tipoaren tamaina aldatzeko, erabili Dasher leihoaren goialdeko Dasher menuak. 'Editatu letra-tipoa' eta 'Dasher letra-tipoa' izena dute letra-tipoek. Editatu letra tipoaren tamaina aldatzeko, atera ohiko elkarrizketa-koadroa, eta aldatu tamaina. Dasher oihalaren tamaina aldatzeko, aurkitu Dasher-en tamainaren aukera, eta hautatu hauen artean: txikia, ertaina eta handia.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="personalising">
+    <title>Dasher pertsonalizatzea</title>
+    <para>Hiru fitxategi alda ditzakezu Dasher-ek zuretzat hobeto lan egin dezan: <computeroutput>alfabetoa</computeroutput> fitxategiak, <computeroutput>kolorea</computeroutput> fitxategiak, eta <computeroutput>trebatzea</computeroutput> fitxategiak.</para>
+
+    <sect2>
+      <title>Hizkuntza-eredua pertsonalizatzea</title>
+      <para>Dasher-en aurreikuspenak (Dasher-en 3. bertsioan) ez dira hiztegian oinarritzen, baizik eta testu arruntaren trebatzeko testuan. Esate baterako, Dasher-en 3. bertsioa deskargatzean, <filename>training_english_GB.txt</filename> izeneko fitxategia ere jasotzen da. Ingelesezko testu arrunteko 300 kbyte dira, Interneteko hainbat dokumentutik hartuta.</para>
+
+      <para>Dasher erabiltzean, idazten duzun oro trebatzeko fitxategiaren izen bera duen beste fitxategi pertsonal batean gordeko du. Dasher erabiltzen duzun hurrengoan, jatorrizko trebatzeko fitxategia eta azken aldian idatzitako guztia irakurtzen du, hobeto aurrez ikusten laguntzeko. Dasher-ek etengabe ikasten du. Dasher-en emaitzarik onenak lortzeko: <itemizedlist>
+          <listitem>
+            <para>Ahal izanez gero, eman Dasher-i zure estiloko trebakuntza-testu bat -- zuk idatzitako dokumentu batzuetatik ateratako testu arrunteko fitxategi bat, eta zure esaldi propioak, lagunen izenak, etab. dituena. Gehitu fitxategia trebatzeko fitxategian, edo ordeztu trebatzeko jatorrizko fitxategia.</para>
+          </listitem>
+          <listitem>
+            <para>Iruditzen bazaizu zure trebatzeko fitxategi pertsonala hondatuta dagoela zaborra daukalako, editatu testu arruntaren editore batekin. (Edo eskatu lagun bati hori egiteko).</para>
+          </listitem>
+          <listitem>
+            <para>Dasher hainbat hilabetetan erabiliz gero, baliteke trebatzeko fitxategi pertsonala oso handia egitea, eta Dasher motelago abiaraztea horren ondorioz; hala gertatuz gero, editatu trebatzeko fitxategia, testu arruntaren editore batekin.</para>
+          </listitem>
+        </itemizedlist></para>
+    </sect2>
+    <sect2>
+      <title>Alfabetoa pertsonalizatzea</title>
+      <para>Alfabetoaren fitxategiak erabakitzen du zein karaktere dituzun erabilgarri, eta zein ordenatan. Esate baterako, <filename>alphabet.english.xml</filename> fitxategia erabil dezakezu. Dasher alfabeto alternatibo ugarirekin dator. Alfabeto-fitxategiak edita ditzakezu alfabetoan zein karaktere dauden edo zein ordenatan dauden aldatzeko. xml fitxategi hau editatzean, ondo egongo litzateke fitxategi berriari izen berri bat ematea, eta fitxategi berriaren alfabetoen izena aldatzea, nahasketarik gerta ez dadin. xml fitxategiaren eremu bakoitzak sinbolo bat adierazten du, hiru elementuren bidez: <emphasis>bistaratu</emphasis> behar den karakterea (<computeroutput>d=</computeroutput>...); <emphasis>testuan</emphasis> doan karakterea (<computeroutput>t=</computeroutput>...) ikurra hautatzen denean; eta ikur horren koadroaren atzeko planoaren kolore-zenbakia (<computeroutput>b=</computeroutput>...), behekoen artean.</para>
+    </sect2>
+    <sect2>
+      <title>Kolore-eskema pertsonalizatzea</title>
+      <para>Bi modutan alda ditzakezu Dasher munduaren koloreak. Kolore-fitxategia (<filename>colour.xml</filename> edo <filename>colour.euroasian.xml</filename>, esate baterako) Dasher-ek erabiltzen duen paletako 200 koloreak adierazten ditu. Lerro bakoitzak balio gorria, berdea eta urdina zehazten ditu.</para>
+
+      <para>Kolore horiek kolorea ematen diete hainbat objekturi Dasher-en. Esate baterako, <quote>lerro gorriaren</quote> kolorea aldatu nahi baduzu, aldatu kolore-fitxategiko bigarren kolore-lerroa, hau jartzen duena: <computeroutput>&lt;colour r="255"
+          g="0" b="0"/&gt;</computeroutput>.</para>
+
+
+      <para>Kolore horietako zein erabili aldatzeko, ikur bakoitzaren koadrorako, aldatu ikur horren <quote>b</quote> eremua ikur horretarako alfabetoaren fitxategian.</para>
+    </sect2>
+
+
+
+
+  </sect1>
+  <sect1 id="languages">
+    <title>Hizkuntzak</title>
+
+    <para>Dasher-ek ehunka hizkuntzatan lan egiten du.</para>
+
+    <para>Hizkuntza bakoitzak alfabeto-fitxategi bat du (edo, agian, bat baino gehiago). Dasher-en webgunean, trebatzeko testu bat gutxienez eskaini nahi dugu hizkuntza bakoitzarentzat. Ez badugu trebatzeko testu egokirik zure hizkuntzarentzat, lagun iezaguzu bat eginez, eta bidali iezaguzu, mesedez.</para>
+
+    <para>Ikus Dasher-ek onartutako hizkuntzen zerrenda, Dasher-en webgunean. 2005eko urrian, munduko hizkuntza nagusi guztiak onartzen ziren, japoniera eta txinera izan ezik: Dasher-en 3. bertsioa euskarri fonetikoa bakarrik eskaintzen du (hiragana eta pin-yin). Dasher-en 4. bertsioan, guztiz onartuko dira, bai japoniera eta bai txinera.</para>
+
+    <!--    %% Dasher works beautifully in Korean-->
+
+
+  </sect1>
+
+
+
+  <sect1 id="specialneeds">
+    <title>Dasher-en behar berezien gida</title>
+
+    <para>Dasher diseinatzeko <emphasis>ahalik eta informazio gehiena</emphasis> lortzeko printzipioan oinarritu da.</para>
+
+    <para>Ondokoen artean zuretzat errazena denetik lor dezakegu informazioa: <orderedlist>
+        <listitem>
+          <para>Mugimendu <emphasis>jarraituek</emphasis> (kontrol-palanka, trackpad, buru-sagu, begirada-jarraitzaile bidez, esate baterako) lortzen dituzte, normalean, idazketa-tasarik altuenak.</para>
+        </listitem>
+        <listitem>
+          <para>Mugimendu <emphasis>diskretuak</emphasis> (kommutadoreak, botoi-sakatzeak) gai izan daitezke informazioa hiru modutan erabiltzeko:</para>
+          <orderedlist>
+            <listitem>
+              <para>Botoia sakatzen duzun <emphasis>uneak</emphasis> informazioa eman dezake. (Ideia hau botoi bakar batek kontrolatzen dituen sareta-sistemetan erabiltzen da).</para>
+            </listitem>
+            <listitem>
+              <para>Botoia sakatzen <emphasis>zenbat denbora</emphasis> zauden informazioa bidal dezake. (Ideia hori Morse kodean erabiltzen da, eta bi iraupen mota daude).</para>
+            </listitem>
+            <listitem>
+              <para><emphasis>Zein</emphasis> <emphasis>botoi</emphasis> sakatzen duzun ere informazioa bidal dezake. (Ideia hau teklatu arruntetan erabiltzen da).</para>
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist></para>
+
+    <sect2 id="manual7">
+      <title>Mugimendu jarraituek</title>
+      <para>Dasher-en modu normalean bi dimentsioko mugimendu gidari batekin gidatzen da (<emphasis>saguaren modua</emphasis>). Horrez gain, Dasher-ek badu <emphasis>dimentsio bateko modua</emphasis> dauka, dimentsio bakarra kontrola dezaketen erabiltzaileentzat.</para>
+
+      <para>Mugimendu jarraitu bat edo bi egin ditzakezu? Kontrol-palanka, sagua, trackpad edo rollerball bat erabil badezakezu, bi dimentsioko kontrola duzu. Ukipen-pantaila batean seinala badezakezu, oso ondo dago. Sudurra mugi dezakezu? Burua astindu badezakezu, dimentsio bakarreko kontrola da; baiezko keinua egin badezakezu, bi dimentsiokoa. Buru-sagu bat nahiko merkea izan daiteke, eta Dasher gidatzeko modu oso egokia. (NaturalPoint-en <emphasis>SmartNav3</emphasis> gomendatzen dugu, 170 € inguru balio du, eta Microsoft Windows-en bakarrik egiten du lan; 2002 arte NavPoint TrackIR izenez ezagutzen zen, baina gero beste gailu bati jarri zioten izen hori. Era berean, Origin instruments-en <emphasis>Headmouse Extreme</emphasis> ere gomendatzen dugu; 850 € inguru balio du, eta USB sagu gisa jarduten du edozein ordenagailutan.) Behatz edo oin bat mugi dezakezu? Buru-sagu hau behatzak, oinak nahiz buruak jarraitzeko erabil daitezke. SmartNav3 eta Headmouse Extreme alderatzeko, ikus <ulink url="http://www.inference.phy.cam.ac.uk/dasher/Headmouse.html" type="http">http://www.inference.phy.cam.ac.uk/dasher/Headmouse.html</ulink>.</para>
+
+      <para>Paralisi oso larria baduzu, agian begirada-jarraitzaile bat izan daiteke aukerarik onena. Kontrolatzen duzu nora begiratzen duten zure begiek? Begirada-jarraitzaile batekin 25 hitz idatz daitezke minutuko. Begirada-jarraitzaileak nahiko garestiak dira: EyeTech Digital Systems-en QuickGlance-k 1.700 € inguru balio du, eta Tobii begi aztarnariak 17.000 inguru. [Bi sistemak gomendatzen ditugu. QuickGlance ordenagailu batekin lot dezakezu; Quickglance IIk 3.400 € inguru balio du. Tobii ordenagailu oso bat da, eta begi aztarnaridun kamerak dauzka barneratuta.] Dasher-ek <emphasis>Erica</emphasis> Eye response-rekin ere lan egiten du, <emphasis>Eyegaze</emphasis> LCekin, eta Metrovision-en begirada-jarraitzailearekin. Hiru sistema horiek ordenagailu osoak dira, eta begi aztarnaridun kamerak dauzkate barneratuta.</para>
+
+      <para>Kontrol-palankek, saguek, rollerball-ek eta begirada-jarraitzaileek funtzionatzen ez badute, baliteke beste modu batzuk egotea dimentsio bakarreko seinale jarraitu bat bidaltzeko. Ezpainek eta bekainek balio beharko lukete, baina ez dugu ezagutzen horretarako gailuak saltzen dituen fabrikatzailerik. Arnasa ere dimentsio bateko seinalea da. Arnasa kontrola badezakezu, arnas sagu bat egin dezakezu. 20 euro ingururekin eta USB sagu optikoarekin, gerriko batekin eta zerbait elastikoarekin erabiltzaile aurreratu batek 15 bat hitz idatz ditzakezu minutuko arnaste hutsarekin.</para>
+      <sect3>
+        <title>Abiaraztea eta geldiaraztea</title>
+        <para>Modu bat baino gehiago daude Dasher abiarazteko eta geldiarazteko. Aukera bat botoi bat sakatzea da (esate baterako, saguaren ezker-botoia edo zuriune-barra). Baina ezin baduzu botoirik sakatu, mugimendu jarraituen bidez ere abiaraz eta geldiaraz daiteke: aukerak menuan, hautatu <quote>abiarazi posizioan</quote>, eta aldatu <quote>kontrol modura</quote>. Behin kontrol modua aktibatuta, Dasher alfabetoak Kontrol nodo berezi bat du (ordenagailuaren <computeroutput>ihes</computeroutput> teklaren antzekoa), kontrol-funtzio erabilgarri batzuekin. Kontrol nodoaren barruan zaudenean, Dasher normalean baino motelago mugitzen da, segurtasuna dela-eta. Kontrol nodoaren aukera batzuk 'pausarazi' eta 'geldiarazi' dira. Erabili 'pausarazi', zerbait idazten ari bazara eta une baterako gelditu nahi baduzu. Erabili 'geldiarazi' amaitu duzunean. <command>Pausarazteko</command> eta <command>geldiarazteko</command> funtzioek jokabide bera dute; baina <command>geldiaraztean</command> beste ekintza automatiko batzuk gerta daitezke, 'gelditzean hitz egitea' edo 'kopiatu gelditzean'.</para>
+
+        <para>Dasher pausarazita edo geldituta badago, aktibatuta dauden abiarazteko metodoetako batekin berrabiaraz daiteke. 'Abiarazi posizioan' gaituta egonez gero, Dasher geldiarazten den bakoitzean helburu luzeen sekuentzia bat bistaratuko da; Dasher berrabiarazteko, seinalatu lehenengo helburua (gorria), eta gero bigarrena (horia). (Bi helburu erabiltzen ditugu sekuentzian, Dasher nahigabe abiaraztea zailagoa izan dadin).</para>
+      </sect3>
+      <sect3>
+        <title>Buru-jarraitzailea erabiltzeko gomendioak</title>
+        <para>Jarraitzaile askok 'leuntzeko' aukerak dituzte, saguaren posizioa eguneratzeko maiztasuna erabakitzeko; halako aukerak saguaren posizioa leuntzeko eta murrizteko erabiltzen dira normalean. Dasher-en kasuan, ez ditugu leuntzeko aukerak oso gogoko. Nahiago ditugu sagu-koordenatuak, mugimendu bizkorrekin, biziekin, gordinekin eta jauzilariekin. 'Leuntzeko' kontrolik egonez gero, desaktibatu.</para>
+
+        <para>Buru-jarraitzailearen 'irabazia' (batzuetan 'abiadura' izenez deitua) ere doitu beharreko eginbidea da. Jarraitzaile batzuen irabaziak softwarean doi daitezke. Bestela, aldatu jarraitzailearen geometria irabazia doitzeko: jarraitzailearen puntua bekokitik mugitzen baduzu tenis-pilota baten ertzera, esate baterako, irabazia bikoiztu egingo duzu bat-batean. Jarraitzailetik gertuago esertzeak ere irabazia igoko du. Aurkitu eroso zaizun irabazi-ezarpen bat. Irabazi altu batek aukera ematen du buru-mugimendu txikiekin gidatzeko.</para>
+      </sect3>
+      <sect3>
+        <title>Begirada-jarraitzailea erabiltzeko gomendioak</title>
+        <para>Begirada-jarraitzaileekin emaitza onak lortzeko, oso gomendagarria da begirada-jarraitzailea ahalik eta sentikorrena izatea. Jarraitzaile askok 'leuntzeko' aukerak dituzte, saguaren posizioa eguneratzeko maiztasuna eta saguaren posizioa asmatzeko erabilitako begirada-irudien kopurura erabakitzeko. Halako aukerak saguaren posizioa leuntzeko eta murrizteko erabiltzen dira normalean. Dasher-en kasuan, ez ditugu leuntzeko aukerak oso gogoko. Nahiago ditugu sagu-koordenatuak, mugimendu bizkorrekin, biziekin, gordinekin eta jauzilariekin. Nabigatzean, zure begiak oso bizkor mugitzen dira interesatzen zaizun helburura, eta nahi dugu Dasher-ek berehala erantzutea. Dasher-entzako ezarpen idealak eta beste software batenak desberdinak izan daitezke. Eskatu begi aztarnariaren fabrikatzaileari errazago egiteko ezarpenak aldatzea aplikazioa aldatzean.</para>
+
+        <para>Dasher-ek aukera batzuk diseinatuta dauzka begirada-jarraitzaileekin erabiltzeko. Gomendatzen dugu <emphasis>begi aztarnariaren modua</emphasis> erabiltzea (Aukerak/Hobespenak/Kontrolaren azpian). Modu honetan, Dasher-en dinamika ohiko dinamikaren desberdina da, akatsak begiradaz zuzentzea errazago egiten baitu.</para>
+
+        <para>Zure begirada-jarraitzailearen doikuntza denboraren arabera aldatzen bada, esate baterako, zure burua mugitzen denean, <emphasis>Doitu automatikoki begi aztarnaria</emphasis> eginbidea. Eginbide hau aktibatuta dagoenean, Dasher-ek zure begiradaren jarraipena egiten du, eta doikuntza bertikalaren akatsa aldatzen du, konpontzeko. Zuzenketak eragina izan duela ikusteko, begiratu desplazamendu bertikalari, Dasher-ek erakutsitako sagu-posizioaren (lerro gorritik) eta begirada-jarraitzailearen sagu-posizioaren artean (sistemaren sagu-kurtsoreak erakutsitakoa).</para>
+
+        <para>Sagua pantailako goialdearekin eta behealdearekin lotzen denean sortzen diren arazoak ekiditeko, gomendatzen dizugu Dasher-en leiho-tamaina pantaila osokoa <emphasis>ez</emphasis> izatea. Jarri Dasher leihoa Dasher oihalaren goialdean eta behealdean marjina bat egoteko moduan.</para>
+
+        <para><emphasis>Ohar teknikoa:</emphasis> saguaren emulazioan bezala, Dasher gai da begirada-jarraitzaileen, buru-jarraitzaileen edo antzeko sistemen informazioaren jarraipena egiteko, sistema socket baten bidez. Aukera hau konfiguratzeko, joan 'Hobespenak' elkarrizketako 'Sarrerako gailua' atalera.</para>
+      </sect3>
+    </sect2>
+    <sect2 id="manual8">
+      <title>Mugimendu diskretuak</title>
+      <para><emphasis>Dasher botoiaren</emphasis> hainbat bertsio daude erabilgarri Dasher-en 4. bertsioan.</para>
+
+      <sect3>
+        <title>Presa handiko mugimenduak ez daude aukeran?</title>
+        <para>Informazioa bidaltzeko modu batzuek mugimenduen <emphasis>denbora</emphasis> erabiltzen dute. Hala ere, pertsona batzuek ezin dituzte mugimenduak egin behar den unean. Esate baterako, espastikoentzat oso zaila da ekintza bat 'oraintxe bertan' egitea!</para>
+
+        <para>Presa handiko mugimenduek funtzionatzen ez badute, joan hona: <xref linkend="no_time_critical"/>.</para>
+
+        <para>Informazioa bidaltzeko <emphasis>une jakin batean</emphasis> mugimenduak egin <emphasis>baditzakezu</emphasis>, joan <xref linkend="timed"/> atalera.</para>
+      </sect3>
+    </sect2>
+    <sect2 id="no_time_critical">
+      <title>Dasher-en 'denborarik gabeko' aukerak</title>
+      <para>Beraz, zure erritmoan gidatu nahi duzu Dasher. Mugimendu jarraitu zertxobait zehatzak egin ditzakezu denbora jakin batean? Esate baterako, jarri dezakezu kurtsorea zehazki pantailako leku batean, eta botoi bat sakatu prest zaudela adierazteko? Edo ukipen-pantaila bat uki dezakezu zehaztasunez? <itemizedlist>
+          <listitem>
+            <para>Hala izanez gero, saiatu <emphasis>klik moduarekin</emphasis>. Joan hona: <xref linkend="time_critical_button"/>.</para>
+          </listitem>
+          <listitem>
+            <para>Bestela, saiatu <emphasis>zuzeneko botoiaren moduarekin</emphasis> edo <emphasis>menu-botoiaren moduarekin</emphasis>. Joan hona: <xref linkend="no_time_critical_button"/>.</para>
+          </listitem>
+        </itemizedlist></para>
+      <sect3 id="time_critical_button">
+        <title>'Denborarik gabeko' Dasher jarraitua: klik modua</title>
+
+        <para><emphasis>Klik moduan</emphasis>, kurtsorea jarri behar duzu joan nahi duzun lekuan, eta botoi bat sakatu, prest zaudenean. Orduan Dasher-ek zuk aukeratutako kokalekuan zooma handituko du.</para>
+
+        <para>Bestela, ukipen-pantaila edukiz gero, pantaila ukitze hutsarekin zooma handituko da kokaleku horretan.</para>
+      </sect3>
+      <sect3 id="no_time_critical_button">
+        <title>Dasher-en 'denborarik gabeko' botoiak</title>
+        <para>Zenbat kommutadore, tekla edo botoi erabili ditzakezu erraz?</para>
+        <variablelist>
+          <varlistentry>
+            <term>1</term>
+            <listitem>
+              <para>Botoi batekin bakarrik, informazioa bidaltzeko denborarik gabeko modu bakarra da botoi-sakatzeen <emphasis>iraupena</emphasis>. Sakatze laburrak eta luzeak desberdindu ditzakezu? Baiezkoan, <emphasis>Dasher-en menu-botoia</emphasis> erabil dezakezu. Konektatu sakatze laburra bat 'menu' ekintzarekin, eta sakatze luzea 'hautatu' ekintzarekin.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>2</term>
+            <listitem>
+              <para><emphasis>Dasher-en menu-botoia</emphasis> erabil dezakezu. Konektatu botoi bat 'menu' ekintzarekin, eta bestea 'hautatu' ekintzarekin. Botoi bat sakatzea errazagoa bada, konektatu hori 'menu' ekintzarekin.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>2.5</term>
+            <listitem>
+              <para>Bi botoi erraz saka baditzakezu, eta, egoera berezietan, hiru, <emphasis>Dasher-en menu-botoia</emphasis> edo <emphasis>Dasher-en zuzeneko botoia</emphasis> erabil ditzakezu.</para>
+              <orderedlist>
+                <listitem>
+                  <para>Konfiguratu <emphasis>Dasher-en menu-botoia</emphasis> goian azaldu dugun bezala, eta erabili hirugarren botoia ihes tekla gisa -- Dasher-etik irteteko, adibidez. [Eginbide hau ez da Dasher-ekin hornitzen gaur egun].</para>
+                </listitem>
+                <listitem>
+                  <para><emphasis>Dasher-en zuzeneko botoian</emphasis>, botoi bakoitzak nabigatzeko ekintza zehatz bat egiten du: 'gora', 'behera', edo 'atzera'. 2.5 botoi badituzu, mapatu bi egokienak 'gora' eta 'behera' ekintzekin, eta hirugarrena 'atzera' ekintzarekin.</para>
+                </listitem>
+              </orderedlist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>3</term>
+            <listitem>
+              <para><emphasis>Dasher-en zuzeneko botoia</emphasis> edo <emphasis>Dasher-en menu-botoia</emphasis> erabil ditzakezu, goian azaldu dugun bezala.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>4, 5, 6 edo 7</term>
+            <listitem>
+              <para>Hiru botoi baino gehiagorekin, <emphasis>Dasher-en zuzeneko botoia</emphasis> erabili ahal izango duzu, 'aurrera' joateko hiru, lau, bost edo sei aukerarekin. Saiatu <emphasis>Dasher-en menu-botoiarekin</emphasis> ere, bi botoi bakarrik erabili arren.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>8 edo gehiago</term>
+            <listitem>
+              <para>Saiatu <emphasis>Dasher-en zuzeneko botoiarekin</emphasis> eta <emphasis>Dasher-en menu-botoiarekin</emphasis>. Botoi horiekin guztiekin, T9 sistemaren antzeko zerbait erabiltzeko aukera ere izan dezakezu (telefono mugikor askok duten sistema testu-igarlea). Nahi izanez gero, informatu <emphasis>Tapir</emphasis> teklatuari buruz, Dasher-en garatzaileek egindako pantaila-teklatu desanbiguatzaileari buruz.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </sect3>
+    </sect2>
+
+    <sect2 id="timed">
+      <title>Denbora erabiltzen duten Dasher botoiak</title>
+      <para>Bi Dasher moduk erabiltzen dute denbora-informazio zehatza, eta, normalean, botoia gutxiagotan sakatu behar da, presa handikoak ez diren moduetan baino:</para>
+      <sect3 id="onebutton">
+        <title>Modu dinamikoa (botoi bat)</title>
+        <para>Behin abiarazita, Dasher-ek zooma handituko du, pantailaren goialdeko nahiz behealdeko puntu batean. Botoi-sakatze labur batek aurkako aldera eramango du zooma handitu beharreko puntua. Testua sartzeko, botoia sakatu behar da, idazten ari den esaldia pantailaren ertzera iristen denean.</para>
+      </sect3>
+      <sect3 id="twobutton">
+        <title>Modu dinamikoa (bi botoi)</title>
+        <para>Dasher-ek pantailako erdialderantz handitzen du zooma etengabe, eta bi botoiak pantaila gora eta behera mugitzeko erabiltzen dira. Botoiak sakatzeko, nahi den testuak bi markatzaileen artean lerrokatuta egon behar du.</para>
+      </sect3>
+      <sect3>
+        <title>Akatsak zuzentzea</title>
+        <para>Hiru aukera daude modu dinamiko bakoitzean akatsak konpontzeko: botoi gehigarri bat, sakatze luzeak edo laburrak erabiltzea. Kasu guztietan, halako ekintzak Dasher-ek zooma tasa finko batean txikitzen duen modura aldatuko dira. Modu horretan, berriz sakatuz gero Dasher geldiaraziko da, eta bigarren sakatze batekin Dasher zooma handitzera itzularaziko du.</para>
+      </sect3>
+    </sect2>
+  </sect1>
+
+  <sect1 id="modesummary">
+    <title>Dasher moduen laburpena</title>
+    <para><application>Dasher-en</application> moduak beheko zerrendan azalduko dira. Modua aldatzeko, erabili <emphasis><quote>Editatu</quote></emphasis> menua. Hautatu <emphasis><quote>Hobespenak</quote></emphasis>, eta gero <emphasis><quote>Kontrola</quote></emphasis>. Modu bakoitzak hainbat parametro dituzte asoziatuta; parametroak aldatzeko, erabili moduaren menuaren azpiko <emphasis>aukerak</emphasis> botoia.</para>
+
+    <sect2 id="normal">
+      <title>Normala</title>
+      <para>Jatorrizko <application>Dasher</application> modua. Bi dimentsioko mugimenduak erabiltzen ditu funtzionatzeko, sagu batenak, esate baterako. Bi dimentsio kontrolatu ezin dituztenentzat, badago dimentsio bateko modua erabilgarri, eta begi aztarnariaren modu berezi bat ere bai, Dasher begirada- edo buru-jarraitzaile batekin erabiltzen dutenentzat. Dasher abiarazteko, saguaren posizioa bakarrik erabil daiteke, klik egitea posible ez denean; hautatu 'Abiarazi saguaren kokalekuarekin' eta 'Zirkuluan abiarazi', pantailako erdialdean zirkuluak eginez abiarazteko eta geldiarazteko aukera emateko. Abiarazteko 'Bi kutxa' moduak Dasher abiarazten du kurtsorea bi kutxetan sekuentzian jarri ondoren. Bestalde, Dasher geldiarazteko kontrol modua erabili behar da.</para>
+    </sect2>
+
+    <sect2 id="click">
+      <title>Klik modua</title>
+      <para><emphasis>Klik moduan</emphasis>, kurtsorea jarri behar duzu joan nahi duzun lekuan, eta botoia sakatu, prest zaudenean. <application>Dasher</application>-ek zooma handituko du zuk klik egindako lekuan.</para>
+    </sect2>
+
+    <sect2 id="menu">
+      <title>Menu modua</title>
+      <para>Botoi bat kokalekua hautatzeko erabiltzen da, eta, behin bigarren botoi bat sakatuta, <application>Dasher-ek</application> zooma handituko du kokaleku horretan. Zikloko azken kutxa handia erabiltzen da zooma txikitzeko.</para>
+    </sect2>
+
+    <sect2 id="direct">
+      <title>Modu zuzena</title>
+      <para>Modu zuzena menu moduaren antzekoa da, baina kutxak botoiei esleitzen zaizkie zuzenean, sekuentzian hautatu beharrean.</para>
+    </sect2>
+
+    <sect2 id="compass">
+      <title>Konpas modua</title>
+      <para>Konpas moduan lau botoi erabiltzen dira. Bi botoi posizio bertikala kontrolatzek erabiltzen dira. Behin nahi den posizio bertikala lortuta, hirugarren botoi bat sakatzen da zooma handitzeko. Posizio horretan zooma handitu ondoren, erabiltzaileak berriz hautatzen du posizio bertikala. Laugarren botoi batek txikitzen du zooma, akatsik egon bada.</para>
+    </sect2>
+
+    <sect2 id="dynamic">
+      <title>Modu dinamikoa (botoi bat)</title>
+      <para><application>Dasher-ek</application> etengabe handitzen du zooma, eta botoi bakar bat erabil daiteke <quote>gora</quote> eta <quote>behera</quote> joateko. Era berean, <emphasis>Modu dinamikoa (bi botoi)</emphasis> izenekoa dago; modu horrekin, bi botoi erabiltzen dira mugimenduak <quote>gora</quote> eta <quote>behera</quote> eramateko. Hirugarren botoi bat, sakatze luzeak edo hainbat sakatze erabil daitezke zooma txikitzeko eta akatsak konpontzeko.</para>
+    </sect2>
+
+    <sect2 id="buttondynamic">
+      <title>Modu dinamikoa (bi botoi)</title>
+      <para><application>Dasher</application>-ek etengabe handitzen du zooma, eta bi botoi erabiltzen dira mugimendu bertikala kontrolatzeko. Botoi bateko modu dinamikoan bezala konpontzen dira akatsak.</para>
+    </sect2>
+  </sect1>
+
+
+
+
+
+  <sect1 id="authors">
+    <title>Egileak</title>
+    <para><application>Dasher</application> Dasher proiektuko kideek idatzi dute (<email>dasher@inf.phy.cam.ac.uk</email>). Horri buruz informazio gehiago nahi izanez gero, ikus <application>Dasher-en</application><ulink url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">web-orria</ulink>. Bidali zure iruzkin, iradokizun eta akatsen berri-emateak <ulink url="http://bugzilla.gnome.org/enter_bug.cgi?product=dasher" type="http">GNOMEren akatsen segimendurako datu-basera</ulink>. Programa-erroreen berri emateko jarraibideak linean aurkituko dituzu <ulink url="http://bugs.gnome.org/Reporting.html" type="http">http://bugs.gnome.org/Reporting.html</ulink> helbidean. GNOMEren 1.1 bertsioa edo berriagoa baduzu, <command>bug-buddy</command> komandoa ere erabil dezakezu akatsen berri emateko.</para>
+    <para>Eskuliburu hau Dasher Proiektuak idatzi du (<email>dasher@inf.phy.cam.ac.uk</email>). Bidali eskuliburuari buruzko iruzkin eta iradokizun guztiak GNOME dokumentazio-proiektura <email>docs@gnome.org</email> helbidera. Linean ere bidal daitezke oharrak, <ulink type="http" url="http://www.gnome.org/gdp/doctable/">GNOMEren dokumentazioaren egoeraren taula</ulink>ren bidez.</para>
+  </sect1>
+</article>

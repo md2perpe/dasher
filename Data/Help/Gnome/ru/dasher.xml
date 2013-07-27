@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article id="index" lang="ru">
+  <articleinfo>
+    <title>Руководство Dasher</title>
+    <corpauthor role="maintainer">Проект Dasher</corpauthor>
+    <copyright>
+      <year>2010</year>
+      <holder>Проект Dasher</holder>
+    </copyright>
+    <legalnotice>
+      <para>Разрешается копировать и распространять дословные копии этого руководства при условии, что во всех копиях сохраняется указание авторского права и данное разрешение.</para>
+      <para>Разрешается копировать и распространять изменённые версии данного руководства на тех же условиях, что и дословные копии, при этом производная работа должна целиком распространяться на условиях идентичных указанным в этом замечании.</para>
+      <para>Разрешается копировать и распространять переводы данного руководства на другой язык на условиях для производных работ, указанных выше, за исключением того, что данное уведомление о правах должно быть сформулировано в переводе, одобренном Фондом Свободного Программного Обеспечения.</para>
+      <para>UNIX является торговой маркой X/Open Group.</para>
+      <para>Linux является торговой маркой Линуса Торвальдса</para>
+      <para>X Window System является торговой маркой X Consortium, Inc.</para>
+      <para>Windows является торговой маркой корпорации Microsoft.</para>
+      <para>Macintosh и Apple являются торговыми марками корпорации Apple Computer, Inc.</para>
+      <para>Все остальные торговые марки являются собственностью соответствующих владельцев.</para>
+    </legalnotice>
+    <abstract role="description">
+      <para>Dasher is an accessible text entry application that uses pointing gestures
+        rather than typing. It is designed to be fast while fun to use.</para>
+    </abstract>
+    <revhistory>
+      <revision>
+        <revnumber>1.0.0</revnumber>
+        <date>8 Февраля 2006</date>
+      </revision>
+      <revision>
+        <revnumber>1.1.0</revnumber>
+        <date>31 Марта 2006</date>
+      </revision>
+      <revision>
+        <revnumber>1.2.0</revnumber>
+        <date>11 Июля 2006</date>
+      </revision>
+      <revision>
+        <revnumber>1.2.1</revnumber>
+        <date>2 Сентября 2006</date>
+      </revision>
+    </revhistory>
+  </articleinfo>
+
+  <sect1 id="intro">
+    <title>Введение</title>
+    <para><application>Dasher</application> — это информационно-оптимизированный интерфейс ввода текста, управляемый естественными, плавными движениями указателя. <application>Dasher</application> является конкурентоспособной системой ввода текста везде, где не может быть использована полноразмерная клавиатура — например наладонный или нательный компьютер, либо при управлении компьютером одной рукой (с помощью джойстика, сенсорного экрана или мыши) или без рук (напр., с помощью системы слежения за положением головы или взгляда). Этот документ описывает версию 4.2.0 приложения <application>Dasher</application>.</para>
+    <para>Приложение <application>Dasher</application> можно запустить, выбрав пункт <application>Dasher</application> в меню <guimenu>Приложения</guimenu> подменю <guisubmenu>Специальные возможности</guisubmenu> или выполнив команду <command>dasher</command> в командной строке.</para>
+  </sect1>
+  <sect1 id="whatsnew">
+    <title>Что нового</title>
+
+    <sect2>
+      <title>Новые возможности в версии 4.2</title>
+
+
+      <para>Появился автоматический контроль скорости, который ускорит Dasher, когда почувствует, что вы способны работать быстрее.</para>
+
+      <para>В новой версии появился интерфейс сокетов, позволяющий Dasher работать с устройствами слежения за положением головы или взгляда, либо с EEG-интерфейсом в обход мыши.</para>
+
+      <para>Есть несколько «кнопочных режимов» для людей, желающих управлять Dasher, используя один, два, три или четыре переключателя.</para>
+
+      <para>Есть «режим нажатия» для людей, которым нравится указывать, куда они хотят перейти и нажимать, чтобы сделать один шаг в этом направлении. Этот режим нацелен, в частности, на начинающих.</para>
+
+
+    </sect2>
+    <sect2>
+      <title>Что ожидается в версии 4.4</title>
+      <para>Мы реализуем игровой-режим для Dasher: это поможет новичкам научиться писать. Рука обучающего будет направлять новичка, когда он отклонится от курса, а новые пользователи, которые пишут быстро без большой необходимости в руководстве смогут заработать много очков.</para>
+
+      <para>Будут добавлены новые языковые модели, которые будут делать предсказания на уровне слов также хорошо, как и на уровне букв.</para>
+
+      <para>Будут полностью поддерживаться японский и китайский языки.</para>
+
+      <para>Команда разрабочиков Dasher также надеется создать свободную систему слежения за положением головы и взгляда «FreeVIM», основанную на использовании веб-камеры, к декабрю 2006-го.</para>
+    </sect2>
+  </sect1>
+  <sect1 id="basics">
+    <title>Основы Dasher</title>
+    <para>Dasher это информационно-оптимизированный интерфейс ввода текста, управляемый естественными, плавными жестами указателя. Dasher является конкурентоспособной системой ввода текста везде, где не может быть использована полноразмерная клавиатура — например, <itemizedlist>
+        <listitem>
+          <para>На наладонном компьютере;</para>
+        </listitem>
+        <listitem>
+          <para>на нательном компьютере;</para>
+        </listitem>
+        <listitem>
+          <para>при управлении компьютером одной рукой с помощью джойстика, сенсорного экрана, трэкбола или мыши;</para>
+        </listitem>
+        <listitem>
+          <para>при управлении компьютером без рук (т.е., используя систему слежения за положением головы или глаз).</para>
+        </listitem>
+      </itemizedlist> версия Dasher для системы ввода, управляемой взглядом позволяет опытному пользователю набирать текст со скоростью обычного ручного письма - 29 слов в минуту, используя мышь, опытный пользователь может писать со скоростью 39 слов в минуту.</para>
+
+    <para>Dasher можно использовать, чтобы эффективно писать на любом языке.</para>
+
+    <para>Dasher работает быстро, а учиться его использовать — весело.</para>
+
+    <para>Dasher является <emphasis>свободной программой</emphasis>, распространяемой под той же лицензией, что и GNU/Linux, а именно GPL.</para>
+
+    <sect2>
+      <title>Как Dasher работает?</title>
+
+      <blockquote>
+        <attribution>Financial Times, 5-е февраля 2002-го года</attribution>
+        <para>Dasher подобен аркадной игре: «Атака бандитов-алфавитов», наверное.</para>
+      </blockquote>
+
+      <para>Интерфейс Dasher масштабируется. Вы указываете, куда хотите перейти, и изображение в этом месте увеличивается, куда бы вы ни указали. Тот мир, куда вы всматриваетесь при увеличении, заполнен буквами, так что любая точка, окрестность которой вы увеличите, соответствует части текста. Чем больше вы масштабируете, тем более длинный отрывок текста вы напишите. Выбирая место для увеличения, вы выбираете то, что хотите написать. </para>
+
+      <para>Чтобы сделать интерфейс эффективным, мы используем предсказания языковой модели, чтобы определить какая часть мира отводится под каждый кусок текста. Наиболее вероятным частям даётся больше места, так что их можно быстро и легко выбрать. Маловероятные части текста (например, текст с ошибками написания) получают меньше пространства и набрать их сложнее. Языковая модель постоянно обучается: если вы используете новое слово однажды, в следующий раз написать его будет легче.</para>
+
+
+
+      <para>Большим преимуществом Dasher-а перед другими предсказывающими интерфейсами ввода текста, предлагающими пользователю дополнение слов, является то, что он — <emphasis>безрежимный</emphasis>: пользователю не нужно переключаться из режима написания в режим <quote>принятия предсказания модели</quote>.</para>
+
+      <para>Ещё одним преимуществом является лёгкость, с которой можно обучить модель любому стилю написания: просто загрузите файл с примерами и сразу пишите.</para>
+
+      <para>Достаточно трудно передать на словах, как выглядит Dasher, так что посетите <ulink url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">http://www.inference.phy.cam.ac.uk/dasher/</ulink>, чтобы увидеть видеоролики.</para>
+
+    </sect2>
+    <sect2>
+      <title>Dasher в пояснениях — аналогия с библиотекой</title>
+      <para>Представьте себе <emphasis>библиотеку, содержащую все возможные книги</emphasis>, упорядоченные в алфавитном порядке на одной полке. Книги, в которых первая буква <quote>а</quote>; располагаются с левой стороны. Книги у которых первая буква  <quote>я</quote> — справа. На рисунке (i) внизу, полка показана вертикально, с <quote>левой стороной</quote>; (а) вверху и <quote>правой стороной</quote>; (я) внизу. Первая книга в разделе <quote>а</quote>; начинается с <quote><computeroutput>аааааааааааа</computeroutput>...</quote>;, где то правее в этом разделе находятся книги, которые начинаются с <quote><computeroutput>ааа-а, в Африке 
+          горы</computeroutput>...</quote>;, несколько правее располагаются книги, начинающиеся с <quote><computeroutput>ааа-а, в Африке
+          реки</computeroutput>...</quote>.</para>
+
+
+      <para>Когда кто-нибудь пишет часть текста, то его выбор строки можно рассматривать как выбор книги из этой библиотеки — книги, содержащей именно выбранный текст. Как пишущий выбирает эту книгу? Давайте представим, что он хочет написать <quote><computeroutput>ааа-а, в Африке</computeroutput>...</quote>;</para>
+      <figure>
+        <title>Библиотека всех книг.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/a-z.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/aa-az.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/ala-alz.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Во-первых, он зайдёт в раздел библиотеки содержащий книги на <quote><computeroutput>а</computeroutput></quote>;. Там пишущий встретится с книгами, начинающимися с <quote><computeroutput>аа</computeroutput></quote>;, <quote><computeroutput>аб</computeroutput></quote>, <quote><computeroutput>ав</computeroutput>...</quote>; <quote><computeroutput>ая</computeroutput></quote>; [Рисунок (ii)]. Взглянув на раздел <quote><computeroutput>ал</computeroutput></quote>; поближе, они смогут найти книги, начинающиеся с <quote><computeroutput>ала</computeroutput></quote>;, <quote>;<computeroutput>алб</computeroutput></quote>;,...; <quote><computeroutput>аля</computeroutput></quote>; [Рисунок (iii)].</para>
+
+      <para>Взглянув на полку ещё ближе, пишущий пользователь может найти книгу, содержащую тот текст, который он хочет написать. Таким образом, написание может быть охарактеризовано как <emphasis> процесс управляемого масштабирования алфавитно-упорядоченной библиотеки</emphasis>.</para>
+
+      <para>В точности так работает Dasher, за исключением одного важного пункта: <emphasis> мы изменяем РАЗМЕР пространства, отведённого на полке каждой книге пропорционально вероятности соответствующего текста.</emphasis> Например, не очень много книг начинаются с <quote><computeroutput>ы</computeroutput></quote>;, так что мы выделяем меньше места таких книг и больше места для книг с более правдоподобным названием, делая таким образом более простой задачу поиска книги, содержащей вероятный текст.</para>
+
+      <para>Приведём соответствующую последовательность рисунков библиотеки в Dasher. (Символ <quote>_</quote>; обзначает пробел.)</para>
+      <figure>
+        <title>Библиотека всех книг.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/a-z.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/aa-az.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/ala-alz.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--
+\begin{center}
+\begin{tabular}{ccc}
+\mbox{\psfig{figure=images/a-z.m.gif.50.ps}}&
+\mbox{\psfig{figure=images/aa-az.m.gif.50.ps}}&
+\mbox{\psfig{figure=images/ala-alz.m.gif.50.ps}}\\
+(i)&(ii)&(iii)\\
+\end{tabular}
+\end{center}
+							      -->
+
+      <para>Dasher может быть обучен на примерах любого стиля письма, и он обучается всё время, запоминая ваши обороты речи.</para>
+
+      <para>Рисунок, приводимый ниже, показывает состояния интерфейса Dasher во время набора пользователем слова «objection»; другие слова, которые легко можно написать в этот момент включают «objective», «objects_», и «object_oriented».</para>
+      <figure>
+        <title>Написание «objection» в Dasher.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/object.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Если вы находите трудным представить себе работу Dasher, основываясь на этих статичных рисунках, взгляните на видеоролики по адресу <ulink url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">http://www.inference.phy.cam.ac.uk/dasher/</ulink>.</para>
+
+
+      <!--% When  you try Dasher for the first time,  please read the tips for novices.-->
+    </sect2>
+    <sect2>
+      <title>Подсказки для новичков</title>
+      <para>Не сдавайтесь, если понадобиться минута или две, чтобы освоиться — через десять минут вы будете работать очень быстро. Это очень похоже на вождение автомобиля. Вы должны <emphasis>начать с аккуратного вождения</emphasis>. Если вы не знаете куда двигаться,  <emphasis>остановитесь</emphasis>. В самом деле, вы возможно научитесь использовать Dasher быстрее всего, если будете подходить к нему помня об аналогии с вождением автомобиля, нежели пользуясь обычными компьютерными аналогиями. Например, механизм, по которому работает навигация это не ПЕРЕТАСКИВАНИЕ, а УПРАВЛЕНИЕ: если бы автомобили работали как компьютеры с оконными системами, то вам вы пришлось <quote>ухватить</quote> нужную часть дороги, затем <quote>перетащить</quote>; её к себе; но в машине, когда вы хотите поехать направо, вы УКАЗЫВАЕТЕ направо с помощью руля. Dasher также не работает перетаскивая. <emphasis> Не пытайтесь схватывать и перетаскивать объекты. Просто решите куда вы хотите перейти и укажите туда.</emphasis></para>
+
+      <para><emphasis>Первой самой важной идеей</emphasis>, которую новый пользователь должен понять, является то, что нужно всегда продолжать движение <emphasis>внутри</emphasis> уже набранного текста, чтобы выбрать книгу, содержащую <quote>весь</quote>; текст как первое слово, <emphasis>не</emphasis> нужно входить в раздел <quote>в</quote>; а затем выходить из него и переходить в раздел <quote>е</quote>;.Нужно войти в раздел <quote>в</quote>;, затем найти подраздел <quote>ве</quote>; <emphasis>внутри</emphasis> раздела <quote>в</quote>, после чего перейти в подраздел <quote>вес</quote>;, находящийся <emphasis>внутри</emphasis> раздела <quote>ве</quote>; и, наконец, перейти в подраздел <quote>весь</quote>; <emphasis>внутри</emphasis> раздела <quote>вес</quote>;.</para>
+
+      <para>Это похоже на поиск имени в телефонной книге. Чтобы найти <quote><computeroutput>Алисон</computeroutput></quote>;, вы не идёте в раздел <quote><computeroutput>А</computeroutput></quote>; справочника, а затем переходите в раздел <quote>;<computeroutput>Л</computeroutput></quote>;: вы идёте в раздел <quote><computeroutput>А</computeroutput></quote>;, после чего находите <emphasis>внутри него</emphasis> раздел <quote><computeroutput>Ал</computeroutput></quote>; и так далее. Оказавшись в разделе <quote><computeroutput>Ал</computeroutput></quote>;, вы не покидаете его.</para>
+
+      <para><emphasis>Вторая самая важная идея</emphasis>: то, что вы написали зависит <emphasis>только</emphasis> от того, где вы в конце концов окажетесь в алфавитной библиотеке, а не от того как вы попали туда, поэтому нет необходимости управлять движением к цели точно. <emphasis>Позволяется срезать углы.</emphasis> (Например, на предыдущем рисунке, если бы вы захотели написать «objects_are», то было бы нормально переместить мышь прямо к буквам «are», даже если для этого нужно пересечь ненужную область буквы «i».)</para>
+
+
+
+
+      <para><emphasis>Распространённые ошибки.</emphasis> Часто начинающий пользователь, пытающийся найти конкретную букву, быстро перемещает изображение вперёд, ища нужный символ. Дорожные правила для пользователей Dasher похожи на правила для водителей автомобиля: не двигайтесь вперёд, пока вы не определили, куда хотите идти. Таким образом, после того, как вы нашли первую букву вашего предложения и «наехали» на неё, <emphasis>ПРИОСТАНОВИТЕСЬ и не двигайтесь вперёд в области этой первой буквы до тех пор, пока вы не вычислите, куда нужно направиться дальше</emphasis>. Следующая нужная вам буква <emphasis>находится внутри</emphasis> области, в которую вы вошли. Буквы расположены в алфавитном порядке. Если вы не видите нужную вам букву, определите, где она должна быть опираясь на расположение тех букв, которые вы <emphasis>можете</emphasis> видеть. Затем укажите в нужное место и переместитесь в область второй буквы.</para>
+    </sect2>
+    <sect2>
+      <title>Пример</title>
+      <figure id="figHad1">
+        <title>Набор предложения <quote><computeroutput>I once had a whim</computeroutput></quote>; Куда нужно сейчас направиться пользователю?</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad2.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Представьте, что вы хотите написать «<computeroutput>I once had a whim</computeroutput>». Вы набираете «<computeroutput>I once ha...</computeroutput>» и изображение Dasher-а выглядит как на рисунке <xref linkend="figHad1"/>. Нужно написать «<computeroutput>had</computeroutput>». Что вам следует сделать? На экране находится много букв <computeroutput>d</computeroutput> и все они довольно маленькие. Пять стрелок на рисунке <xref linkend="figHad1"/> указывают на некоторые из них. Фиолетовая стрелка указывает на букву <computeroutput>d</computeroutput>, которую мы пока не можем видеть, но знаем, что она должна быть там, поскольку над ней видны буквы «<computeroutput>a</computeroutput>», «<computeroutput>b</computeroutput>», и «<computeroutput>c</computeroutput>» </para>
+      <figure id="figHad2">
+        <title>Несколько альтернативных букв <computeroutput>d</computeroutput> с выделенной ошибкой начинающего пользователя.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad2a.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Распространённая ошибка начинающего пользователя — нестись вперёд и выбирать <emphasis>любую</emphasis> из этих букв <computeroutput>d</computeroutput> и масштабировать её. Например, на рисунке <xref linkend="figHad3"/> показано, что случится, если пользователь «наедет» на букву <computeroutput>d</computeroutput>, выделенную на рисунке <xref linkend="figHad2"/>.</para>
+      <figure id="figHad3">
+        <title>Что случается, если вы выбираете неправильную букву <computeroutput>d</computeroutput></title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad3a.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+
+      <para>Если вы перейдёте к этой букве <computeroutput>d</computeroutput>,то вы напишите «<computeroutput>I
+          once </computeroutput><emphasis>head</emphasis><computeroutput>...</computeroutput>». Другие две буквы <computeroutput>d</computeroutput>, помеченный красными стрелками (на рисунке <xref linkend="figHad1"/>) соответствуют набору «<computeroutput>I once
+          </computeroutput><emphasis>heard</emphasis><computeroutput>...</computeroutput>» и «<computeroutput>I once
+        </computeroutput><emphasis>hedge</emphasis><computeroutput>...</computeroutput>».</para>
+
+
+      <para>Важно понять, что есть только одна правильная буква <computeroutput>d</computeroutput>, а именно буква <computeroutput>d</computeroutput>, находящаяся непосредственно внутри области голубого цвета , соответствующего букве «<computeroutput>a</computeroutput>» в последовательности «<computeroutput>I once ha</computeroutput>». Эта область выделена на рисунке <xref linkend="figHad4"/>.</para>
+      <figure id="figHad4">
+        <title>Правильная буква <computeroutput>d</computeroutput> выделена зелёной стрелкой. Этот пример иллюстрирует правило <quote>всегда продолжайте движение <emphasis>внутри</emphasis> прямоугольной области, которую вы хотите</quote>; в данном случае — область голубого цвета, связанная с буквой <computeroutput>a</computeroutput> из слова <quote><computeroutput>had</computeroutput></quote>;</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad4.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Если вы выйдете из этой голубой области (как это сделано на рисунке <xref linkend="figHad3"/>), то вы потеряете букву «<computeroutput>a</computeroutput>».</para>
+    </sect2>
+
+    <sect2>
+      <title>Резюме</title>
+      <para>
+        <emphasis>Не нажимайте клавишу мыши. Не перетаскивайте. Не спешите.</emphasis>
+      </para>
+    </sect2>
+
+    <sect2>
+      <title>Что обозначают цвета?</title>
+      <para>В англо-язычной 3-й версии Dasher для рабочего стола, <itemizedlist>
+          <listitem>
+            <para><emphasis>белые</emphasis> области содержат символы пробела (располагаются всегда внизу алфавита);</para>
+          </listitem>
+
+          <listitem>
+            <para>специальная <emphasis>жёлтая</emphasis> область содержит заглавные буквы [А-Я];</para>
+          </listitem>
+
+          <listitem>
+            <para>в <emphasis>красной</emphasis> области находятся числа [0-9] (если включён весь алфавит);</para>
+          </listitem>
+
+          <listitem>
+            <para><emphasis>зелёная</emphasis> область содержит знаки пунктуации (символы наиболее близкие к пробелу [.,;:-] расположены внизу, рядом с <emphasis>белым</emphasis> символом пробела. Внутри раздела со знаками пунктуации, символы со сходными функциями окрашены в сходные цвета: символы пунктуации, похожие на точку [.,;:-] имеют тёмно-голубой цвет;</para>
+          </listitem>
+          <listitem>
+            <para>другие цвета используются просто для того, чтобы отличить области друг от друга.</para>
+          </listitem>
+          <listitem>
+            <para>В языках, использующих диакритические знаки (прямое и обратное ударение, значки над символами) эти знаки изображены в <emphasis>оранжевой</emphasis> области.</para>
+          </listitem>
+          <listitem>
+            <para>В японской версии Dasher-а, цвета используются для того, чтобы различать разные группы слогов (хирагана группы, например, eg, ka,ki,ku,ke,ko — оранжевые).</para>
+          </listitem>
+          <listitem>
+            <para>В корейской версии Dasher, три раздичных цвета используются для того, чтобы отличать начальные согласные, гласные и конечные согласные.</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>Вы можете изменить цветовую схему, редактируя xml-файлы <computeroutput>colour</computeroutput> и <computeroutput>alphabet</computeroutput>, как это описано в <xref linkend="personalising"/>.</para>
+    </sect2>
+    <sect2>
+      <title>Запуск dasher (4-я версия)</title>
+      <para>Запустите приложение dasher. Когда появится окно программы, нажмите левую кнопку мыши, либо пробел, чтобы начать работу. [Один из этих двух способов сработает.] Повторите эти действия (нажатие на кнопку мыши или пробел), когда закончите, чтобы остановиться. Dasher контролируется с помощью мыши.</para>
+
+      <para>Настройте максимальную скорость, с которой Dasher будет масштабировать области. 1-я скорость подходит для новичков, 2-ю скорость можно установить после 5-и минут практики, 4-я скорость — для опытных пользователей.</para>
+    </sect2>
+    <sect2>
+      <title>Как запустить dasher (2-я версия) на карманном компьютере</title>
+      <para>Установите, запустите (подождите несколько секунд, чтобы программа загрузила обучающий файл), затем прикоснитесь к экрану стилусом чтобы привести dasher в движение.</para>
+
+      <para>В этой версии Dasher есть три специальных ярко-цветных области, жёлтого, красного (лишь в некоторых выпусках) и зелёного цвета. Все три области не содержать никаких символов, они указывают на подгруппы алфавита (заглавные буквы, числа (лишь в некоторых выпусках) и знаки пунктуации.)</para>
+    </sect2>
+  </sect1>
+  <!--<sect1 id="usage">
+    <title>Using Dasher</title>
+    <sect2 id="menubar">
+      <title>Menus</title>
+      <para> The menu bar, located at the top of the <interface>Main Window</interface>, provides
+        the following commands: </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            <guimenu>File</guimenu>
+          </term>
+          <listitem>
+            <para>This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para>
+                    <guimenuitem>New</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Open</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Save</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Save As</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Append to file</guimenuitem> this command can be used to append
+                    the current Dasher buffer to an existing text file.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Import training text</guimenuitem> this command can be used to
+                    add the contents of an existing text file to Dasher's language model.</para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Quit</guimenuitem>
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Edit</guimenu>
+          </term>
+          <listitem>
+            <para> This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para>
+                    <guimenuitem>Cut</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Copy</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Paste</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Copy All</guimenuitem>
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Options</guimenu>
+          </term>
+          <listitem>
+            <para> This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para><guimenuitem>Preferences</guimenuitem>, which launches the <link
+                      linkend="prefs">
+                      <interface>Preferences Dialog</interface>
+                    </link></para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Edit font</guimenuitem> alters the font used in the edit
+                  box.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Dasher font</guimenuitem> alters the size of the moving
+                    characters.</para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Dasher font size</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Enter text into other windows</guimenuitem> this causes Dasher
+                    to enter text into whichever window is selected.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Control mode</guimenuitem> this causes an extra node to appear
+                    at the bottom of the alphabet. Here, you can edit text directly from within
+                    Dasher, cause Dasher to speak text that you have entered and stop or pause
+                    Dasher.</para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Help</guimenu>
+          </term>
+          <listitem>
+            <para>This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para><guimenuitem>About</guimenuitem> shows basic information about
+                      <application>Dasher</application>, such as author's name and version number.
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2 id="prefs">
+      <title>Customization</title>
+      <para> To change default settings, select <guimenuitem>Preferences</guimenuitem> command in
+          <guimenu>Settings</guimenu> menu. This launches the <interface>Preferences
+        dialog</interface>, shown in <xref linkend="prefs1"/>, <xref linkend="prefs2"/>, <xref
+          linkend="prefs3"/>, <xref linkend="prefs4"/> and <xref linkend="prefs5"/>. </para>
+      <figure id="prefs1">
+        <title>&quot;Alphabet&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs1.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para> Dasher has support for many languages, and the choice of which language to write in is
+        made with this dialog. Note that some languages (for example, Hiragana, Korean and the
+        International Phonetic Alphabet) may require fonts that you do not have installed. For
+        information on creating your own alphabet files, see the <ulink
+          url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">Dasher website</ulink>. </para>
+      <figure id="prefs2">
+        <title>&quot;Colour&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs2.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para> Dasher has support for different colour schemes. The 'Default' colour scheme is a
+        simple rotation of colours that should work with any language. Enhanced colour schemes may
+        be used for languages with logical groupings (such as Hiragana or Korean) or to increase
+        contrast. </para>
+      <figure id="prefs3">
+        <title>&quot;Control&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs3.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>One dimensional mode</guimenuitem> maps the Y coordinate of the mouse
+              position to an X/Y coordinate, for use with one-dimensional input methods.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Eyetracker mode</guimenuitem> optimisations for eyetrackers 
+              specifically, makes Dasher behave as in one-dimensional mode near the right hand edge
+              of the screen.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start on left mouse button</guimenuitem> the left mouse button starts
+              and stops Dasher.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start on space bar</guimenuitem> the space bar starts and stops
+              Dasher.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start with mouse position</guimenuitem> when Dasher is paused, a red
+              box appears. Hold the cursor inside the red box until a yellow box appears. Hold the
+              cursor inside the yellow box. Dasher will then start..</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Copy all on stop</guimenuitem> when stopped, Dasher will copy all
+              text to the clipboard automatically.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Speak on stop</guimenuitem> when stopped, Dasher will speak newly
+              entered text automatically.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Pause outside window</guimenuitem> Dasher will pause if the mouse
+              pointer moves outside its window.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <figure id="prefs4">
+        <title>&quot;View&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs4.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>Orientation</guimenuitem> alters the direction that the text moves
+              in. If set to &quot;Alphabet default&quot;, the alphabet file will choose the
+              appropriate direction for the alphabet.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show toolbar</guimenuitem> you can hide Dasher's toolbar if you wish.
+              Calling dasher with the '-o' switch will open a reduced-options version of dasher,
+              designed for entry into other applications.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show speed slider</guimenuitem> enable/disable the speed
+            slider.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show mouse position</guimenuitem> in some situations (such as
+              one-dimensional or eyetracker mode), the absolute position of the mouse will differ
+              from Dasher's perception of the mouse position. This option shows you where Dasher's
+              mouse is.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Draw line between crosshairs and mouse</guimenuitem> helpful for
+              users who have trouble keeping track of the pointer.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Draw box outlines</guimenuitem> increases the contrast around the
+              edges of boxes, to help distinguish between them.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Change colour scheme automatically</guimenuitem> languages such as
+              Hiragana are aware of which colour scheme they should be using. This option allows an
+              alphabet to select its colour scheme automatically.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <figure id="prefs5">
+        <title>&quot;Advanced&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs5.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>Smoothing</guimenuitem> adds a &quot;uniform&quot; element to
+              the language model's predictions. A smoothing value of 100 will result in an entirely
+              uniform distribution being used  each box will have the same size.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Timestamp new files</guimenuitem> each file created by Dasher will
+              automatically have the current time in its filename.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Distance from centreline for start on mouse position</guimenuitem>
+              controls the range for the 'Start on mouse position' option.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Number of pixels that should cover the entire Y range</guimenuitem>
+              some input devices do not have enough gain to cover an entire Dasher window; this
+              option increases the gain of displacement on the Y axis.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>-->
+  <sect1 id="reallife">
+    <title>Как использовать Dasher в реальной жизни</title>
+
+    <para>Dasher может быть использован, чтобы общаться через компьютер, и (в некоторой степени) чтобы управлять компьютером. Очевидно, лучший способ общения через Dasher — когда человек, с которым вы общаетесь смотрит на экран пока вы пишите. Но существует множество других способов общения с помощью Dasher.</para>
+
+    <sect2>
+      <title>Копирование в буфер обмена</title>
+
+      <para>Если вы включили возможность «copy on stop» (копировать после остановки), то каждый раз, когда вы будете останавливать Dasher, содержимое текстовой области будет скопировано прямо в буфер обмена компьютера. После этого вы можете использовать функцию «Вставить» в другом приложении, чтобы перенести туда написанное.</para>
+    </sect2>
+
+    <sect2>
+      <title>Произношение</title>
+
+      <para>Dasher соединяется со встроенной в компьютер системой перевода текста-в-речь. Существует несколько способов использования Dasher для произношения.</para>
+
+      <para>Вы можете заставить Dasher «произносить каждое слово»: всякий раз, когда вы пересекаете конец слова (вводя, например, символ пробела), это слово будет сразу же переведено.</para>
+
+      <para>Вы также можете заставить Dasher «произносить при остановке»: каждый раз при остановке движения Dasher-а, всё, что находится в поле ввода текста будет произнесено.</para>
+
+      <para>Ну и наконец, вы можете перевести текст в речь тогда, когда хотите, переключившись в <emphasis>Режим управления</emphasis> (который находится в меню Параметры для 3-й версии Dasher). В этом режиме появляется дополнительная область в алфавите, окрашенная в серый цвет, которая работает несколько сходным с клавишей Escape образом. Если вы переместитесь внутрь области контроля, то вы найдёте несколько параметров, связанных с управлением. Остановиться (красная область), Пауза (жёлтая), Двигаться, Удалить и Произнести. Внутри области Произнести, есть возможности «произнести всё», «произнести новое» (только недавние слова, которые вы написали с момента последнего произношения), и «произнести снова» (повторяет всё, что было произнесено в последний раз).</para>
+    </sect2>
+
+    <sect2>
+      <title>Сохранить в файл</title>
+
+      <para>Вы можете сохранить всё, что находится в поле ввода текста Dasher как простой текст, нажав на пиктограмму «Сохранить файл», либо используя меню вверху окна программы (выбрав Файл, затем Сохранить).</para>
+    </sect2>
+
+    <sect2>
+      <title>Послать текст в другое окно</title>
+
+      <para>Вы также можете послать всё, что набрано в Dasher прямо в другое окно. Установите параметр «послать текст в другое окно» в меню настроек. После этого окно, которое вы выберете получит вывод от Dasher.</para>
+    </sect2>
+
+
+
+
+    <sect2>
+      <title>Размеры шрифтов</title>
+
+      <para>У Dasher есть текстовое поле (где появляется текст) и канва (где и происходит всё это забавное масштабирование). Вы можете изменить размеры шрифтов обеих этих областей, используя меню сверху окна программы. Они называются «Шрифт редактирования» (для шрифта в текстовой области) и «Шрифт Dasher», я думаю. (Я забыл точные названия меню в 3-й версии Dasher, извините.) Чтобы изменить размер шрифта редактирования, вызовите обычное окно выбора шрифта и измените его размер. Для изменения размера шрифта канвы, найдите параметр размер шрифта Dasher, который предлагает три типа: маленький, большой и очень большой.</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="personalising">
+    <title>Настройки Dasher</title>
+    <para>Есть три класса файлов, которые вы можете редактировать с целью настроить работу Dasher «под себя»: файлы <computeroutput>alphabet</computeroutput>, <computeroutput>colour</computeroutput> и <computeroutput>training</computeroutput>.</para>
+
+    <sect2>
+      <title>Настройка языковой модели</title>
+      <para>Предсказания текста в Dasher (в 3-й версии) основаны не на словаре, а не обычном обучающем тексте. Например, когда вы скачиваете 3-ю версию Dasher, он идёт вместе с файлом <filename>training_english_GB.txt</filename>. Он содержит 300 килобайт обычного английского текста, собранного их разных документов в интернете.</para>
+
+      <para>Когда вы пользуетесь Dasher, он хранит всё, что вы пишите ещё в одном личном файле с таким же именем, что и обучающий файл. Следующий раз, когда вы будете использовать Dasher, он прочитает исходный обучающий файл и всё, что вы написали в прошлый раз, чтобы лучше предсказывать текст. Dasher обучается всё время. Чтобы получить наилучшие результаты с Dasher: <itemizedlist>
+          <listitem>
+            <para>Если возможно, предоставьте Dasher свой обучающий текст — простой текстовый файл, собранный из документов, которые вы ранее писали, и содержащий ваши любимые выражения, имена друзей и так далее. Добавьте этот файл к обучающему, либо замените исходный обучающий файл.</para>
+          </listitem>
+          <listitem>
+            <para>Если вы считаете, что ваш обучающий файл загрязнился разным текстовым "мусором», то отредактируйте его простым текстовым редактором. (Или попросите друга сделать это за вас.)</para>
+          </listitem>
+          <listitem>
+            <para>Если вы пользуетесь Dasher много месяцев, то ваш личный обучающий файл может стать настолько большим, что Dasher будет долго запускаться. Если это так, то отредактируйте обучающий файл, используя простой текстовый редактор.</para>
+          </listitem>
+        </itemizedlist></para>
+    </sect2>
+    <sect2>
+      <title>Настройка алфавита</title>
+      <para>То, какие символы вам доступны и каков их порядок, определяется файлом алфавита. Например, вы могли бы использовать <filename>alphabet.english.xml</filename>. С Dasher идёт много альтернативных алфавитов. Вы можете редактировать файлы алфавита, чтобы изменить набор доступных символов и их порядок. Когда вы редактируете этот xml-файл, неплохо было бы сохранить его под новым именем и изменить название алфавита в новом файле, чтобы избежать путаницы. Каждое поле в xml-файле определяет символ с помощью трёх пунктов: символ, который должен быть <emphasis>изображён</emphasis> (<computeroutput>d=</computeroutput>...); символ, который заносится в <emphasis>текстовую область</emphasis>, когда данный символ выбран на канве (<computeroutput>t=</computeroutput>...); и номер цвет фона для области этого символа (<computeroutput>b=</computeroutput>...), о чём подробнее будет рассказано ниже.</para>
+    </sect2>
+    <sect2>
+      <title>Настройка цветовой схемы</title>
+      <para>Вы можете изменять цвета в мире Dasher двумя путями. Файл цветов (например, <filename>colour.xml</filename> или <filename>colour.euroasian.xml</filename>) определяет 200 цветов в палитре, которую использует Dasher. Каждая строка задаёт значения красного, зелёного и синего.</para>
+
+      <para>Эти цвета используются для раскрашивания многих объектов в Dasher. Если вы, например, хотите изменить цвет <quote>красной линии</quote>;, то поменяйте вторую строку в файле цветов, которая выглядит как <computeroutput>&lt;colour r="255"
+          g="0" b="0"/&gt;</computeroutput>.</para>
+
+
+      <para>Вы можете изменить цвет, который используется для области любого символа, изменив для него поле <quote>b</quote>; в файле алфавита.</para>
+    </sect2>
+
+
+
+
+  </sect1>
+  <sect1 id="languages">
+    <title>Языки</title>
+
+    <para>Dasher работает с сотнями языков.</para>
+
+    <para>Для каждого языка имеется файл алфавита (или, возможно, более чем один файл). На сайте Dasher мы стремимся предоставить по меньшей мере один обучающий текст для каждого языка. Если у нас нет хорошего обучающего текста для вашего языка, помогите нам, сделав его и послав нам.</para>
+
+    <para>Чтобы узнать список поддерживаемых языков, обращайтесь на сайт Dasher. На октябрь 2005-го, все основные языки мира хорошо поддерживаются, за исключением японского и китайского, для которых 3-я версия Dasher предлагает только фонетическую поддержку ( хирагана и пиньин). В 4-й версии мы предоставим полную поддержку японского и китайского.</para>
+
+    <!--    %% Dasher works beautifully in Korean-->
+
+
+  </sect1>
+
+
+
+  <sect1 id="specialneeds">
+    <title>Руководство по специальным требованиям Dasher</title>
+
+    <para>Dasher разработан на основе принципа получения <emphasis>как можно большей информации</emphasis> из тех движений, которые вы можете сделать.</para>
+
+    <para>Мы можем получать информацию любым наиболее простым для вас способом: <orderedlist>
+        <listitem>
+          <para><emphasis>Непрерывные</emphasis> движения (осуществляемые, например, джойстиком, трекпадом, мышью, управляемой головой или взглядом) часто достигают наибольшей скорости письма.</para>
+        </listitem>
+        <listitem>
+          <para><emphasis>Дискретные</emphasis> движения (переключения, нажатия кнопок) могут передавать информацию тремя способами:</para>
+          <orderedlist>
+            <listitem>
+              <para><emphasis>Момент времени</emphasis>, в который вы нажимаете кнопку может передавать информацию. (Эта идея используется в сеточных системах, управляемых одной кнопкой).</para>
+            </listitem>
+            <listitem>
+              <para><emphasis>Длительность</emphasis> нажатия кнопки может передавать информацию. (Эта идея используется в азбуке Морзе, где различают две длительности).</para>
+            </listitem>
+            <listitem>
+              <para><emphasis>Выбор конкретной</emphasis> кнопки, которую вы нажимаете может передавать информацию. (Эта идея используется в обычных клавиатурах.)</para>
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist></para>
+
+    <sect2 id="manual7">
+      <title>Непрерывные движения</title>
+      <para>В обычном режиме (<emphasis>режим мыши</emphasis>) Dasher управляется двумерными непрерывными движениями. Имеется также и <emphasis>одномерный режим</emphasis>, для пользователей, которые могут управлять только одним измерением.</para>
+
+      <para>Вы можете сделать один или два непрерывных движения? Если вы можете управлять джойстиком, мышью, трэкпадом или роллерболом, то у вас есть двумерный контроль. Если вы можете прикоснуться к сенсорному экрану, то это тоже великолепно. Вы можете подвигать носом? Если вы можете мотать головой, то это одномерный контроль, если вы можете кивать, то это двумерный. Мышь, управляемая головой может быть достаточно дешёвой и является удобным способом управления Dasher. (Мы рекомендуем <emphasis>SmartNav3</emphasis> от NaturalPoint, которая стоит около 200$ и работает только под Microsoft WIndows; это устройство раньше (до 2002) называлось NavPoint TrackIR, пока торговая марка не была передана другому устройству. Мы также рекомендуем <emphasis>Headmouse Extreme</emphasis> от Origin instruments. Устройство стоит около 1000$ и работает как USB мышь на любом компьютере.) Вы можете помахивать одним пальцем или ступнёй? Эти управляемые головой мыши можно использовать для слежения за положением пальцев и ступнями так же как и головой. За детальным сравнением SmartNav3 и Headmouse Extreme, обращайтесь по адресу <ulink url="http://www.inference.phy.cam.ac.uk/dasher/Headmouse.html" type="http">http://www.inference.phy.cam.ac.uk/dasher/Headmouse.html</ulink>.</para>
+
+      <para>Если вы сильно парализованы, то наилучшим выбором будет устройство слежения за взглядом. Вы можете контролировать направление взгляда? С помощью устройства слежения за взглядом вы можете писать 25 слов в минуту. Такие устройства достаточно дороги: мы заплатили 2000$ за QuickGlance от EyeTech Digital Systems, а Tobii стоит около 20 000$. [Мы рекомендуем оба этих устройства. QuickGlance подсоединяется к компьютеру и стоит QuickGlance II около 4000$. Tobii является целым компьютером со встроенными камерами, следящими за глазами.] Dasher также работает с Eye response <emphasis>Erica</emphasis>, <emphasis>Eyegaze</emphasis> от LC и устройством слежения за взглядом от Metrovision. Все эти три системы — полноценные компьютеры с присоединёнными камерами для слежения за глазами.</para>
+
+      <para>Если ни джойстик, ни мышь, ни роллербол, ни устройство слежения за взглядом не работают, есть ещё несколько других путей передавать непрерывный одномерный сигнал. Губы и брови могут сработать, хотя нам не известны производители, продающие соответствующие устройства. Дыхание также является одномерным сигналом. Если вы можете управлять своим дыханием, то возможно сделать мышь, работающую от него. Мы сделали такое устройство за 22$, используя оптическую USB мышь, ремень и немного резинки. Даже самый неопытный пользователь может писать со скоростью 15 слов в минуту используя лишь дыхание.</para>
+      <sect3>
+        <title>Запуск и остановка</title>
+        <para>Существует несколько способов запуски и остановки Dasher. Нажатие на кнопку (например, левую кнопку мыши или пробел) — один из них. А если вы не можете нажать ни на какую кнопку, то можно запускать и останавливать работу, используя только непрерывные движения: в меню настроек выберите <quote>начинать с положения мыши</quote>; и включите quote&gt;режим управления</para>
+
+        <para>После того, как Dasher был остановлен, его можно снова запустить, используя любой доступный метод запуска. Если включен параметр «начинать с положения мыши», то всякий раз, когда Dasher остановлен, отображается последовательность целей; чтобы перезапустить Dasher нужно указать (или взглянуть) на первую цель (красную), затем на вторую (жёлтую).(Мы используем последовательность из двух целей, чтобы было сложно запустить Dasher нечаянно.)</para>
+      </sect3>
+      <sect3>
+        <title>Рекомендации для слежения головой</title>
+        <para>Многие устройства слежения имеют возможности «сглаживания», которые определяют частоту обновления положения мыши, эти параметры обычно используются, чтобы сгладить и «приглушить» движение мыши. Для Dasher нам не нужно такое сглаживание. Нам нравится быстрое, живое, необработанное и отрывистое перемещение мыши. Если «сглаживание» включено, то выключите его скорее.</para>
+
+        <para>«Усиление» (иногда называемое «скорость») устройства слежения за положением головы также является важным параметром, который нужно подстраивать. Усиление некоторых устройств может быть отрегулировано с помощью программного обеспечения. Вы также можете изменить его изменяя геометрическое расположение вашего устройства: если вы, например, переместите точку слежения со лба на край козырька шапки, то увеличите усиление приблизительно в 3 раза. Более близкая к устройству слежения посадка также может увеличить эффект усиления. Найдите удобную для вас настройку усиления. Мне нравиться большое усиление, потому что оно позволяет управлять движением очень малыми движениями головы.</para>
+      </sect3>
+      <sect3>
+        <title>Рекомендации для слежения за взглядом</title>
+        <para>Для хороших результатов работы с устройством слежения за взглядом, мы настоятельно рекомендуем, чтобы оно было сделано как можно более чутким. Многие устройства имеют «параметр сглаживания», который определяет частоту, с которой обновляется положение мыши и число последовательных снимков взгляда, используемых для его оценки. Обычно эти параметры используются для сглаживания и снижения скорости перемещения мыши. Для Dasher нам не нужно такое сглаживание, здесь нужны быстрые, живые, необработанные и прерывистые изменения координат. Когда вы просматриваете изображение, ваши глаза двигаются к интересующей вас цели очень быстро, и мы хотим, чтобы Dasher реагировал мгновенно. Идеальные настройки для Dasher могут сильно отличаться от идеальных настроек для других программ. Попросите производителя вашего устройства слежения за взглядом упростить возможность изменение настроек при смене программы.</para>
+
+        <para>Dasher имеет несколько параметров, предназначенных для использования с устройствами слежения за взглядом. Мы рекомендуем использовать <emphasis>режим слежения за взглядом</emphasis> ( см. Правка/Параметры/Управление). В этом режиме, динамика Dasher слегка отличается от обычной, делая исправление ошибок взглядом более лёгким.</para>
+
+        <para>Если калибровка вашего устройства слежения «плывёт» со временем, например, когда ваша голова движется, то вам следует выбрать возможность <emphasis>Авто-калибровать устройство</emphasis>. Когда такая возможность включена, Dasher следит за вашим движением, вычисляет ошибку вертикальной калибровки и поправляет её. Вы можете заметить, что эта корректировка происходит, глядя на вертикальное смещение между положением мыши, изображаемым Dasher (на кончике красной линии) и положением указателя устройства слежения за взглядом ( указывается системным курсором мыши).</para>
+
+        <para>Чтобы избежать трудностей с ограничением мыши верхней и нижней частью экрана, мы рекомендуем выбирать размер окна для программы Dasher <emphasis>меньше</emphasis> чем размер экрана, располагая его так чтобы оставалась граница над и под канвой.</para>
+
+        <para><emphasis>Техническое замечание:</emphasis> Также как и через эмуляцию мыши, Dasher может получать информацию от устройств слежения за взглядом, положением головы и т.п. непосредственно напрямую от системного гнезда. Этот параметр может быть настроен в разделе «Устройство ввода» диалога «параметры».</para>
+      </sect3>
+    </sect2>
+    <sect2 id="manual8">
+      <title>Дискретные движения</title>
+      <para>У нас есть несколько версий <emphasis>кнопочного режима Dasher</emphasis>, доступных в 4-й версии программы.</para>
+
+      <sect3>
+        <title>Критичные по времени движения — не альтернатива?</title>
+        <para>Некоторые способы передачи информации используют <emphasis>синхронизацию</emphasis> движений. Однако, не все люди могут произвести движение в требуемый момент времени. Например, парализованному человеку очень трудно сделать движение «прямо сейчас!»</para>
+
+        <para>Если чувствительные ко времени движения не являются для вас альтернативой, то см. <xref linkend="no_time_critical"/>.</para>
+
+        <para>Если вы <emphasis>можете</emphasis> передавать информацию <emphasis>точно синхронизированными</emphasis> движениями, то перейдите в раздел <xref linkend="timed"/>.</para>
+      </sect3>
+    </sect2>
+    <sect2 id="no_time_critical">
+      <title>«Нечувствительные ко времени» варианты работы с Dasher</title>
+      <para>Итак, вы хотите управлять Dasher в своём темпе. Вы можете делать довольно точные непрерывные движения, если вам дать время? Например, можете ли вы разместить указатель точно на экране, затем нажать кнопку, чтобы отметить вашу готовность? Или можете ли вы прикоснуться к сенсорному экрану достаточно точно? <itemizedlist>
+          <listitem>
+            <para>Если это так, то попробуйте <emphasis>режим нажатия</emphasis>. См. <xref linkend="time_critical_button"/>.</para>
+          </listitem>
+          <listitem>
+            <para>Иначе, попробуйте <emphasis>прямой кнопочный режим</emphasis> или <emphasis>кнопочный режим меню</emphasis>. См. <xref linkend="no_time_critical_button"/>.</para>
+          </listitem>
+        </itemizedlist></para>
+      <sect3 id="time_critical_button">
+        <title>«Нечувствительный ко времени» Dasher: режим нажатия</title>
+
+        <para>В <emphasis>режиме нажатия</emphasis>, вы помещаете указатель мыши в то место, куда хотите перейти, затем нажимаете кнопку, когда будете готовы. После чего Dasher увеличит выбранную область.</para>
+
+        <para>В ином случае, если у вас чувствительный экран, однократное касание инициирует перемещение к выбранному месту.</para>
+      </sect3>
+      <sect3 id="no_time_critical_button">
+        <title>«Нечувствительные ко времени» варианты кнопочного режима Dasher</title>
+        <para>Сколько различных переключателей, клавиш или кнопок вы можете с легкостью использовать?</para>
+        <variablelist>
+          <varlistentry>
+            <term>1</term>
+            <listitem>
+              <para>С одной кнопкой, единственный нечувствительный ко времени способ передать информацию это оценить <emphasis>длительность</emphasis> ваших нажатий. Вы можете различить короткие и длинные нажатия? Если да, то вы можете использовать <emphasis>меню кнопок-Dasher</emphasis>. Свяжите ваши короткие нажатия с вызовом действия «меню», а длинные с действием «выбрать».</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>2</term>
+            <listitem>
+              <para>Вы можете воспользоваться <emphasis>кнопочный режим меню Dasher</emphasis>. Свяжите одну кнопку с вызовом действия «меню», а другую с действием выбрать. Если одну из кнопок нажимать легче, сделайте её кнопкой «меню».</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>2.5</term>
+            <listitem>
+              <para>Если вы легко нажимаете две кнопки, и, в особых случаях, способны нажать третью, то вы можете использовать <emphasis>кнопочный режим меню-Dasher</emphasis> либо <emphasis>прямой кнопочный режим Dasher</emphasis>.</para>
+              <orderedlist>
+                <listitem>
+                  <para>Установите <emphasis>кнопочный режим меню-Dasher</emphasis>  как описано выше, и используйте третью кнопку как клавишу Escape, например, чтобы скрыть Dasher. [Это возможность не предоставлена в текущей версии Dasher].</para>
+                </listitem>
+                <listitem>
+                  <para>В <emphasis>прямом кнопочном режиме Dasher</emphasis>, каждая кнопка производит отдельное действие для перемещения, такое как «вверх», «вниз», или «назад». Если у вас 2.5 кнопки, свяжите две удобные с действиями «вверх» и «вниз», а неудобную кнопку с действием «назад».</para>
+                </listitem>
+              </orderedlist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>3</term>
+            <listitem>
+              <para>Вы можете пользоваться <emphasis>прямым кнопочным режимом Dasher</emphasis> либо <emphasis>кнопочный режим меню-Dasher</emphasis> как это было описано выше.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>4, 5, 6, либо 7</term>
+            <listitem>
+              <para>С более чем тремя кнопками, у вас есть возможность использовать <emphasis>прямой кнопочный режим Dasher</emphasis> для трёх, четырёх, пяти или шести направлений «вперёд». Попробуйте также <emphasis>кнопочный режим меню-Dasher</emphasis>, пусть даже он только для двух кнопок.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>8 и более</term>
+            <listitem>
+              <para>Попробуйте <emphasis>прямой кнопочный режим Dasher</emphasis> и <emphasis>кнопочный режим меню-Dasher</emphasis>. С таким множеством кнопок, у вас есть возможность использования системы типа Т9 — системы предсказывающего ввода текста, используемой во многих мобильных телефонах. Возможно вы захотите изучить <emphasis>Tapir</emphasis> — простая и ясная экранная клавиатура от разработчиков программы Dasher.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </sect3>
+    </sect2>
+
+    <sect2 id="timed">
+      <title>Кнопочные режимы Dasher, использующие синхронизацию</title>
+      <para>Существует два режима Dasher, которые используют информацию о точной синхронизации, и в общем требуют меньше нажатий кнопок, чем режимы режимы, нечувствительные ко времени:</para>
+      <sect3 id="onebutton">
+        <title>Динамический режим (с одной кнопкой)</title>
+        <para>После того, как Dasher будет запущен, он установит позицию к верхнему или нижнему краю изображения. Короткое нажатие кнопки переместит эту точку на противоположную сторону. Текст может быть введён нажатием кнопки, когда желаемая фраза достигает края изображения.</para>
+      </sect3>
+      <sect3 id="twobutton">
+        <title>Динамический режим с двумя кнопками</title>
+        <para>Dasher непрерывно увеличивает изображение, смещая его к центру экрана, при этом можно использовать две кнопки для сдвига изображения вверх или вниз. Кнопки следует нажимать всякий раз, когда необходимый текст выравнен с помощью двух маркеров.</para>
+      </sect3>
+      <sect3>
+        <title>Исправление ошибок</title>
+        <para>В любом динамическом режиме есть три возможности для редактирования ошибок: используя дополнительную кнопку, длинное нажатие либо многократные нажатия. Во всех случаях эти действия переведут Dasher в режим, при котором он начнёт «откатывать» изображение, уменьшая его с фиксированной скоростью. В этом режиме ещё одно нажатие остановит Dasher, а повторное нажатие переведёт его в исходный режим движения вперёд.</para>
+      </sect3>
+    </sect2>
+  </sect1>
+
+  <sect1 id="modesummary">
+    <title>Краткая сводка о режимах программы Dasher</title>
+    <para>Различные режимы программы <application>Dasher</application> перечислены ниже. Режим может быть изменён через меню <emphasis><quote>Правка</quote></emphasis>. Выберите пункт <emphasis><quote>Параметры</quote></emphasis> и затем вкладку <emphasis><quote>Управление</quote></emphasis>. Каждый режим имеет несколько связанных с ним изменяемых параметров, которые могут быть установлены с помощью кнопки <emphasis>Параметры</emphasis>, расположенной внизу под списком режимов.</para>
+
+    <sect2 id="normal">
+      <title>Обычный</title>
+      <para>Исходный режим программы <application>Dasher</application>. Работает, используя двумерные управляющие движения, скажем, от мыши. Доступен и одномерный режим для тех, кто не может управлять двумерным движением, а также имеется режим устройства слежения за взглядом для пользователей, использующих Dasher с устройствами слежения за положением головы или взгляда. Dasher может быть запущен используя лишь положение мыши, если не доступно нажатие на её кнопки. Для этого пометьте «Начинать с положения мыши» и выберите «Центральная окружность» чтобы можно было начинать и останавливать движение перемещаясь в круг в центре изображения. Режим начала движения «Два прямоугольника» запускает Dasher при перемещении последовательно в две области. В последнем случае, остановка производится через режим управления.</para>
+    </sect2>
+
+    <sect2 id="click">
+      <title>Режим нажатия</title>
+      <para>В <emphasis>режиме нажатия</emphasis> вы помещаете указатель мыши в то место, куда хотите переместиться, затем нажимаете кнопку, когда готовы. После чего <application>Dasher</application> перемещает вас к выбранному месту.</para>
+    </sect2>
+
+    <sect2 id="menu">
+      <title>Режим меню</title>
+      <para>Одна кнопка используется для выбора места, и после того как нажата вторая кнопка <application>Dasher</application> переходит к этому месту. Последняя в таком цикле область используется для того, чтобы сделать «откат» изображения.</para>
+    </sect2>
+
+    <sect2 id="direct">
+      <title>Прямой режим</title>
+      <para>Прямой режим похож на режим меню, за исключением того, что области связаны напрямую с каждой кнопкой, а не выбираются последовательно.</para>
+    </sect2>
+
+    <sect2 id="compass">
+      <title>Режим компаса</title>
+      <para>Режим компаса использует четыре кнопки. Две из них используются для управления положением по вертикали. Когда требуемое положение достигнуто, нужно нажать третью кнопку, чтобы переместиться в выбранное место. После перехода, пользователь снова выбирает положение по вертикали. Четвёртая кнопка используется для «отката» с случае ошибки.</para>
+    </sect2>
+
+    <sect2 id="dynamic">
+      <title>Динамический режим (с одной кнопкой)</title>
+      <para><application>Dasher</application> непрерывно увеличивает изображение и для его сдвига <quote>вверх</quote> или <quote>вниз</quote> можно пользоваться одной кнопкой. Есть также и <emphasis>динамический режим с двумя кнопками</emphasis> в котором для управления движениями <quote>вверх</quote> и <quote>вниз</quote> используются две кнопки. Третья кнопка, длинное нажатие либо многократные нажатия могут быть использованы для «отката» изображения и исправления ошибок.</para>
+    </sect2>
+
+    <sect2 id="buttondynamic">
+      <title>Динамический режим с двумя кнопками</title>
+      <para><application>Dasher</application> непрерывно увеличивает изображение, в процессе чего используются две кнопки для управления вертикальным движением. Исправления производятся таким же способом, что и в случае динамического режима с двумя кнопками.</para>
+    </sect2>
+  </sect1>
+
+
+
+
+
+  <sect1 id="authors">
+    <title>Авторы</title>
+    <para><application>Dasher</application> был написан членами проекта The Dasher Project (<email>dasher@inf.phy.cam.ac.uk</email>). Чтобы получить о нём больше информации, посетите <ulink url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">интернет страницу</ulink> программы <application>Dasher</application>. Все комментарии, предложения и сообщения об ошибках присылайте в <ulink url="http://bugzilla.gnome.org/enter_bug.cgi?product=dasher" type="http">базу данных слежения за ошибками GNOME</ulink>. Указания по созданию отчёта об ошибке могут быть найдены на странице <ulink url="http://bugs.gnome.org/Reporting.html" type="http"> http://bugs.gnome.org/Reporting.html</ulink>. Если вы используете GNOME 1.1 либо более позднюю версию, вы можете также использовать команду <command>bug-buddy</command> для отправки сообщений об ошибках.</para>
+    <para>Это руководство было написано проектом Dasher (<email>dasher@inf.phy.cam.ac.uk</email>). Присылайте все комментарии и предложения касающиеся руководства в проект документирования GNOME по адресу <email>docs@gnome.org</email>. Вы также можете добавить ваши комментарии по сети, используя <ulink type="http" url="http://www.gnome.org/gdp/doctable/">Таблицу статуса документации GNOME</ulink>.</para>
+  </sect1>
+</article>

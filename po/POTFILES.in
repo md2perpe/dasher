@@ -1,0 +1,43 @@
+# Add files with translateable strings here.
+# Please keep this file sorted alphabetically.
+# Use "make check" to check for missing files:
+Data/dasher.desktop.in.in
+[type: gettext/glade]Data/GUI/dasher.compose.ui
+[type: gettext/glade]Data/GUI/dasher.direct.ui
+[type: gettext/glade]Data/GUI/dasher.fullscreen.ui
+[type: gettext/glade]Data/GUI/dasher.gameWIP.ui
+[type: gettext/glade]Data/GUI/dasher.preferences.ui
+[type: gettext/glade]Data/GUI/dasher.traditional.ui
+[type: gettext/glade]Data/GUI/dashermaemo.ui
+[type: gettext/glade]Data/GUI/dashermaemo.preferences.ui
+[type: gettext/glade]Data/GUI/dashermaemofullscreen.ui
+Src/DasherCore/AlternatingDirectMode.cpp
+Src/DasherCore/ButtonMode.cpp
+Src/DasherCore/ClickFilter.cpp
+Src/DasherCore/ClickFilter.h
+Src/DasherCore/CompassMode.cpp
+Src/DasherCore/DasherButtons.cpp
+Src/DasherCore/DasherGameMode.cpp
+Src/DasherCore/DasherInterfaceBase.cpp
+Src/DasherCore/DynamicFilter.cpp
+Src/DasherCore/EyetrackerFilter.cpp
+Src/DasherCore/OneButtonDynamicFilter.cpp
+Src/DasherCore/OneButtonFilter.cpp
+Src/DasherCore/OneDimensionalFilter.cpp
+Src/DasherCore/OneDimensionalFilter.h
+Src/DasherCore/SettingsStore.cpp
+Src/DasherCore/SocketInput.cpp
+Src/DasherCore/SocketInputBase.cpp
+Src/DasherCore/TwoButtonDynamicFilter.cpp
+Src/DasherCore/TwoPushDynamicFilter.cpp
+Src/Gtk2/DasherAppSettings.cpp
+Src/Gtk2/Preferences.cpp
+Src/Gtk2/dasher_action_keyboard.cpp
+Src/Gtk2/dasher_action_keyboard_maemo.cpp
+Src/Gtk2/dasher_action_script.cpp
+Src/Gtk2/dasher_action_speech.cpp
+Src/Gtk2/dasher_editor_internal.cpp
+Src/Gtk2/dasher_main.cpp
+Src/Gtk2/module_settings_window.cpp
+Src/Gtk2/mouse_input.h
+Src/main.cc

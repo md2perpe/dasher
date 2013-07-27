@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article id="index" lang="el">
+  <articleinfo>
+    <title>Εγχειρίδιο Dasher</title>
+    <corpauthor role="maintainer">Έργο Dasher</corpauthor>
+    <copyright>
+      <year>2010</year>
+      <holder>Έργο Dasher</holder>
+    </copyright><copyright><year>επισκεφθείτε την σελίδα http://www.gnome.gr/</year><holder>Για περισσότερες πληροφορίες</holder></copyright>
+    <legalnotice>
+      <para>Χορηγείται άδεια δημιουργίας και διανομής ακριβών αντιγράφων του παρόντος εγχειριδίου με την προϋπόθεση ότι η ένδειξη δικαιωμάτων πνευματικής ιδιοκτησίας και η παρούσα ένδειξη άδειας θα παραμείνουν ως έχει σε όλα τα αντίγραφα.</para>
+      <para>Χορηγείται άδεια αντιγραφής και διανομής τροποποιημένων εκδόσεων του παρόντος εγχειριδίου υπό τους όρους που ισχύουν για τα ακριβή αντίγραφα, με την προϋπόθεση ότι το συνολικό παράγωγο έργο θα διανέμεται υπό τους όρους ένδειξης άδειας πανομοιότυπης με την παρούσα.</para>
+      <para>Χορηγείται άδεια αντιγραφής και διανομής μεταφράσεων σε άλλες γλώσσες του παρόντος εγχειριδίου υπό τους ανωτέρω όρους για τις τροποποιημένες εκδόσεις, με τη διαφορά ότι, αν παρέχεται μετάφραση της παρούσας ένδειξης άδειας, αυτή θα πρέπει να είναι εγκεκριμένη από το Ίδρυμα Ελεύθερου Λογισμικού.</para>
+      <para>Το UNIX είναι εμπορικό σήμα του X/Open.</para>
+      <para>Το Linux είναι εμπορικό σήμα του Linus Torvalds.</para>
+      <para>Το X Window System (σύστημα παραθύρων Χ) είναι εμπορικό σήμα της X Consortium, Inc.</para>
+      <para>Το Windows είναι εμπορικό σήμα της Microsoft Corp.</para>
+      <para>Τα Macintosh και Apple είναι εμπορικά σήματα της Apple Computer, Inc.</para>
+      <para>Όλα τα υπόλοιπα εμπορικά σήματα είναι ιδιοκτησία των ιδιοκτητών τους.</para>
+    </legalnotice>
+    <abstract role="description">
+      <para>Το Dasher είναι μια προσιτή εφαρμογή εισαγωγής κειμένου που χρησιμοποιεί χειρονομίες κατάδειξης αντί για πληκτρολόγηση. Φιλοδοξεί να είναι γρήγορο και, παράλληλα, ευχάριστο στη χρήση.</para>
+    </abstract>
+    <revhistory>
+      <revision>
+        <revnumber>1.0.0</revnumber>
+        <date>2004-02-08</date>
+      </revision>
+      <revision>
+        <revnumber>1.1.0</revnumber>
+        <date>2006-03-31</date>
+      </revision>
+      <revision>
+        <revnumber>1.2.0</revnumber>
+        <date>2006-07-11</date>
+      </revision>
+      <revision>
+        <revnumber>1.2.1</revnumber>
+        <date>2006-09-02</date>
+      </revision>
+    </revhistory>
+  </articleinfo>
+
+  <sect1 id="intro">
+    <title>Εισαγωγή</title>
+    <para>Το <application>Dasher</application> είναι μια διεπαφή εισαγωγής κειμένου που βασίζεται στην αποδοτική χρήση πληροφοριών και χρησιμοποιεί φυσικές, συνεχείς χειρονομίες κατάδειξης. Το Dasher αποτελεί ανταγωνιστική μέθοδο εισαγωγής κειμένου σε περιπτώσεις όπου δεν είναι δυνατή η χρήση πληκτρολογίου κανονικών διαστάσεων. Για παράδειγμα, σε υπολογιστές τσέπης, καθώς και σε υπολογιστές που κατευθύνονται μόνο με το ένα χέρι (μέσω joystick, οθόνης αφής ή ποντικιού) ή με κανένα χέρι (μέσω ποντικιού κεφαλής ή ανιχνευτή κίνησης ματιού). Αυτό το έγγραφο περιγράφει την έκδοση 4.2.0 του <application>Dasher</application>.</para>
+    <para>Μπορείτε να εκκινήσετε το <application>Dasher</application> επιλέγοντας <guimenuitem>Dasher</guimenuitem> από το υπομενού <guisubmenu>Προσιτότητα/Γενική Πρόσβαση</guisubmenu> του <guimenu>Κύριου μενού</guimenu>, ή εκτελώντας την εντολή <command>dasher</command> από τη γραμμή εντολών.</para>
+  </sect1>
+  <sect1 id="whatsnew">
+    <title>Νέα</title>
+
+    <sect2>
+      <title>Νέες λειτουργίες στην έκδοση 4.2</title>
+
+
+      <para>Αυτόματος έλεγχος ταχύτητας που επιταχύνει το Dasher όταν διαπιστώνει ότι είστε σε θέση να επιταχύνετε.</para>
+
+      <para>Νέα διεπαφή υποδοχών που επιτρέπει στο Dasher να λαμβάνει σήματα από ανιχνευτές κίνησης κεφαλής ή ματιού και από διεπαφές ηλεκτροεγκεφαλογραφήματος χωρίς τη μεσολάβηση του ποντικιού.</para>
+
+      <para>Πολλές 'λειτουργίες κουμπιών' για άτομα που θέλουν να χειρίζονται το Dasher μέσω ενός, δύο, τριών ή τεσσάρων διακοπτών.</para>
+
+      <para>'Λειτουργία κλικ' για άτομα που επιθυμούν να δείχνουν το σημείο όπου θέλουν να πάνε, και να κάνουν κλικ για να κάνουν ένα βήμα προς αυτή την κατεύθυνση. Αυτή η λειτουργία προορίζεται ειδικά για τους αρχάριους χρήστες.</para>
+
+
+    </sect2>
+    <sect2>
+      <title>Αναμένονται για την έκδοση 4.4</title>
+      <para>Λειτουργία παιχνιδιού που θα επιτρέπει στους αρχάριους χρήστες να μαθαίνουν να γράφουν. Ένα χέρι θα καθοδηγεί τον αρχάριο όταν κάνει λάθη, ενώ οι αρχάριοι που γράφουν γρήγορα χωρίς ιδιαίτερη καθοδήγηση θα κερδίζουν πολλούς βαθμούς.</para>
+
+      <para>Νέα μοντέλα γλωσσών, που θα επιτρέπουν την πρόβλεψη σε επίπεδο λέξεων και όχι μόνο γραμμάτων.</para>
+
+      <para>Πλήρης υποστήριξη Ιαπωνικών και Κινεζικών.</para>
+
+      <para>Επίσης, η ομάδα του Dasher ελπίζει να δημιουργήσει το 'FreeVIM', έναν ελεύθερο ανιχνευτή κίνησης κεφαλής ή ματιού, ο οποίος θα βασίζεται στη χρήση κάμερας web, μέχρι το Δεκέμβριο του 2006.</para>
+    </sect2>
+  </sect1>
+  <sect1 id="basics">
+    <title>Βασικά για το Dasher</title>
+    <para>Το Dasher είναι μια διεπαφή εισαγωγής κειμένου που βασίζεται στην αποδοτική χρήση πληροφοριών και χρησιμοποιεί φυσικές, συνεχείς χειρονομίες κατάδειξης. Το Dasher αποτελεί ανταγωνιστική μέθοδο εισαγωγής κειμένου σε περιπτώσεις όπου δεν είναι δυνατή η χρήση πληκτρολογίου κανονικών διαστάσεων. Π.χ.: <itemizedlist>
+        <listitem>
+          <para>Από υπολογιστή τσέπης (palmtop)·</para>
+        </listitem>
+        <listitem>
+          <para>από τον υπολογιστή που φοράτε·</para>
+        </listitem>
+        <listitem>
+          <para>αν χειρίζεστε τον υπολογιστή με το ένα χέρι, με joystick, οθόνη αφής, trackball ή ποντίκι·</para>
+        </listitem>
+        <listitem>
+          <para>αν χειρίζεστε τον υπολογιστή χωρίς χέρια (π.χ. με ποντίκι κεφαλής ή ανιχνευτή κίνησης ματιού).</para>
+        </listitem>
+      </itemizedlist>. Με την έκδοση ανίχνευσης κίνησης ματιού ένας έμπειρος χρήστης μπορεί να γράφει κείμενο με την ίδια ταχύτητα που θα το έγραφε και με το χέρι - 29 λέξεις το λεπτό· με το ποντίκι, οι έμπειροι χρήστες μπορούν να γράφουν με ταχύτητα 39 λέξεις το λεπτό.</para>
+
+    <para>Το Dasher μπορεί να χρησιμοποιηθεί αποτελεσματικά για να γράφετε σε οποιαδήποτε γλώσσα.</para>
+
+    <para>Το Dasher είναι γρήγορο και ευχάριστο στην εκμάθηση.</para>
+
+    <para>Το Dasher είναι <emphasis>ελεύθερο λογισμικό</emphasis>. Διανέμεται υπό τους όρους της ίδιας άδειας με το GNU/Linux, της GPL.</para>
+
+    <sect2>
+      <title>Πώς λειτουργεί το Dasher;</title>
+
+      <blockquote>
+        <attribution>Financial Times, 5 Φεβρουαρίου 2002</attribution>
+        <para>Το Dasher είναι σαν ηλεκτρονικό παιχνίδι: 'Επίθεση του αλφάβητου δολοφόνου', π.χ.</para>
+      </blockquote>
+
+      <para>Το Dasher βασίζεται στην εστίαση. Δείχνετε που θέλετε να πάτε και η οθόνη εστιάζει στο σημείο αυτό. Ο κόσμος στον οποίο εστιάζετε κατοικείται από γράμματα, οπότε, κάθε σημείο που δείχνετε αντιστοιχεί σε ένα κομμάτι κειμένου. Όσο πιο πολύ εστιάζετε, τόσο αυξάνεται το μήκος του κειμένου σας. Ουσιαστικά, επιλέγετε το τι θα γράψετε επιλέγοντας το πού θα εστιάσετε.</para>
+
+      <para>Για να βελτιώσουμε την αποδοτικότητα της εφαρμογής, χρησιμοποιούμε προβλέψεις γλωσσικού μοντέλου προκειμένου να αποφασίσουμε τι ποσοστό του κόσμου θα ανήκει σε κάθε κομμάτι κειμένου. Τα πιο πιθανά κομμάτια καταλαμβάνουν μεγαλύτερο χώρο, ώστε να μπορούν να επιλέγονται πιο εύκολα και γρήγορα. Τα λιγότερο πιθανά κομμάτια (π.χ., λέξεις με ορθογραφικά λάθη) καταλαμβάνουν λιγότερο χώρο και, άρα, η εισαγωγή τους είναι δυσκολότερη. Το γλωσσικό μοντέλο μαθαίνει συνεχώς: αφού χρησιμοποιήσετε μια νέα λέξη, την επόμενη φορά θα μπορείτε να τη γράψετε ευκολότερα.</para>
+
+
+
+      <para>Ένα βασικό πλεονέκτημα του Dasher σε σχέση με άλλες εφαρμογές εισαγωγής κειμένου με πρόβλεψη λέξεων είναι ότι <emphasis>δεν χρησιμοποιεί διαφορετικές λειτουργίες</emphasis>: ο χρήστης δεν χρειάζεται να εναλλάσσεται μεταξύ λειτουργίας γραφής και λειτουργίας <quote>αποδοχής προβλέψεων μοντέλου</quote>.</para>
+
+      <para>Άλλο ένα πλεονέκτημα του Dasher είναι ότι είναι εύκολο να εκπαιδεύσετε το μοντέλο σε οποιοδήποτε στυλ γραφής: απλά φορτώστε ένα αρχείο-υπόδειγμα και ξεκινήστε να γράφετε!</para>
+
+      <para>Είναι αρκετά δύσκολο να περιγράψουμε την εμφάνιση του Dasher, οπότε σας παρακαλούμε να επισκεφθείτε τη διεύθυνση <ulink url="http://www.inference.phy..cam.ac.uk/dasher/" type="http">http://www.inference.phy.cam.ac.uk/dasher/</ulink> για να δείτε τα σχετικά βίντεο.</para>
+
+    </sect2>
+    <sect2>
+      <title>Εξηγώντας το Dasher -- το παράδειγμα της βιβλιοθήκης</title>
+      <para>Φανταστείτε <emphasis>μια βιβλιοθήκη που περιέχει όλα τα βιβλία στον κόσμο</emphasis>, ταξινομημένα με αλφαβητική σειρά σε ένα μόνο ράφι. Τα βιβλία που ξεκινούν από <quote>α</quote> βρίσκονται στα αριστερά και τα βιβλία που ξεκινούν από <quote>ω</quote> στα δεξιά. Στην εικόνα (i) που ακολουθεί, βλέπετε το ράφι τοποθετημένο κατακόρυφα, με το <quote>α</quote> στην κορυφή και το <quote>ω</quote> στο τέλος. Το πρώτο βιβλίο από αυτά που ξεκινούν με <quote>α</quote> είναι το <quote><computeroutput>ααααααααααααα</computeroutput>...</quote>· δίπλα του βρίσκονται τα βιβλία που ξεκινούν με <quote><computeroutput>αγάπη όμορφη και
+.........ιδανική</computeroutput>...</quote>· λίγο παρακάτω όσα ξεκινούν με <quote><computeroutput>αγάπη όμορφη και
+.........καλόπιστη</computeroutput>...</quote>.</para>
+
+
+      <para>Όταν ένα άτομο γράφει κείμενο, μπορούμε να υποθέσουμε ότι το κείμενο που επέλεξε αντιστοιχεί σε ένα βιβλίο της βιβλιοθήκης όλων των βιβλίων - το βιβλίο που περιέχει κατά λέξη το επιλεγμένο κείμενο. Πώς όμως επελέγη το βιβλίο; Ας υποθέσουμε ότι το άτομο θέλει να γράψει <quote><computeroutput>αγάπη όμορφη και</computeroutput>...</quote>.</para>
+      <figure>
+        <title>Η βιβλιοθήκη όλων των βιβλίων.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/a-z.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/aa-az.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/ala-alz.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Πρώτα, περπατάει μέχρι το τμήμα του <quote><computeroutput>α</computeroutput></quote> στη βιβλιοθήκη. Εκεί βλέπει βιβλία που ξεκινούν από <quote><computeroutput>αα</computeroutput></quote>, <quote><computeroutput>αβ</computeroutput></quote>, <quote><computeroutput>αγ</computeroutput>...</quote> <quote><computeroutput>αω</computeroutput></quote> [Εικόνα (ii)]. Κοιτάζοντας πιο προσεκτικά το τμήμα του <quote><computeroutput>αγ</computeroutput></quote>, μπορεί να βρει βιβλία που ξεκινούν από <quote><computeroutput>αγα</computeroutput></quote>, <quote><computeroutput>αγβ</computeroutput></quote>,... <quote><computeroutput>αγω</computeroutput></quote> [Εικόνα(iii)].</para>
+
+      <para>Κοιτάζοντας το ράφι ακόμη πιο προσεκτικά, το άτομο βρίσκει το βιβλίο που περιέχει το ζητούμενο κείμενο. Άρα, μπορούμε να περιγράψουμε τη γραφή ως <emphasis>εστίαση σε μια αλφαβητικά ταξινομημένη βιβλιοθήκη, διορθώνοντας την κατεύθυνση στην πορεία</emphasis>.</para>
+
+      <para>Το Dasher λειτουργεί κατ' αυτόν ακριβώς τον τρόπο, εκτός από μια ουσιώδη διαφορά: <emphasis>το ΜΕΓΕΘΟΣ του ραφιού που φιλοξενεί κάθε βιβλίο αλλάζει ανάλογα με το πόσο πιθανό είναι το αντίστοιχο κείμενο.</emphasis> Π.χ. δεν υπάρχουν πολλά βιβλία που να αρχίζουν από <quote><computeroutput>χ</computeroutput></quote>. Επομένως, παραχωρούμε λιγότερο χώρο στα βιβλία από <quote><computeroutput>χ</computeroutput>...</quote> και περισσότερο σε πιο πιθανά βιβλία, διευκολύνοντας την εύρεση βιβλίων που περιέχουν περισσότερο πιθανό κείμενο.</para>
+
+      <para>Εδώ βλέπετε την αλληλουχία χαρακτήρων της βιβλιοθήκης του Dasher. (Ο χαρακτήρας <quote>_</quote> αντιστοιχεί στο διάστημα.)</para>
+      <figure>
+        <title>Η βιβλιοθήκη όλων των βιβλίων.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/a-z.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/aa-az.gif"/>
+          </imageobject>
+          <imageobject>
+            <imagedata fileref="figures/ala-alz.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <!--
+\begin{center}
+\begin{tabular}{ccc}
+\mbox{\psfig{figure=images/a-z.m.gif.50.ps}}&
+\mbox{\psfig{figure=images/aa-az.m.gif.50.ps}}&
+\mbox{\psfig{figure=images/ala-alz.m.gif.50.ps}}\\
+(i)&(ii)&(iii)\\
+\end{tabular}
+\end{center}
+							      -->
+
+      <para>Μπορείτε να εκπαιδεύσετε το Dasher χρησιμοποιώντας παραδείγματα από οποιοδήποτε στυλ γραφής. Παράλληλα, το Dasher μαθαίνει συνεχώς και απομνημονεύει τις προσωπικές σας εκφράσεις.</para>
+
+      <para>Η παρακάτω εικόνα δείχνει το παράθυρο του Dasher ενώ ο χρήστης γράφει τη λέξη 'objection'. Άλλες λέξεις που θα μπορούσαν να εισαχθούν σε αυτή τη φάση είναι οι 'objective', 'objects_', και 'object_oriented'.</para>
+      <figure>
+        <title>Γράφοντας 'objection' στο Dasher.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/object.gif"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Αν δυσκολεύεστε να φανταστείτε το Dasher με βάση αυτές τις στατικές εικόνες, παρακαλούμε δείτε τα βίντεο στο <ulink url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">http://www.inference.phy.cam.ac.uk/dasher/</ulink>.</para>
+
+
+      <!--% When  you try Dasher for the first time,  please read the tips for novices.-->
+    </sect2>
+    <sect2>
+      <title>Συμβουλές για αρχαρίους</title>
+      <para>Μην εγκαταλείψετε την προσπάθεια αν δεν τα καταφέρετε στα πρώτα ένα δύο λεπτά - μετά από δέκα λεπτά θα προχωράτε ακάθεκτοι. Μοιάζει λίγο με την οδήγηση. Στην αρχή, <emphasis>πρέπει να οδηγείτε προσεκτικά</emphasis>. Αν δεν βλέπετε πού πάτε, <emphasis>σταματήστε</emphasis>. Ουσιαστικά, ίσως να εξοικειωθείτε ταχύτερα με το Dasher, αν το σκέφτεστε ως οδήγηση αυτοκινήτου αντί για χρήση υπολογιστή. Π.χ., μη σκέφτεστε την πλοήγηση ως ΣΥΡΣΙΜΟ αλλά ως ΟΔΗΓΗΣΗ. Αν τα αυτοκίνητα λειτουργούσαν ως υπολογιστές, θα έπρεπε να <quote>αρπάζετε</quote> το κομμάτι του δρόμου όπου θέλετε να πάτε και να το <quote>σέρνετε</quote> προς το μέρος σας. Όμως, αυτό που κάνετε είναι ότι, αν θέλετε να πάτε δεξιά, ΔΕΙΧΝΕΤΕ ΔΕΞΙΑ με το τιμόνι σας. Ομοίως, ούτε και το Dasher χρησιμοποιεί το σύρσιμο. <emphasis>Δεν αρπάζετε και σέρνετε πράγματα. Απλά, αποφασίζετε που θέλετε να πάτε και δείχνετε προς τη σωστή κατεύθυνση</emphasis>.</para>
+
+      <para><emphasis>Το πιο σημαντικό πράγμα</emphasis> που πρέπει να κατανοήσει ο αρχάριος χρήστης είναι ότι πρέπει πάντα να συνεχίζει να κινείται <emphasis>μέσα</emphasis> στο κείμενο που έχει ήδη γράψει: για να επιλέξετε ένα βιβλίο με πρώτη λέξη τη λέξη <quote>όλα</quote>, <emphasis>δεν</emphasis> πρέπει να μπείτε στο τμήμα του <quote>ό</quote> στη βιβλιοθήκη και μετά να βγείτε και να μπείτε στο τμήμα του <quote>λ</quote>. Πρέπει να μπείτε στο τμήμα του <quote>ό</quote>, μετά να βρείτε το τμήμα του <quote>όλ</quote> <emphasis>μέσα</emphasis> στο <quote>ό</quote>, και τέλος να βρείτε το τμήμα <quote>όλα</quote> <emphasis>μέσα</emphasis> στο <quote>όλ</quote>.</para>
+
+      <para>Ακριβώς όπως βρίσκετε ένα όνομα στον τηλεφωνικό κατάλογο. Για να βρείτε την <quote><computeroutput>Αλίκη</computeroutput></quote>, δεν πηγαίνετε πρώτα στο <quote><computeroutput>Α</computeroutput></quote> και μετά στο <quote><computeroutput>Λ</computeroutput></quote>· πηγαίνετε στο <quote><computeroutput>Α</computeroutput></quote> και μετά βρίσκετε το <quote><computeroutput>Αλ</computeroutput></quote> <emphasis>εντός του</emphasis>, κοκ. Από τη στιγμή που θα μπείτε στο <quote><computeroutput>Αλ</computeroutput></quote>, δεν φεύγετε από αυτό το τμήμα.</para>
+
+      <para><emphasis>Το δεύτερο σημαντικότερο πράγμα</emphasis> είναι ότι το κείμενο που θα γράψετε εξαρτάται <emphasis>μόνο</emphasis> από το πού θα καταλήξετε μέσα στη βιβλιοθήκη και όχι από το πώς θα φτάσετε εκεί. Άρα, δεν χρειάζεται να οδηγείτε με απόλυτη ακρίβεια μέχρι να φτάσετε στον προορισμό σας. <emphasis>Μπορείτε να κόβετε δρόμο</emphasis>. (Π.χ., στην προηγούμενη εικόνα, αν θέλατε να γράψετε 'objects_are', θα μπορούσατε να μετακινήσετε το ποντίκι απευθείας στο 'are', χωρίς να πειράζει πού το ποντίκι περνάει από το γκρίζο τετράγωνο με το 'i'.</para>
+
+
+
+
+      <para><emphasis>Συχνά λάθη.</emphasis> Συχνά, οι αρχάριοι, προσπαθώντας να βρουν ένα γράμμα, προχωρούν γρήγορα ενώ ψάχνουν. Όμως, για το Dasher ισχύει ό,τι και για το αυτοκίνητο: δεν προχωράμε μπροστά, αν δεν έχουμε βρει πού θέλουμε να πάμε! Οπότε, αφού βρείτε το πρώτο γράμμα της πρότασής σας και εστιάσετε σε αυτό, <emphasis>ΕΠΙΒΡΑΔΥΝΕΤΕ, και μην προχωρήσετε άλλο μέσα στο τετράγωνό, αν δεν εντοπίσετε προς τα πού πρέπει να κατευθυνθείτε</emphasis>. Το επόμενο γράμμα <emphasis>βρίσκεται</emphasis> εκεί, μέσα στο πρώτο τετράγωνο στο οποίο μπήκατε. Τα γράμματα είναι ταξινομημένα με αλφαβητική σειρά. Αν δεν βλέπετε το γράμμα που ψάχνετε, μαντέψτε πού βρίσκεται με βάση τα γράμματα που <emphasis>μπορείτε</emphasis> να δείτε. Στη συνέχεια, δείξτε το κατάλληλο σημείο και θα εισέλθετε στο τετράγωνο του δεύτερου γράμματος.</para>
+    </sect2>
+    <sect2>
+      <title>Παράδειγμα</title>
+      <figure id="figHad1">
+        <title>Γράφετε <quote><computeroutput>I once had a whim</computeroutput></quote>. Προς τα πού πρέπει να κατευθυνθείτε τώρα;</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad2.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Έστω ότι θέλετε να γράψετε '<computeroutput>I once had a whim</computeroutput>'. Γράφετε '<computeroutput>I once ha...</computeroutput>' και το παράθυρο του Dasher έχει την εξής εμφάνιση <xref linkend="figHad1"/>. Θέλετε όμως να γράψετε '<computeroutput>had</computeroutput>'. Τι πρέπει να κάνετε; Υπάρχουν πολλά <computeroutput>d</computeroutput> στην οθόνη, αλλά είναι όλα αρκετά μικρά. Τα πέντε βέλη στην <xref linkend="figHad1"/> δείχνουν ορισμένα <computeroutput>d</computeroutput>. Το μοβ βέλος δείχνει ένα <computeroutput>d</computeroutput> που δε φαίνεται ακόμη, αλλά που γνωρίζουμε ότι υπάρχει, καθώς βλέπουμε τα '<computeroutput>a</computeroutput>', '<computeroutput>b</computeroutput>' και '<computeroutput>c</computeroutput>' που προηγούνται.</para>
+      <figure id="figHad2">
+        <title>Ορισμένα εναλλακτικά <computeroutput>d</computeroutput>, με επισημασμένο ένα πιθανό λάθος αρχαρίου</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad2a.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+      <para>Ένα συνηθισμένο λάθος αρχαρίων είναι ότι τρέχουν συνεχώς προς τα εμπρός και εστιάζουν σε <emphasis>οποιοδήποτε</emphasis> <computeroutput>d</computeroutput> βρουν στο δρόμο τους. Π.χ., η <xref linkend="figHad3"/> δείχνει τι θα συμβεί αν ο χρήστης εστιάσει στο <computeroutput>d</computeroutput> που είχε επισημανθεί στην <xref linkend="figHad2"/>.</para>
+      <figure id="figHad3">
+        <title>Τι θα συμβεί αν επιλέξετε λάθος <computeroutput>d</computeroutput></title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad3a.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+
+      <para>Αν μπείτε στο τετράγωνο αυτού του <computeroutput>d</computeroutput>, θα γράψετε '<computeroutput>I
+          once </computeroutput><emphasis>head</emphasis><computeroutput>...</computeroutput>'. Τα άλλα δύο <computeroutput>d</computeroutput> που είχαν σημειωθεί με κόκκινα βέλη (στην <xref linkend="figHad1"/>) αντιστοιχούν στο '<computeroutput>I once
+          </computeroutput><emphasis>heard</emphasis><computeroutput>...</computeroutput>' και στο '<computeroutput>I once
+        </computeroutput><emphasis>hedge</emphasis><computeroutput>...</computeroutput>'.</para>
+
+
+      <para>Είναι σημαντικό να καταλάβετε ότι υπάρχει ένα μόνο σωστό <computeroutput>d</computeroutput>, το <computeroutput>d</computeroutput> που βρίσκεται μέσα στο γαλάζιο τετράγωνο που αντιστοιχεί στο γράμμα '<computeroutput>a</computeroutput>' της φράσης '<computeroutput>I once ha</computeroutput>'. Στην <xref linkend="figHad4"/> έχει επισημανθεί αυτό το γαλάζιο τετράγωνο.</para>
+      <figure id="figHad4">
+        <title>Το σωστό <computeroutput>d</computeroutput> έχει σημειωθεί με ένα πράσινο βέλος. Αυτό το παράδειγμα εξηγεί τι εννοούμε όταν λέμε ότι πρέπει να <quote>προχωράτε πάντα <emphasis>μέσα</emphasis> στο τετράγωνο που σας ενδιαφέρει</quote>· σε αυτή την περίπτωση, σας ενδιαφέρει το γαλάζιο τετράγωνο που αντιστοιχεί στο γράμμα <computeroutput>a</computeroutput> της λέξης <quote><computeroutput>had</computeroutput></quote>.</title>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="figures/exampleHad4.png"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>Αν βγείτε από το γαλάζιο τετράγωνο (όπως στην <xref linkend="figHad3"/>), τότε θα χάσετε το γράμμα '<computeroutput>a</computeroutput>'.</para>
+    </sect2>
+
+    <sect2>
+      <title>Περίληψη</title>
+      <para>
+        <emphasis>Μην κάνετε κλικ. Μη σέρνετε. Και μην τρέχετε.</emphasis>
+      </para>
+    </sect2>
+
+    <sect2>
+      <title>Τι σημαίνουν τα χρώματα;</title>
+      <para>Στην αγγλική έκδοση 3 του Dasher, <itemizedlist>
+          <listitem>
+            <para>τα <emphasis>λευκά</emphasis> τετράγωνα περιέχουν τα διαστήματα (πάντα στο τέλος του αλφαβήτου)·</para>
+          </listitem>
+
+          <listitem>
+            <para>ένα ειδικό <emphasis>κίτρινο</emphasis> τετράγωνο περιλαμβάνει τα κεφαλαία γράμματα [Α-Ω]·</para>
+          </listitem>
+
+          <listitem>
+            <para>Ένα <emphasis>κόκκινο</emphasis> τετράγωνο περιέχει τους αριθμούς [0-9] (αν έχει ενεργοποιηθεί το πλήρες αλφάβητο)·</para>
+          </listitem>
+
+          <listitem>
+            <para>ένα <emphasis>πράσινο</emphasis> τετράγωνο περιέχει τα σημεία στίξης (με τα σημεία στίξης που είναι πιο συγγενικά στο διάστημα [.,·:-] να εμφανίζονται στο τέλος, δίπλα στο <emphasis>λευκό</emphasis> τετράγωνο του διαστήματος. Εντός του τετραγώνου με τα σημεία στίξης, τα σημεία που έχουν παρόμοια χρήση έχουν και το ίδιο χρώμα: τα σημεία στίξης που είναι σχετικά με την τελεία [.,·:-] έχουν μπλε χρώμα·</para>
+          </listitem>
+          <listitem>
+            <para>τα άλλα χρώματα χρησιμοποιούνται απλά για να μπορείτε να διακρίνετε τα τετράγωνα μεταξύ τους.</para>
+          </listitem>
+          <listitem>
+            <para>Στις γλώσσες που χρησιμοποιούν τόνους (ψιλή, δασεία, περισπωμένη, κτλ) οι τόνοι περιέχονται σε ένα <emphasis>πορτοκαλί</emphasis> τετράγωνο.</para>
+          </listitem>
+          <listitem>
+            <para>Στην ιαπωνική έκδοση του Dasher, τα χρώματα χρησιμοποιούνται για τη διάκριση μεταξύ διαφορετικών ομάδων hiragana (π.χ., τα ka,ki,ku,ke,ko είναι πορτοκαλί).</para>
+          </listitem>
+          <listitem>
+            <para>Στην κορεατική έκδοση του Dasher, χρησιμοποιούνται τρία διαφορετικά χρώματα για να διακρίνουν μεταξύ αρχικών συμφώνων, φωνηέντων και τελικών συμφώνων.</para>
+          </listitem>
+        </itemizedlist></para>
+      <para>Μπορείτε να χρησιμοποιήσετε χρώματα της αρεσκείας σας, τροποποιώντας τα αρχεία xml <computeroutput>colour</computeroutput> και <computeroutput>alphabet</computeroutput>, όπως περιγράφεται στην <xref linkend="personalising"/>.</para>
+    </sect2>
+    <sect2>
+      <title>Εκκίνηση του Dasher (έκδοση 4)</title>
+      <para>Εκκινήστε την εφαρμογή dasher. Όταν εμφανιστεί το παράθυρο, κάντε αριστερό κλικ με το ποντίκι ή πατήστε διάστημα για να ξεκινήσετε. [Ένας από τους δύο τρόπους θα δουλέψει σίγουρα.] Επαναλάβετε την ίδια ενέργεια (κλικ ή διάστημα) αφού τελειώσετε, για να διακόψετε το Dasher. Το Dasher ελέγχεται από το ποντίκι του υπολογιστή σας.</para>
+
+      <para>Ρυθμίστε τη μέγιστη ταχύτητα εστίασης. Για τους αρχάριους το 1 είναι μια καλή ταχύτητα, αυξανόμενη σε 2 μετά από 5 λεπτά εξάσκησης και καταλήγοντας σε 4 για τους έμπειρους χρήστες.</para>
+    </sect2>
+    <sect2>
+      <title>Εκκίνηση του Dasher (έκδοση 2) σε υπολογιστή τσέπης</title>
+      <para>Εγκαταστήστε την εφαρμογή, εκκινήστε τη (περιμένετε κάποια δευτερόλεπτα για να φορτωθεί το αρχείο εκπαίδευσης), και στη συνέχεια αγγίξτε την οθόνη με τη γραφίδα για να ξεκινήσετε να χρησιμοποιείτε το dasher.</para>
+
+      <para>Σε αυτή την έκδοση του Dasher υπάρχουν τρία ειδικά τετράγωνα, χρωματισμένα με έντονα χρώματα: κίτρινο, κόκκινο (σε ορισμένες εκδόσεις) και πράσινο. Αυτά τα τρία τετράγωνα δεν αντιστοιχούν σε κάποιο χαρακτήρα· απλά, υποδηλώνουν συγκεκριμένες υποομάδες του αλφαβήτου (κεφαλαία, αριθμοί (σε ορισμένες εκδόσεις) και σημεία στίξης).</para>
+    </sect2>
+  </sect1>
+  <!--<sect1 id="usage">
+    <title>Using Dasher</title>
+    <sect2 id="menubar">
+      <title>Menus</title>
+      <para> The menu bar, located at the top of the <interface>Main Window</interface>, provides
+        the following commands: </para>
+      <variablelist>
+        <varlistentry>
+          <term>
+            <guimenu>File</guimenu>
+          </term>
+          <listitem>
+            <para>This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para>
+                    <guimenuitem>New</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Open</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Save</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Save As</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Append to file</guimenuitem> this command can be used to append
+                    the current Dasher buffer to an existing text file.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Import training text</guimenuitem> this command can be used to
+                    add the contents of an existing text file to Dasher's language model.</para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Quit</guimenuitem>
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Edit</guimenu>
+          </term>
+          <listitem>
+            <para> This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para>
+                    <guimenuitem>Cut</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Copy</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Paste</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Copy All</guimenuitem>
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Options</guimenu>
+          </term>
+          <listitem>
+            <para> This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para><guimenuitem>Preferences</guimenuitem>, which launches the <link
+                      linkend="prefs">
+                      <interface>Preferences Dialog</interface>
+                    </link></para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Edit font</guimenuitem> alters the font used in the edit
+                  box.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Dasher font</guimenuitem> alters the size of the moving
+                    characters.</para>
+                </listitem>
+                <listitem>
+                  <para>
+                    <guimenuitem>Dasher font size</guimenuitem>
+                  </para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Enter text into other windows</guimenuitem> this causes Dasher
+                    to enter text into whichever window is selected.</para>
+                </listitem>
+                <listitem>
+                  <para><guimenuitem>Control mode</guimenuitem> this causes an extra node to appear
+                    at the bottom of the alphabet. Here, you can edit text directly from within
+                    Dasher, cause Dasher to speak text that you have entered and stop or pause
+                    Dasher.</para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>
+            <guimenu>Help</guimenu>
+          </term>
+          <listitem>
+            <para>This menu contains the following commands: <itemizedlist>
+                <listitem>
+                  <para><guimenuitem>About</guimenuitem> shows basic information about
+                      <application>Dasher</application>, such as author's name and version number.
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </sect2>
+
+    <sect2 id="prefs">
+      <title>Customization</title>
+      <para> To change default settings, select <guimenuitem>Preferences</guimenuitem> command in
+          <guimenu>Settings</guimenu> menu. This launches the <interface>Preferences
+        dialog</interface>, shown in <xref linkend="prefs1"/>, <xref linkend="prefs2"/>, <xref
+          linkend="prefs3"/>, <xref linkend="prefs4"/> and <xref linkend="prefs5"/>. </para>
+      <figure id="prefs1">
+        <title>&quot;Alphabet&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs1.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para> Dasher has support for many languages, and the choice of which language to write in is
+        made with this dialog. Note that some languages (for example, Hiragana, Korean and the
+        International Phonetic Alphabet) may require fonts that you do not have installed. For
+        information on creating your own alphabet files, see the <ulink
+          url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">Dasher website</ulink>. </para>
+      <figure id="prefs2">
+        <title>&quot;Colour&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs2.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para> Dasher has support for different colour schemes. The 'Default' colour scheme is a
+        simple rotation of colours that should work with any language. Enhanced colour schemes may
+        be used for languages with logical groupings (such as Hiragana or Korean) or to increase
+        contrast. </para>
+      <figure id="prefs3">
+        <title>&quot;Control&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs3.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>One dimensional mode</guimenuitem> maps the Y coordinate of the mouse
+              position to an X/Y coordinate, for use with one-dimensional input methods.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Eyetracker mode</guimenuitem> optimisations for eyetrackers 
+              specifically, makes Dasher behave as in one-dimensional mode near the right hand edge
+              of the screen.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start on left mouse button</guimenuitem> the left mouse button starts
+              and stops Dasher.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start on space bar</guimenuitem> the space bar starts and stops
+              Dasher.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Start with mouse position</guimenuitem> when Dasher is paused, a red
+              box appears. Hold the cursor inside the red box until a yellow box appears. Hold the
+              cursor inside the yellow box. Dasher will then start..</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Copy all on stop</guimenuitem> when stopped, Dasher will copy all
+              text to the clipboard automatically.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Speak on stop</guimenuitem> when stopped, Dasher will speak newly
+              entered text automatically.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Pause outside window</guimenuitem> Dasher will pause if the mouse
+              pointer moves outside its window.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <figure id="prefs4">
+        <title>&quot;View&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs4.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>Orientation</guimenuitem> alters the direction that the text moves
+              in. If set to &quot;Alphabet default&quot;, the alphabet file will choose the
+              appropriate direction for the alphabet.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show toolbar</guimenuitem> you can hide Dasher's toolbar if you wish.
+              Calling dasher with the '-o' switch will open a reduced-options version of dasher,
+              designed for entry into other applications.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show speed slider</guimenuitem> enable/disable the speed
+            slider.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Show mouse position</guimenuitem> in some situations (such as
+              one-dimensional or eyetracker mode), the absolute position of the mouse will differ
+              from Dasher's perception of the mouse position. This option shows you where Dasher's
+              mouse is.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Draw line between crosshairs and mouse</guimenuitem> helpful for
+              users who have trouble keeping track of the pointer.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Draw box outlines</guimenuitem> increases the contrast around the
+              edges of boxes, to help distinguish between them.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Change colour scheme automatically</guimenuitem> languages such as
+              Hiragana are aware of which colour scheme they should be using. This option allows an
+              alphabet to select its colour scheme automatically.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <figure id="prefs5">
+        <title>&quot;Advanced&quot; dialog</title>
+        <screenshot>
+          <screeninfo>Preferences dialog</screeninfo>
+          <graphic fileref="figures/prefs5.png" format="PNG" srccredit="ME"/>
+        </screenshot>
+      </figure>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para><guimenuitem>Smoothing</guimenuitem> adds a &quot;uniform&quot; element to
+              the language model's predictions. A smoothing value of 100 will result in an entirely
+              uniform distribution being used  each box will have the same size.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Timestamp new files</guimenuitem> each file created by Dasher will
+              automatically have the current time in its filename.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Distance from centreline for start on mouse position</guimenuitem>
+              controls the range for the 'Start on mouse position' option.</para>
+          </listitem>
+          <listitem>
+            <para><guimenuitem>Number of pixels that should cover the entire Y range</guimenuitem>
+              some input devices do not have enough gain to cover an entire Dasher window; this
+              option increases the gain of displacement on the Y axis.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>-->
+  <sect1 id="reallife">
+    <title>Χρήση του Dasher στην καθημερινή σας ζωή</title>
+
+    <para>Μπορείτε να χρησιμοποιείτε το Dasher για να επικοινωνείτε μέσω του υπολογιστή σας και (σε κάποιο βαθμό) για να ελέγχετε τον υπολογιστή σας. Προφανώς, ο απλούστερος τρόπος να χρησιμοποιήσετε το Dasher για να επικοινωνήσετε είναι να ζητήσετε από το άτομο με το οποίο συζητάτε να παρακολουθεί την οθόνη. Αλλά υπάρχουν και πολλοί άλλοι τρόποι για να επικοινωνήσετε μέσω του Dasher.</para>
+
+    <sect2>
+      <title>Αντιγραφή στο πρόχειρο</title>
+
+      <para>Αν έχετε ενεργοποιήσει τη λειτουργία 'αντιγραφή στη διακοπή', τότε κάθε φορά που διακόπτετε το Dasher, τα περιεχόμενα του πλαισίου κειμένου του Dasher αντιγράφονται αυτόματα στο πρόχειρο του υπολογιστή σας. Μπορείτε στη συνέχεια να χρησιμοποιήσετε τη λειτουργία 'Επικόλλησης' μιας δεύτερης εφαρμογής για να μεταφέρετε το κείμενό σας σε αυτή.</para>
+    </sect2>
+
+    <sect2>
+      <title>Ομιλία</title>
+
+      <para>Το Dasher συνδέεται στο ενσωματωμένο σύστημα μετατροπής κειμένου σε ομιλία του υπολογιστή σας. Υπάρχουν διάφοροι τρόποι με τους οποίους μπορείτε να χρησιμοποιήσετε το Dasher για την παραγωγή ομιλίας.</para>
+
+      <para>Μπορείτε να επιλέξετε την 'εκφώνηση κάθε λέξης': κάθε φορά που φτάνετε στο τέλος μιας λέξης (π.χ., όταν εισάγετε ένα διάστημα), αμέσως εκφωνείται η λέξη αυτή.</para>
+
+      <para>Μπορείτε επίσης να επιλέξετε την 'εκφώνηση στη διακοπή': κάθε φορά που σταματάτε την κίνηση του Dasher, εκφωνούνται όλα τα περιεχόμενα του πλαισίου κειμένου.</para>
+
+      <para>Τέλος, μπορείτε να επιλέγετε ακριβώς πότε θα γίνεται η εκφώνηση, χρησιμοποιώντας τη <emphasis>Λειτουργία ελέγχου</emphasis> (η επιλογή βρίσκεται στο μενού προτιμήσεων/επιλογών της έκδοσης 4 του Dasher). Αυτή η λειτουργία προσθέτει ένα ακόμη τετράγωνο, γκρι χρώματος, στο αλφάβητο του Dasher. Το τετράγωνο αυτό λειτουργεί περίπου όπως και το πλήκτρο escape στο πληκτρολόγιο. Περιέχει διάφορες επιλογές ελέγχου: Stop (διακοπή: κόκκινο), pause (παύση: κίτρινο), Move (μετακίνηση), Delete (διαγραφή) και Speak (εκφώνηση). Εντός του τετραγώνου Speak περιέχονται οι επιλογές 'speak everything (εκφώνηση όλων)', 'speak new (εκφώνηση νέων)' (μόνο οι λέξεις που εισήχθησαν μετά την τελευταία εκφώνηση) και 'speak again (επανάληψη εκφώνησης)' (που επαναλαμβάνει το κείμενο που είχε εκφωνηθεί την τελευταία φορά).</para>
+    </sect2>
+
+    <sect2>
+      <title>Αποθήκευση σε αρχείο</title>
+
+      <para>Μπορείτε να αποθηκεύσετε όλο το περιεχόμενο του πλαισίου κειμένου του Dasher ως αρχείο απλού κειμένου, κάνοντας κλικ στο εικονίδιο 'Αποθήκευση αρχείου' της εργαλειοθήκης, ή χρησιμοποιώντας τα μενού στο πάνω μέρος του παραθύρου (επιλέγοντας Αρχείο και μετά Αποθήκευση).</para>
+    </sect2>
+
+    <sect2>
+      <title>Αποστολή κειμένου σε άλλο παράθυρο</title>
+
+      <para>Μπορείτε επίσης να στέλνετε απευθείας ό,τι έχετε γράψει στο Dasher σε άλλο παράθυρο. Ενεργοποιήστε την επιλογή 'αποστολή κειμένου σε άλλο παράθυρο' από το μενού προτιμήσεων/επιλογών. Το παράθυρο που επιλέξατε θα λαμβάνει το κείμενο του Dasher.</para>
+    </sect2>
+
+
+
+
+    <sect2>
+      <title>Μεγέθη Γραμματοσειρών</title>
+
+      <para>Το Dasher διαθέτει ένα πλαίσιο κειμένου (όπου εμφανίζεται το κείμενο) και τον καμβά του Dasher (όπου παίζετε με τις εστιάσεις). Μπορείτε να αλλάξετε το μέγεθος των γραμματοσειρών και για τις δύο αυτές περιοχές, χρησιμοποιώντας τα μενού στο πάνω μέρος του παραθύρου του Dasher. Οι δύο γραμματοσειρές ονομάζονται 'Γραμματοσειρά επεξεργαστή' (πλαίσιο κειμένου) και 'Γραμματοσειρά Dasher' (καμβάς). Για να αλλάξετε το μέγεθος της γραμματοσειράς επεξεργαστή, χρησιμοποιείτε τον κλασικό διάλογο. Για να αλλάξετε τη γραμματοσειρά του καμβά του Dasher, βρίσκετε την επιλογή 'Γραμματοσειρά Dasher' και επιλέγετε ένα από τα τρία διαθέσιμα μεγέθη (μικρή, μεγάλη και πολύ μεγάλη γραμματοσειρά).</para>
+    </sect2>
+  </sect1>
+
+  <sect1 id="personalising">
+    <title>Προσαρμογή του Dasher στις προτιμήσεις σας</title>
+    <para>Υπάρχουν τρεις τύποι αρχείων που μπορείτε να τροποποιήσετε για να βελτιώσετε τη λειτουργία του Dasher: αρχεία <computeroutput>alphabet (αλφαβήτου)</computeroutput>, <computeroutput>colour (χρωμάτων)</computeroutput>, και <computeroutput>training (εκπαίδευσης)</computeroutput>.</para>
+
+    <sect2>
+      <title>Προσαρμογή του μοντέλου γλώσσας</title>
+      <para>Οι προβλέψεις του Dasher (έκδοση 3) δεν βασίζονται σε λεξικό, αλλά σε ένα απλό κείμενο που χρησιμοποιείται ως κείμενο εκπαίδευσης. Π.χ., η έκδοση 3 του Dasher συνοδεύεται από ένα αρχείο με όνομα <filename>training_english_GB.txt</filename>. Πρόκειται για 300 kb απλών Αγγλικών, προερχόμενων από διάφορα έγγραφα που συλλέχθηκαν από το διαδίκτυο.</para>
+
+      <para>Όταν χρησιμοποιείτε το Dasher, η εφαρμογή αποθηκεύει ό,τι γράφετε σε ένα προσωπικό αρχείο που έχει το ίδιο όνομα με το αρχείο εκπαίδευσης. Την επόμενη φορά που θα χρησιμοποιήσετε την εφαρμογή, το Dasher διαβάζει το αρχικό αρχείο εκπαίδευσης, καθώς και όλο το κείμενο που γράψατε την προηγούμενη φορά, προκειμένου να βελτιώσει τις προβλέψεις του. Το Dasher μαθαίνει συνεχώς. Για να επιτύχετε καλύτερα αποτελέσματα: <itemizedlist>
+          <listitem>
+            <para>Αν μπορείτε, προμηθεύστε το Dasher με ένα κείμενο εκπαίδευσης στο ύφος σας -- ένα αρχείο απλού κειμένου αποτελούμενο από έγγραφα που γράψατε στο παρελθόν και το οποίο θα περιλαμβάνει τις αγαπημένες σας εκφράσεις, τα ονόματα των φίλων σας, κτλ. Μπορείτε να προσθέσετε αυτό το αρχείο στο αρχικό αρχείο εκπαίδευσης, ή να αντικαταστήσετε το αρχικό αρχείο.</para>
+          </listitem>
+          <listitem>
+            <para>Αν φοβάστε ότι το προσωπικό σας αρχείο εκπαίδευσης έχει φθαρεί και έχουν συμπεριληφθεί ακαταλαβίστικες φράσεις, μπορείτε να το διορθώσετε χρησιμοποιώντας οποιονδήποτε επεξεργαστή απλού κειμένου (ή να ζητήσετε από έναν φίλο σας να το διορθώσει).</para>
+          </listitem>
+          <listitem>
+            <para>Αν χρησιμοποιείτε το Dasher για πολλούς μήνες, το προσωπικό σας αρχείο εκπαίδευσης μπορεί να καταλήξει υπερβολικά μεγάλο, με αποτέλεσμα να καθυστερεί η εκκίνηση του Dasher. Σε αυτή την περίπτωση, τροποποιήστε το αρχείο χρησιμοποιώντας επεξεργαστή απλού κειμένου.</para>
+          </listitem>
+        </itemizedlist></para>
+    </sect2>
+    <sect2>
+      <title>Προσαρμογή του αλφαβήτου</title>
+      <para>Οι χαρακτήρες που έχετε στη διάθεσή σας, και η σειρά εμφάνισής τους, καθορίζονται από το αρχείο αλφαβήτου. Για παράδειγμα, μπορείτε να χρησιμοποιήσετε το αρχείο <filename>alphabet.english.xml</filename>. Το Dasher περιλαμβάνει πολλά εναλλακτικά αλφάβητα. Μπορείτε όμως να επεξεργαστείτε τα αρχεία αλφαβήτων για να αλλάξετε τους χαρακτήρες που περιέχονται ή τη σειρά τους. Όταν επεξεργάζεστε αυτά τα αρχεία xml, συνιστάται να αποθηκεύετε το νέο αρχείο με νέο όνομα και να αλλάζετε το όνομα του αλφαβήτου στο νέο αρχείο, ώστε να αποφευχθούν τυχόν παρανοήσεις. Κάθε πεδίο του αρχείου xml χρησιμοποιεί τρία στοιχεία για την περιγραφή ενός συμβόλου: το χαρακτήρα που <emphasis>εμφανίζεται</emphasis> στον καμβά (<computeroutput>d=</computeroutput>...), το χαρακτήρα που εισάγεται στο <emphasis>κείμενο</emphasis> όταν επιλεγεί το σύμβολο (<computeroutput>t=</computeroutput>...), και τον αριθμό χρώματος παρασκηνίου του τετραγώνου που θα περιέχει το σύμβολο (<computeroutput>b=</computeroutput>...). Περισσότερες λεπτομέρειες στη συνέχεια.</para>
+    </sect2>
+    <sect2>
+      <title>Προσαρμογή του σχήματος χρωμάτων</title>
+      <para>Υπάρχουν δύο τρόποι αλλαγής των χρωμάτων του Dasher. Το αρχείο χρωμάτων (π.χ. <filename>colour.xml</filename> ή <filename>colour.euroasian.xml</filename>) ορίζει τα 200 χρώματα της παλέτας του Dasher. Κάθε γραμμή περιλαμβάνει τιμές για κόκκινο, πράσινο, μπλε.</para>
+
+      <para>Αυτά τα χρώματα χρησιμοποιούνται για διάφορα αντικείμενα στο Dasher. Αν, π.χ., επιθυμείτε να αλλάξετε το χρώμα της <quote>κόκκινης γραμμής</quote>, αλλάξτε τη δεύτερη γραμμή του αρχείου χρωμάτων, που περιέχει το <computeroutput>&lt;colour r="255"
+          g="0" b="0"/&gt;</computeroutput>.</para>
+
+
+      <para>Μπορείτε να αλλάξετε το χρώμα που χρησιμοποιείται για το τετράγωνο κάθε συμβόλου, αν τροποποιήσετε το πεδίο <quote>b</quote> για το συγκεκριμένο σύμβολο στο αρχείο αλφαβήτου.</para>
+    </sect2>
+
+
+
+
+  </sect1>
+  <sect1 id="languages">
+    <title>Γλώσσες</title>
+
+    <para>Το Dasher λειτουργεί σε εκατοντάδες διαφορετικές γλώσσες.</para>
+
+    <para>Για κάθε γλώσσα υπάρχει ένα αρχείο αλφαβήτου (και ενδεχομένως περισσότερα). Στόχος μας είναι να προσφέρουμε τουλάχιστον ένα κείμενο εκπαίδευσης για κάθε γλώσσα στην ιστοσελίδα του Dasher. Αν δεν έχουμε καλό κείμενο εκπαίδευσης για τη γλώσσα σας, παρακαλώ βοηθήστε μας, φτιάχνοντας και στέλνοντάς μας ένα κείμενο.</para>
+
+    <para>Ανατρέξτε στον ιστότοπο του Dasher για να δείτε τη λίστα των γλωσσών που υποστηρίζει το Dasher. Από τον Οκτώβριο του 2005 υποστηρίζονται όλες οι σημαντικές γλώσσες του κόσμου, με την εξαίρεση των Ιαπωνικών και των Κινεζικών, για τις οποίες η έκδοση 3 του Dasher υποστηρίζει μόνο φωνητική μεταγραφή ((hiragana και pin-yin). Ωστόσο, στην έκδοση 4 του Dasher θα υποστηρίζονται πλήρως τα Ιαπωνικά και τα Κινέζικα.</para>
+
+    <!--    %% Dasher works beautifully in Korean-->
+
+
+  </sect1>
+
+
+
+  <sect1 id="specialneeds">
+    <title>Οδηγός για ειδικές ανάγκες</title>
+
+    <para>Το Dasher έχει σχεδιαστεί με στόχο να συλλέγει <emphasis>όσο το δυνατόν περισσότερες πληροφορίες</emphasis> από τις χειρονομίες σας.</para>
+
+    <para>Το Dasher μπορεί να συλλέγει πληροφορίες από την επιλογή που είναι περισσότερο εύκολη για εσάς: <orderedlist>
+        <listitem>
+          <para>Οι <emphasis>συνεχείς</emphasis> χειρονομίες (π.χ. μέσω joystick, trackpad, ποντικιού κεφαλής ή ανιχνευτή κίνησης ματιού) συνήθως προσφέρουν υψηλότερες ταχύτητες γραφής.</para>
+        </listitem>
+        <listitem>
+          <para>Οι <emphasis>διακριτές</emphasis> χειρονομίες (διακόπτες, πατήματα κουμπιών) μπορούν να παρέχουν πληροφορίες με τρεις διαφορετικούς τρόπους:</para>
+          <orderedlist>
+            <listitem>
+              <para>Η <emphasis>χρονική στιγμή</emphasis> που πατάτε ένα κουμπί μπορεί να παρέχει πληροφορίες. (Αυτή η ιδιότητα χρησιμοποιείται από συστήματα πινάκων που ελέγχονται από ένα κουμπί.)</para>
+            </listitem>
+            <listitem>
+              <para>Η <emphasis>διάρκεια</emphasis> για την οποία πατάτε ένα κουμπί μπορεί να παρέχει πληροφορίες. (Αυτή η ιδιότητα χρησιμοποιείται στα σήματα Μορς, που διακρίνουν μεταξύ δύο διαφορετικών δυνατοτήτων για τη διάρκεια).</para>
+            </listitem>
+            <listitem>
+              <para>Η <emphasis>επιλογή</emphasis> του <emphasis>ποιο</emphasis> κουμπί θα πατηθεί μπορεί να παρέχει πληροφορίες. (Αυτή η ιδιότητα χρησιμοποιείται στα κλασικά πληκτρολόγια).</para>
+            </listitem>
+          </orderedlist>
+        </listitem>
+      </orderedlist></para>
+
+    <sect2 id="manual7">
+      <title>Συνεχείς χειρονομίες</title>
+      <para>Η κανονική λειτουργία του Dasher (<emphasis>λειτουργία ποντικιού</emphasis>) χρησιμοποιεί μια δισδιάστατη, συνεχή χειρονομία κατεύθυνσης. Το Dasher περιλαμβάνει επίσης μια <emphasis>μονοδιάστατη λειτουργία</emphasis>, για χρήστες που μπορούν να ελέγχουν μόνο μία διάσταση.</para>
+
+      <para>Μπορείτε να κάνετε μία ή δύο συνεχείς χειρονομίες; Αν μπορείτε να χρησιμοποιείτε joystick, ποντίκι, trackpad ή rollerball, τότε διαθέτετε δισδιάστατο έλεγχο. Ομοίως αν μπορείτε να δείχνετε σε οθόνη αφής. Μπορείτε να κουνάτε τη μύτη σας; Αν μπορείτε να κουνάτε το κεφάλι σας, έχετε μονοδιάστατο έλεγχο· αν μπορείτε να γνέφετε καταφατικά, έχετε δισδιάστατο. Τα ποντίκια κεφαλής είναι σχετικά φθηνά και είναι ένας βολικός τρόπος για χρήση του Dasher. (Συνιστούμε το <emphasis>SmartNav3</emphasis> της NaturalPoint, που κοστίζει περίπου $200, και λειτουργεί μόνο σε microsoft windows· πρόκειται για τη συσκευή που μέχρι το 2002 ήταν γνωστή ως NavPoint TrackIR, αλλά πλέον αυτό το όνομα χρησιμοποιείται για διαφορετική συσκευή. Επίσης, συνιστούμε το <emphasis>Headmouse Extreme</emphasis> της Origin instruments, που στοιχίζει περίπου $1000 και λειτουργεί σε οποιονδήποτε υπολογιστή ως ποντίκι USB.) Μπορείτε να κουνάτε ένα δάχτυλο χεριού ή ποδιού; Αυτά τα ποντίκια κεφαλής μπορούν να χρησιμοποιηθούν και στα δάχτυλα του χεριού ή του ποδίου. Για μια αναλυτική σύγκριση των SmartNav3 και Headmouse Extreme, δείτε την ιστοσελίδα <ulink url="http://www.inference.phy.cam.ac.uk/dasher/Headmouse.html" type="http">http://www.inference.phy.cam.ac.uk/dasher/Headmouse.html</ulink>.</para>
+
+      <para>Αν πάσχετε από σοβαρή παράλυση, η καλύτερη επιλογή ίσως είναι ένας ανιχνευτής κίνησης ματιού. Μπορείτε να ελέγχετε την κίνηση των ματιών σας; Με έναν ανιχνευτή κίνησης ματιού μπορείτε να γράφετε με ταχύτητα 25 λέξεις το λεπτό. Οι ανιχνευτές κίνησης ματιού είναι αρκετά ακριβοί: το QuickGlance της EyeTech Digital Systems μας στοίχισε $2000, ενώ το Tobii στοιχίζει περίπου $20.000. [Συνιστούμε και τα δύο αυτά συστήματα. Το QuickGlance συνδέεται στον υπάρχοντα υπολογιστή σας. Το QuickGlance ΙΙ κοστίζει περίπου $4000. Το Tobii είναι ένας πλήρης υπολογιστής με ενσωματωμένες κάμερες ανίχνευσης κίνησης ματιού.] Το Dasher λειτουργεί επίσης με το <emphasis>Erica</emphasis> της Eye response, το <emphasis>Eyegaze</emphasis> της LC και τον ανιχνευτή κίνησης ματιού της Metrovision. Και τα τρία αυτά συστήματα είναι πλήρεις υπολογιστές με ενσωματωμένες κάμερες ανίχνευσης κίνησης ματιού.</para>
+
+      <para>Αν δεν μπορείτε να χρησιμοποιήσετε joystick, ποντίκι, rollerball ή ανιχνευτή κίνησης ματιού, ίσως υπάρχουν άλλοι τρόποι που μπορείτε να χρησιμοποιήσετε για να στέλνετε συνεχή μονοδιάστατα σήματα. Π.χ., θα μπορούσαν να χρησιμοποιηθούν τα χείλη ή τα φρύδια, αν και δεν γνωρίζουμε κάποιον κατασκευαστή που να παράγει τέτοιου είδους συσκευές. Η αναπνοή μπορεί επίσης να στείλει μονοδιάστατο σήμα. Αν μπορείτε να ελέγχετε την αναπνοή σας, τότε θα μπορούσατε να κατασκευάσετε ένα ποντίκι αναπνοής. Εμείς κατασκευάσαμε ένα ποντίκι αναπνοής χρησιμοποιώντας ένα οπτικό ποντίκι USB, μια ζώνη και λίγο λάστιχο. Κόστισε $22 και ο πιο έμπειρος χρήστης μας μπορεί να γράφει 15 λέξεις το λεπτό χρησιμοποιώντας μόνο την αναπνοή του.</para>
+      <sect3>
+        <title>Εκκίνηση και διακοπή</title>
+        <para>Υπάρχουν διάφοροι τρόποι εκκίνησης και διακοπής του Dasher. Μια επιλογή είναι το πάτημα ενός κουμπιού (π.χ., το αριστερό κουμπί του ποντικιού ή το πλήκτρο του διαστήματος). Αν όμως δεν μπορείτε να πατήσετε κουμπιά, τότε μπορείτε να ξεκινάτε και να σταματάτε χρησιμοποιώντας συνεχείς κινήσεις: στο μενού των προτιμήσεων/επιλογών, επιλέξτε <quote>Εκκίνηση με τη θέση του ποντικιού</quote> και ενεργοποιήστε τη <quote>λειτουργία ελέγχου</quote>. Όταν είναι ενεργοποιημένη η λειτουργία ελέγχου, το αλφάβητο του Dasher περιλαμβάνει ένα ειδικό τετράγωνο χαρακτήρων ελέγχου, που λειτουργούν περίπου όπως το πλήκτρο <computeroutput>Esc</computeroutput> στο πληκτρολόγιο, και που παρέχουν διάφορες λειτουργίες ελέγχου. Όταν βρίσκεστε μέσα στο τετράγωνο ελέγχου, το Dasher κινείται πιο αργά από συνήθως, για λόγους ασφαλείας. Οι επιλογές του τετραγώνου ελέγχου συμπεριλαμβάνουν το 'pause/παύση' και 'stop/διακοπή'. Χρησιμοποιήστε το 'pause' αν βρίσκεστε στη μέση μιας φράσης και θέλετε να κάνετε μια σύντομη παύση. Χρησιμοποιήστε το 'stop' αν έχετε τελειώσει. Τα <command>pause</command> και <command>stop</command> έχουν την ίδια συμπεριφορά, με τη διαφορά ότι το <command>stop</command> μπορεί να προκαλεί ορισμένες αυτόματες συμπεριφορές, όπως η 'εκφώνηση στη διακοπή' ή η 'αντιγραφή κειμένου στη διακοπή'.</para>
+
+        <para>Αν το Dasher έχει παυθεί ή διακοπεί, μπορεί να επανεκκινηθεί χρησιμοποιώντας τις ίδιες μεθόδους που χρησιμοποιούνται και για την εκκίνηση. Αν είναι ενεργοποιημένη η 'εκκίνηση με τη θέση του ποντικιού', όποτε διακόπτεται το Dasher εμφανίζεται μια σειρά από ευμεγέθεις στόχους. Για να επανεκκινήσετε το Dasher, δείξτε (ή κοιτάξτε) πρώτα τον πρώτο (κόκκινο) στόχο και μετά το δεύτερο (κίτρινο). (Χρησιμοποιούμε τους δύο διαδοχικούς στόχους για να αποφύγουμε την εκκίνηση του Dasher κατά λάθος.)</para>
+      </sect3>
+      <sect3>
+        <title>Συστάσεις για την ανίχνευση κινήσεων κεφαλής</title>
+        <para>Πολλοί ανιχνευτές προσφέρουν επιλογές 'εξομάλυνσης', που καθορίζουν τη συχνότητα με την οποία ενημερώνεται η θέση του ποντικιού. Συνήθως χρησιμοποιούνται για να εξομαλύνουν και να απαλύνουν την κίνηση του ποντικιού. Το Dasher δεν χρειάζεται τέτοιου είδους εξομάλυνση. Προτιμά τις στιγμιαίες, ζωντανές, ωμές και σπασμωδικές μετακινήσεις του ποντικιού. Αν η συσκευή σας περιλαμβάνει επιλογή 'εξομάλυνσης', απενεργοποιήστε την.</para>
+
+        <para>Το 'όφελος' ('gain', ονομάζεται και 'ταχύτητα') του ανιχνευτή κεφαλής είναι μια ακόμη σημαντική ρύθμιση που θα πρέπει να προσαρμόσετε στις απαιτήσεις σας. Το όφελος ορισμένων ανιχνευτών μπορεί να ρυθμιστεί από το λογισμικό. Παράλληλα, μπορείτε να προσαρμόσετε το όφελος αλλάζοντας τη γεωμετρία του ανιχνευτή. Π.χ., αν μετακινήσετε την ανιχνευόμενη κουκίδα από το μέτωπό σας στο γείσο ενός καπέλου τζόκεϊ, το όφελος σχεδόν διπλασιάζεται· αν καθήσετε πιο κοντά στον ανιχνευτή, επίσης μπορεί να αυξηθεί το όφελος. Βρείτε μία ρύθμιση που σας βολεύει. Προσωπικά, προτιμώ να έχω υψηλή τιμή οφέλους, γιατί μου επιτρέπει να κατευθύνω με πολύ μικρές κινήσεις της κεφαλής.</para>
+      </sect3>
+      <sect3>
+        <title>Συστάσεις για την ανίχνευση κίνησης ματιού</title>
+        <para>Για να βελτιώσετε την απόδοση των ανιχνευτών κίνησης ματιού, σας συνιστούμε θερμά να ρυθμίσετε τον ανιχνευτή έτσι ώστε να ανταποκρίνεται όσο το δυνατόν περισσότερο. Πολλοί ανιχνευτές προσφέρουν επιλογές 'εξομάλυνσης', που καθορίζουν τη συχνότητα με την οποία ενημερώνεται η θέση του ποντικιού και τον αριθμό τον διαδοχικών εικόνων του ματιού που χρησιμοποιούνται για τον υπολογισμό της θέσης του ποντικιού. Συνήθως χρησιμοποιούνται για να εξομαλύνουν και να απαλύνουν την κίνηση του ποντικιού. Το Dasher δεν χρειάζεται τέτοιου είδους εξομάλυνση. Προτιμά τις στιγμιαίες, ζωντανές, ωμές και σπασμωδικές μετακινήσεις του ποντικιού. Όταν πλοηγείστε, τα μάτια σας εστιάζουν ταχύτατα στο στόχο τους, οπότε θέλουμε το Dasher να ανταποκρίνεται εξίσου ταχύτατα. Οι ιδανικές ρυθμίσεις για το Dasher μπορεί να αποδειχτούν πολύ διαφορετικές από τις ιδανικές ρυθμίσεις για άλλα λογισμικά. Ζητήστε από τον κατασκευαστή του ανιχνευτή να σας επιτρέψει να αλλάζετε εύκολα τις ρυθμίσεις σας όταν αλλάζετε εφαρμογή.</para>
+
+        <para>Το Dasher διαθέτει αρκετές επιλογές που έχουν σχεδιαστεί για χρήση με ανιχνευτές κίνησης ματιού. Προτείνουμε τη χρήση της λειτουργίας <emphasis>ανιχνευτή ματιού</emphasis> (από την καρτέλα Έλεγχος του μενού Προτιμήσεις/Ρυθμίσεις). Σε αυτή τη λειτουργία οι ρυθμίσεις του Dasher αλλάζουν ελαφρώς και επιτρέπουν την ευκολότερη διόρθωση λαθών μέσω του ματιού.</para>
+
+        <para>Αν η βαθμονόμηση του ανιχνευτή σας διαφοροποιείται κατά καιρούς, π.χ. όταν μετακινείται το κεφάλι σας, σημειώστε την επιλογή <emphasis>Αυτόματη βαθμονόμηση ανιχνευτή ματιού</emphasis>. Με αυτή την επιλογή ενεργοποιημένη, το Dasher αποθηκεύει τις κινήσεις σας, τις χρησιμοποιεί για να εκτιμήσει το σφάλμα στην κάθετη βαθμονόμηση, και διορθώνει το σφάλμα. Μπορείτε να δείτε πότε γίνεται διόρθωση, γιατί θα παρατηρήσετε διαφορά ανάμεσα στη θέση του ποντικιού για το Dasher (που υποδηλώνεται από την άκρη της κόκκινης γραμμής) και τη θέση του ποντικιού για τον ανιχνευτή κίνησης ματιού (που αντιστοιχεί στη θέση του δρομέα του συστήματος).</para>
+
+        <para>Για να μην μπλοκαριστεί το ποντίκι σας στο πάνω ή κάτω μέρος της οθόνης, προτείνουμε να χρησιμοποιείτε το Dasher με παράθυρο που <emphasis>δεν</emphasis> θα αντιστοιχεί σε μέγεθος πλήρους οθόνης. Τοποθετήστε το παράθυρο του Dasher έτσι ώστε να υπάρχει κάποιο περιθώριο τόσο πάνω όσο και κάτω από τον καμβά.</para>
+
+        <para><emphasis>Τεχνική σημείωση:</emphasis> Πέρα από την εξομοίωση ποντικιού, το Dasher μπορεί να λαμβάνει πληροφορίες από ανιχνευτές κίνησης ματιού και κεφαλής ή άλλα παρόμοια συστήματα απευθείας μέσω υποδοχής (socket) του συστήματος. Αυτή η ρύθμιση μπορεί να επιλεγεί από την ενότητα 'Συσκευή εισόδου' του διαλόγου 'Προτιμήσεων/ρυθμίσεων'.</para>
+      </sect3>
+    </sect2>
+    <sect2 id="manual8">
+      <title>Διακριτές χειρονομίες</title>
+      <para>Η έκδοση 4 του Dasher περιλαμβάνει διάφορες εκδοχές του <emphasis>Dasher με κουμπιά</emphasis>.</para>
+
+      <sect3>
+        <title>Χρήση χρόνου πραγματοποίησης χειρονομίας</title>
+        <para>Ορισμένοι τρόποι διαβίβασης πληροφοριών αξιοποιούν το <emphasis>χρόνο</emphasis> πραγματοποίησης των χειρονομιών. Ωστόσο, υπάρχουν άνθρωποι που δεν μπορούν να κάνουν χειρονομίες ακριβώς τη στιγμή που τους ζητείται. Π.χ., οι σπαστικοί δυσκολεύονται πολύ στο να κάνουν πράγματα 'τώρα αμέσως!'</para>
+
+        <para>Αν η χρήση του χρόνου πραγματοποίησης χειρονομιών δεν είναι δυνατή στην περίπτωσή σας, πηγαίνετε στην <xref linkend="no_time_critical"/>.</para>
+
+        <para>Αν <emphasis>μπορείτε</emphasis> να διαβιβάζετε πληροφορίες μέσω χειρονομιών που πραγματοποιούνται σε <emphasis>ακριβείς χρονικές στιγμές</emphasis>, πηγαίνετε στην <xref linkend="timed"/>.</para>
+      </sect3>
+    </sect2>
+    <sect2 id="no_time_critical">
+      <title>'Άχρονο' Dasher</title>
+      <para>Θέλετε λοιπόν να κατευθύνετε το Dasher χωρίς χρονικούς περιορισμούς. Μπορείτε να κάνετε σχετικά ακριβείς συνεχείς χειρονομίες, αν έχετε αρκετό χρόνο στη διάθεσή σας; Π.χ., μπορείτε να τοποθετήσετε με ακρίβεια το δείκτη στην οθόνη και μετά να πατήσετε ένα κουμπί για να δείξετε ότι είστε έτοιμοι; Ή να αγγίζετε με σχετική ακρίβεια μια οθόνη αφής; <itemizedlist>
+          <listitem>
+            <para>Αν ναι, δοκιμάστε τη <emphasis>λειτουργία κλικ</emphasis>. Πηγαίνετε στην <xref linkend="time_critical_button"/>.</para>
+          </listitem>
+          <listitem>
+            <para>Διαφορετικά, δοκιμάστε την <emphasis>απευθείας λειτουργία με κουμπιά</emphasis> ή τη <emphasis>λειτουργία μενού με κουμπιά</emphasis>. Πηγαίνετε στην <xref linkend="no_time_critical_button"/>.</para>
+          </listitem>
+        </itemizedlist></para>
+      <sect3 id="time_critical_button">
+        <title>'Άχρονο' συνεχές Dasher: λειτουργία κλικ</title>
+
+        <para>Στη <emphasis>λειτουργία κλικ</emphasis> τοποθετείτε το δείκτη του ποντικιού εκεί που θέλετε να πάτε και μετά πατάτε ένα κουμπί για να δείξετε ότι είστε έτοιμοι. Το Dasher εστιάζει στο σημείο που επιλέξατε.</para>
+
+        <para>Εναλλακτικά, αν έχετε οθόνη αφής, με ένα μόνο άγγιγμα της οθόνης εστιάζετε στο συγκεκριμένο σημείο.</para>
+      </sect3>
+      <sect3 id="no_time_critical_button">
+        <title>'Άχρονο' Dasher με κουμπιά</title>
+        <para>Πόσους διαφορετικούς διακόπτες, πλήκτρα ή κουμπιά μπορείτε να χειρίζεστε με ευκολία;</para>
+        <variablelist>
+          <varlistentry>
+            <term>1</term>
+            <listitem>
+              <para>Αν χρησιμοποιείτε ένα μόνο κουμπί, ο μόνος 'άχρονος' τρόπος διαβίβασης πληροφοριών είναι μέσω της <emphasis>διάρκειας</emphasis> των πατημάτων. Μπορείτε να παράγετε διακριτά βραχέα και μακρά πατήματα; Αν ναι, τότε μπορείτε να χρησιμοποιήσετε τη <emphasis>λειτουργία μενού με κουμπιά</emphasis>. Αντιστοιχίστε το βραχύ σας πάτημα στην ενέργεια 'μενού' και το μακρό στην ενέργεια 'επιλογή'.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>2</term>
+            <listitem>
+              <para>Μπορείτε να χρησιμοποιήσετε τη <emphasis>λειτουργία μενού με κουμπιά</emphasis>. Αντιστοιχίστε το ένα κουμπί στην ενέργεια 'μενού' και το άλλο στην ενέργεια 'επιλογή'. Για την ενέργεια 'μενού' επιλέξτε το κουμπί που είναι ευκολότερο στο πάτημα.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>2,5</term>
+            <listitem>
+              <para>Αν μπορείτε να πατάτε δύο κουμπιά με ευκολία και, σε ειδικές περιπτώσεις, μπορείτε να πατάτε και ένα τρίτο κουμπί, μπορείτε να χρησιμοποιήσετε τη <emphasis>λειτουργία μενού με κουμπιά</emphasis> ή την <emphasis>απευθείας λειτουργία με κουμπιά</emphasis>.</para>
+              <orderedlist>
+                <listitem>
+                  <para>Ρυθμίστε τα κουμπιά της <emphasis>λειτουργίας μενού</emphasis> όπως περιγράφεται παραπάνω και χρησιμοποιήστε το τρίτο κουμπί ως πλήκτρο διαφυγής -- π.χ. για να εξαφανίζετε το Dasher. [Αυτή η λειτουργία δεν υποστηρίζεται προς το παρόν.]</para>
+                </listitem>
+                <listitem>
+                  <para>Στην <emphasis>απευθείας λειτουργία με κουμπιά</emphasis> κάθε κουμπί αντιστοιχεί σε μια συγκεκριμένη ενέργεια πλοήγησης, όπως 'πάνω', 'κάτω' ή 'πίσω'. Αν έχετε 2,5 κουμπιά στη διάθεσή σας, χρησιμοποιήστε τα δύο ευκολότερα στη χρήση ως 'πάνω' και 'κάτω' και το δυσκολότερο ως 'πίσω'.</para>
+                </listitem>
+              </orderedlist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>3</term>
+            <listitem>
+              <para>Μπορείτε να χρησιμοποιήσετε την <emphasis>απευθείας λειτουργία με κουμπιά</emphasis> ή τη <emphasis>λειτουργία μενού με κουμπιά</emphasis>, όπως περιγράφονται παραπάνω.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>4, 5, 6 ή 7</term>
+            <listitem>
+              <para>Αν έχετε περισσότερα από τρία κουμπιά στη διάθεσή σας, μπορείτε να χρησιμοποιήσετε την <emphasis>απευθείας λειτουργία με κουμπιά</emphasis> χρησιμοποιώντας τρεις, τέσσερις, πέντε ή έξι κατευθύνσεις 'προς τα εμπρός'. Δοκιμάστε πάντως και τη <emphasis>λειτουργία μενού με κουμπιά</emphasis>, παρόλο που χρησιμοποιεί μόνο δύο κουμπιά.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>8 ή περισσότερα</term>
+            <listitem>
+              <para>Δοκιμάστε την <emphasis>απευθείας λειτουργία με κουμπιά</emphasis> και τη <emphasis>λειτουργία μενού με κουμπιά</emphasis>. Με τόσο πολλά κουμπιά στη διάθεσή σας, έχετε τη δυνατότητα να χρησιμοποιήσετε ένα σύστημα όπως το T9 -- το σύστημα πρόβλεψης κειμένου που χρησιμοποιούν πολλά κινητά τηλέφωνα. Σε αυτή την περίπτωση ίσως σας ενδιαφέρει να δείτε το <emphasis>Tapir</emphasis>, ένα πληκτρολόγιο οθόνης από τους δημιουργούς του Dasher.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </sect3>
+    </sect2>
+
+    <sect2 id="timed">
+      <title>Dasher με κουμπιά που αξιοποιεί το χρόνο πατήματος</title>
+      <para>Υπάρχουν δύο λειτουργίες του Dasher που συλλέγουν ακριβείς πληροφορίες για το χρόνο του πατήματος. Σε γενικές γραμμές απαιτούν λιγότερα πατήματα κουμπιών από τις 'άχρονες' λειτουργίες:</para>
+      <sect3 id="onebutton">
+        <title>Δυναμική λειτουργία (ενός κουμπιού)</title>
+        <para>Κατά την εκκίνησή του, το Dasher εστιάζει σε ένα σημείο στο πάνω ή στο κάτω μέρος της οθόνης. Ένα βραχύ πάτημα κουμπιού εστιάζει στην αντίθετη πλευρά. Εισάγετε κείμενο με το να πατάτε το κουμπί όταν η επιθυμητή φράση φτάσει στην άκρη της οθόνης.</para>
+      </sect3>
+      <sect3 id="twobutton">
+        <title>Δυναμική λειτουργία δύο κουμπιών</title>
+        <para>Το Dasher εστιάζει συνεχώς στο κέντρο της οθόνης, ενώ χρησιμοποιούνται δύο κουμπιά για να μετατοπίζουν την οθόνη πάνω ή κάτω. Πρέπει να πατάτε τα κουμπιά όταν το επιθυμητό κείμενο έχει ευθυγραμμιστεί μεταξύ των δύο γραμμών σήμανσης.</para>
+      </sect3>
+      <sect3>
+        <title>Διόρθωση λαθών</title>
+        <para>Υπάρχουν τρεις δυνατότητες διόρθωσης λαθών που ισχύουν και για τις δύο δυναμικές λειτουργίες: χρήση διαφορετικού κουμπιού, μακρού πατήματος ή πολλαπλών πατημάτων. Και στις τρεις περιπτώσεις το Dasher αρχίζει να μειώνει την εστίαση με σταθερό ρυθμό. Σε αυτή τη λειτουργία, ένα ακόμη πάτημα διακόπτει το Dasher, ενώ ένα δεύτερο πάτημα επαναφέρει το Dasher στην κανονική εστίαση προς τα εμπρός.</para>
+      </sect3>
+    </sect2>
+  </sect1>
+
+  <sect1 id="modesummary">
+    <title>Επισκόπηση των λειτουργιών του Dasher</title>
+    <para>Οι διάφορες λειτουργίες του <application>Dasher</application> αναφέρονται παρακάτω. Μπορείτε να αλλάξετε τη λειτουργία από το μενού <emphasis><quote>Επεξεργασία</quote></emphasis>. Επιλέξτε <emphasis><quote>Προτιμήσεις</quote></emphasis> και στη συνέχεια <emphasis><quote>Έλεγχος</quote></emphasis>. Σε κάθε λειτουργία ενδέχεται να αντιστοιχούν ορισμένες παράμετροι τις οποίες μπορείτε να ρυθμίσετε επιλέγοντας το κουμπί <emphasis>Επιλογές</emphasis> στο κάτω μέρος της λίστας των λειτουργιών.</para>
+
+    <sect2 id="normal">
+      <title>Κανονική</title>
+      <para>Η αρχική λειτουργία του <application>Dasher</application>. Χρησιμοποιεί δισδιάστατη χειρονομία οδήγησης, π.χ. από ποντίκι. Υπάρχει και μονοδιάστατη λειτουργία, για χρήστες που δεν μπορούν να ελέγχουν δύο διαστάσεις, καθώς και ειδική λειτουργία ανιχνευτή ματιού, για χρήση του Dasher με ανιχνευτή κινήσεων ματιού ή κεφαλής. Αν δεν μπορείτε να κάνετε κλικ, μπορείτε να εκκινείτε το Dasher με βάση τη θέση του ποντικιού: Επιλέξτε 'Εκκίνηση με τη θέση του ποντικιού' και 'Κύκλος στο κέντρο' για να συνδέσετε την εκκίνηση και τη διακοπή του Dasher με την παραμονή του δείκτη στον κύκλο στο κέντρο της οθόνης. Η επιλογή 'Δύο τετράγωνα' εκκινεί το Dasher όταν ο δείκτης τοποθετείται διαδοχικά μέσα σε δύο τετράγωνα. Στην περίπτωση των δύο τετραγώνων η διακοπή επιτυγχάνεται μόνο μέσω της λειτουργίας ελέγχου.</para>
+    </sect2>
+
+    <sect2 id="click">
+      <title>Λειτουργία κλικ</title>
+      <para>Στη <emphasis>λειτουργία κλικ</emphasis> τοποθετείτε το δείκτη του ποντικιού στο σημείο όπου θέλετε να καταλήξετε και, όταν είστε έτοιμοι, πατάτε το κουμπί. Το <application>Dasher</application> εστιάζει αμέσως στο σημείο όπου κάνατε κλικ.</para>
+    </sect2>
+
+    <sect2 id="menu">
+      <title>Λειτουργία μενού</title>
+      <para>Ένα κουμπί χρησιμοποιείται για την επιλογή τοποθεσίας και ένα δεύτερο ζητάει από το <application>Dasher</application> να εστιάσει στη συγκεκριμένη τοποθεσία. Το μεγάλο τετράγωνο στο τέλος του κύκλου χρησιμοποιείται για να αντιστρέψει την εστίαση.</para>
+    </sect2>
+
+    <sect2 id="direct">
+      <title>Απευθείας λειτουργία</title>
+      <para>Η απευθείας λειτουργία είναι παρόμοια με τη λειτουργία μενού, με τη μόνη διαφορά ότι εδώ τα τετράγωνα αντιστοιχίζονται απευθείας σε συγκεκριμένα κουμπιά και δεν χρειάζεται να επιλέγονται με τη σειρά.</para>
+    </sect2>
+
+    <sect2 id="compass">
+      <title>Λειτουργία πυξίδας</title>
+      <para>Η λειτουργία πυξίδας χρησιμοποιεί τέσσερα κουμπιά. Δύο κουμπιά ελέγχουν την κατακόρυφη τοποθέτηση. Αφού επιλεγεί η κατάλληλη κατακόρυφη θέση, πατιέται ένα τρίτο κουμπί για να γίνει εστίαση στη συγκεκριμένη θέση. Μετά την εστίαση ο χρήστης επιλέγει μια νέα κατακόρυφη θέση. Το τέταρτο κουμπί χρησιμοποιείται για να αντιστρέφει την εστίαση σε περίπτωση λάθους.</para>
+    </sect2>
+
+    <sect2 id="dynamic">
+      <title>Δυναμική λειτουργία (ενός κουμπιού)</title>
+      <para>Το <application>Dasher</application> εστιάζει συνεχώς, και χρησιμοποιείται ένα μόνο κουμπί για μετακίνηση <quote>πάνω</quote> και <quote>κάτω</quote>. Υπάρχει επίσης και η <emphasis>Δυναμική λειτουργία δύο κουμπιών</emphasis>, στην οποία χρησιμοποιούνται δύο κουμπιά για τη μετακίνηση <quote>πάνω</quote> και <quote>κάτω</quote>. Μπορείτε να χρησιμοποιήσετε ένα τρίτο κουμπί, ένα μακρό πάτημα ή πολλαπλά πατήματα για την αντιστροφή της εστίασης και τη διόρθωση λαθών.</para>
+    </sect2>
+
+    <sect2 id="buttondynamic">
+      <title>Δυναμική λειτουργία δύο κουμπιών</title>
+      <para>Το <application>Dasher</application> εστιάζει συνεχώς, και χρησιμοποιούνται δύο κουμπιά για τον έλεγχο της κατακόρυφης κίνησης. Οι διορθώσεις γίνονται με τον ίδιο τρόπο όπως και στη Δυναμική λειτουργία δύο κουμπιών.</para>
+    </sect2>
+  </sect1>
+
+
+
+
+
+  <sect1 id="authors">
+    <title>Συγγραφείς</title>
+    <para>Το <application>Dasher</application> γράφτηκε από τα μέλη του Έργου Dasher (<email>dasher@inf.phy.cam.ac.uk</email>). Για να μάθετε περισσότερα, επισκεφθείτε την <ulink url="http://www.inference.phy.cam.ac.uk/dasher/" type="http">ιστοσελίδα του <application>Dasher</application></ulink>. Παρακαλούμε, απευθύνετε όλα τα σχόλια, τις υποδείξεις και τις αναφορές σφαλμάτων σας στη <ulink url="http://bugzilla.gnome.org/enter_bug.cgi?product=dasher" type="http">βάση σφαλμάτων του GNOME</ulink>. Οδηγίες για την υποβολή αναφορών σφαλμάτων μπορείτε να βρείτε στη διεύθυνση <ulink url="http://bugs.gnome.org/Reporting.html" type="http"> http://bugs.gnome.org/Reporting.html</ulink>. Αν χρησιμοποιείτε το GNOME 1.1 ή μεταγενέστερη έκδοση, μπορείτε επίσης να χρησιμοποιήσετε την εντολή <command>bug-buddy</command> για την υποβολή αναφορών σφαλμάτων.</para>
+    <para>Αυτό το εγχειρίδιο γράφτηκε από το Έργο Dasher (<email>dasher@inf.phy.cam.ac.uk</email>). Παρακαλούμε, απευθύνετε όλα τα σχόλια και τις υποδείξεις σας για το εγχειρίδιο στο Έργο Τεκμηρίωσης GNOME στη διεύθυνση <email>docs@gnome.org</email>. Μπορείτε επίσης να προσθέσετε τα σχόλιά σας στον <ulink type="http" url="http://www.gnome.org/gdp/doctable/">Πίνακα Κατάστασης Τεκμηρίωσης GNOME</ulink>.</para>
+  </sect1>
+</article>
